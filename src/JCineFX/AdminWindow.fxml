@@ -58,46 +58,49 @@
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
                 <Label id="label2" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="27.0" layoutY="117.0" prefHeight="21.0" prefWidth="119.0" text="Titulo:" />
-                <TextField id="textField1" layoutX="157.0" layoutY="116.0" prefWidth="244.0" />
+                <TextField id="textField1" fx:id="tituloField" layoutX="157.0" layoutY="116.0" prefWidth="244.0" />
                 <Label id="label2" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" layoutX="27.0" layoutY="173.0" prefHeight="21.0" prefWidth="119.0" text="Duracion (Minutos):" />
-                <TextField id="textField1" layoutX="157.0" layoutY="172.0" prefWidth="244.0" />
+                <TextField id="textField1" fx:id="duracionField" layoutX="157.0" layoutY="172.0" prefWidth="244.0" />
                 <Label id="label2" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="27.0" layoutY="239.0" prefHeight="21.0" prefWidth="119.0" text="Formato:" />
-                <ComboBox id="comboBox1" layoutX="157.0" layoutY="239.0" prefHeight="21.0" prefWidth="244.0" promptText="Seleccione un Formato">
+                <ComboBox id="comboBox1" fx:id="fomatoCombo" layoutX="157.0" layoutY="239.0" prefHeight="21.0" prefWidth="244.0" promptText="Seleccione un Formato">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
-                      <String fx:value="Item 1" />
-                      <String fx:value="Item 2" />
-                      <String fx:value="Item 3" />
+                      <String fx:value="2D" />
+                      <String fx:value="3D" />
                     </FXCollections>
                   </items>
                 </ComboBox>
                 <Label id="label2" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="27.0" layoutY="307.0" prefHeight="21.0" prefWidth="119.0" text="Genero:" />
-                <ComboBox id="comboBox1" layoutX="157.0" layoutY="307.0" prefHeight="21.0" prefWidth="244.0" promptText="Seleccione un Genero">
+                <ComboBox id="comboBox1" fx:id="generoCombo" layoutX="157.0" layoutY="307.0" prefHeight="21.0" prefWidth="244.0" promptText="Seleccione un Genero">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
-                      <String fx:value="Item 1" />
-                      <String fx:value="Item 2" />
-                      <String fx:value="Item 3" />
+                      <String fx:value="Animada" />
+                      <String fx:value="Drama" />
+                      <String fx:value="Musical" />
+                      <String fx:value="Accion" />
+                      <String fx:value="Documental" />
+                      <String fx:value="Comedia" />
                     </FXCollections>
                   </items>
                 </ComboBox>
                 <Label id="label2" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="27.0" layoutY="375.0" prefHeight="21.0" prefWidth="119.0" text="Clasificacion:" />
-                <ComboBox id="comboBox1" layoutX="157.0" layoutY="375.0" prefHeight="21.0" prefWidth="244.0" promptText="Seleccione una Clasificacion">
+                <ComboBox id="comboBox1" fx:id="clasificacionCombo" layoutX="157.0" layoutY="375.0" prefHeight="21.0" prefWidth="244.0" promptText="Seleccione una Clasificacion">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
-                      <String fx:value="Item 1" />
-                      <String fx:value="Item 2" />
-                      <String fx:value="Item 3" />
+                      <String fx:value="Todo Publico" />
+                      <String fx:value="Mayores de 15" />
+                      <String fx:value="Mayores de 18" />
+                      <String fx:value="Adultos" />
                     </FXCollections>
                   </items>
                 </ComboBox>
-                <ImageView id="emptyImageView1" fitHeight="250.0" fitWidth="327.0" layoutX="441.0" layoutY="146.0" pickOnBounds="true">
+                <ImageView id="emptyImageView1" fx:id="imgPelicula" fitHeight="250.0" fitWidth="327.0" layoutX="441.0" layoutY="146.0" pickOnBounds="true">
                   <image>
                     <Image url="@../res/blue-noise-pattern.png" preserveRatio="false" smooth="false" />
                   </image>
                 </ImageView>
-                <Button id="button3" layoutX="441.0" layoutY="124.0" mnemonicParsing="false" prefWidth="128.0" text="Buscar Imagen" />
-                <Text id="text2" layoutX="239.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nueva Pelicula">
+                <Button id="button3" fx:id="buscarImagenPelicula" layoutX="441.0" layoutY="124.0" mnemonicParsing="false" prefWidth="128.0" text="Buscar Imagen" />
+                <Text id="text2" fx:id="titlePeliculaText" layoutX="239.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nueva Pelicula">
                   <fill>
                     <Color blue="0.600" green="0.384" red="0.000" fx:id="x2" />
                   </fill>
@@ -118,28 +121,28 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <Text id="text1" fill="$x2" scaleX="3.3089465090462555" scaleY="2.9473723620408787" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeWidth="0.0" text="Datos de Perfil" AnchorPane.leftAnchor="355.0" AnchorPane.rightAnchor="358.46" AnchorPane.topAnchor="31.7">
+                <Text id="text1" fx:id="titleDatosPerfil" fill="$x2" scaleX="3.3089465090462555" scaleY="2.9473723620408787" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeWidth="0.0" text="Datos de Perfil" AnchorPane.leftAnchor="355.0" AnchorPane.rightAnchor="358.46" AnchorPane.topAnchor="31.7">
                   <font>
                     <Font name="Cambria" size="14.0" />
                   </font>
                 </Text>
-                <ImageView id="emptyImageView2" blendMode="DARKEN" fitHeight="191.0" fitWidth="191.0" pickOnBounds="true" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="98.0">
+                <ImageView id="emptyImageView2" fx:id="imgUser" blendMode="DARKEN" fitHeight="191.0" fitWidth="191.0" pickOnBounds="true" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="98.0">
                   <image>
                     <Image url="@../res/user_64.png" preserveRatio="false" smooth="false" />
                   </image>
                 </ImageView>
-                <Button id="button4" mnemonicParsing="false" prefWidth="112.0" text="Cambiar Imagen" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="297.0" />
+                <Button id="button4" fx:id="btnImagenUser" mnemonicParsing="false" prefWidth="112.0" text="Cambiar Imagen" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="297.0" />
                 <Label id="label1" alignment="CENTER_RIGHT" layoutX="271.0" layoutY="121.0" prefWidth="126.0" text="Username:" />
-                <TextField id="textField2" layoutX="424.0" layoutY="118.0" prefWidth="200.0" />
+                <TextField id="textField2" fx:id="usernameField" layoutX="424.0" layoutY="118.0" prefWidth="200.0" />
                 <Label id="label1" alignment="CENTER_RIGHT" layoutX="271.0" layoutY="163.0" prefWidth="126.0" text="Nombre Completo:" />
-                <TextField id="textField2" layoutX="424.0" layoutY="160.0" prefWidth="200.0" />
+                <TextField id="textField2" fx:id="nombreField" layoutX="424.0" layoutY="160.0" prefWidth="200.0" />
                 <Rectangle id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="RED" height="158.99989318847656" layoutX="238.0" layoutY="197.0" opacity="0.39" smooth="false" stroke="BLACK" strokeDashOffset="5.0" strokeLineCap="ROUND" width="562.0001220703125" />
                 <Label id="label1" alignment="CENTER_RIGHT" layoutX="271.0" layoutY="220.0" prefWidth="126.0" text="Password Antiguo:" />
-                <PasswordField id="passwordField1" layoutX="424.0" layoutY="217.0" prefWidth="200.0" />
+                <PasswordField id="passwordField1" fx:id="oldPassField" layoutX="424.0" layoutY="217.0" prefWidth="200.0" />
                 <Label id="label1" alignment="CENTER_RIGHT" layoutX="271.0" layoutY="270.0" prefWidth="126.0" text="Nuevo Password:" />
-                <PasswordField id="passwordField1" layoutX="424.0" layoutY="267.0" prefWidth="200.0" />
+                <PasswordField id="passwordField1" fx:id="newPass1Field" layoutX="424.0" layoutY="267.0" prefWidth="200.0" />
                 <Separator id="separatorHorizontal1" layoutX="311.0" layoutY="194.0" prefWidth="313.0" />
-                <PasswordField id="passwordField1" layoutX="424.0" layoutY="320.0" prefWidth="200.0" />
+                <PasswordField id="passwordField1" fx:id="newPass2Field" layoutX="424.0" layoutY="320.0" prefWidth="200.0" />
                 <Label id="label1" alignment="CENTER_RIGHT" layoutX="214.0" layoutY="323.0" prefWidth="183.0" text="Confirmar Nuevo Password:" />
                 <ImageView id="emptyImageView3" fitHeight="140.9998779296875" fitWidth="152.0001220703125" layoutX="635.0" layoutY="207.0" pickOnBounds="true">
                   <image>
@@ -157,10 +160,10 @@
         <Button id="button1" mnemonicParsing="false" text="Button" />
         <Button id="button2" mnemonicParsing="false" text="Button" />
         <Separator id="separatorVertical1" orientation="VERTICAL" prefHeight="21.0" />
-        <MenuButton id="menuButton2" mnemonicParsing="false" prefWidth="145.0" text="Opciones">
+        <MenuButton id="menuButton2" fx:id="opMenu" mnemonicParsing="false" prefWidth="145.0" text="Opciones">
           <items>
-            <MenuItem id="menuItem5" mnemonicParsing="false" text="Action 1" />
-            <MenuItem id="menuItem6" mnemonicParsing="false" text="Action 2" />
+            <MenuItem id="menuItem5" mnemonicParsing="false" text="Log out" />
+            <MenuItem id="menuItem6" mnemonicParsing="false" text="Salir del Sistema" />
           </items>
         </MenuButton>
       </items>

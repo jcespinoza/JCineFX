@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
@@ -44,7 +43,7 @@ public class LoginRegisterController implements Initializable {
         final KeyCombination combo = new KeyCodeCombination(KeyCode.ENTER);
         try{
             if( combo.equals(new KeyCodeCombination(e.getCode())))
-                System.out.println("Enter");;
+                System.out.println("Enter");
         }catch(Exception ex){
             System.out.println("Error: " + ex);
         }

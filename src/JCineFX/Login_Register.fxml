@@ -18,7 +18,7 @@
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" onKeyReleased="#KeyReleaseHandle" prefHeight="180.0" prefWidth="200.0">
               <children>
                 <Label alignment="CENTER" prefHeight="29.0" prefWidth="596.0" text="Log In" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                <ImageView fx:id="loginPicture" styleClass="logiPic" fitHeight="150.0" fitWidth="200.0" layoutX="223.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="52.0">
+                <ImageView fx:id="loginPicture" fitHeight="150.0" fitWidth="200.0" layoutX="223.0" pickOnBounds="true" preserveRatio="true" styleClass="logiPic" AnchorPane.topAnchor="52.0">
                   <effect>
                     <Reflection />
                   </effect>
@@ -30,7 +30,7 @@
                 <TextField layoutX="255.0" layoutY="213.0" prefWidth="161.5390625" />
                 <Label alignment="CENTER_RIGHT" layoutX="112.0" layoutY="246.0" minHeight="13.5389404296875" prefHeight="22.0" prefWidth="131.0" text="Password:" />
                 <PasswordField layoutX="255.0" layoutY="246.0" prefWidth="162.0" />
-                <Button layoutX="318.0" layoutY="282.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" text="Log in" />
+                <Button layoutX="318.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="36.0" prefWidth="110.0" text="Log in" />
                 <Button layoutX="168.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="36.0" prefWidth="110.0" text="Registrarse" />
               </children>
             </AnchorPane>

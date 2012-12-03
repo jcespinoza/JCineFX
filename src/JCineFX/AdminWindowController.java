@@ -6,7 +6,9 @@ package JCineFX;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuButton;
 
 /**
  * FXML Controller class
@@ -14,6 +16,9 @@ import javafx.fxml.Initializable;
  * @author Jay C Espinoza
  */
 public class AdminWindowController implements Initializable {
+    
+    @FXML
+    private MenuButton opMenu;
 
     /**
      * Initializes the controller class.
