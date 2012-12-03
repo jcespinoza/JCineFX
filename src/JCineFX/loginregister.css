@@ -1,0 +1,28 @@
+/*
+ * Empty Stylesheet file.
+*/
+
+.mainFxmlClass {
+
+}
+.titled-pane > .title > .arrow-button .arrow{
+    -fx-shape: "";
+}
+.titled-pane > .title{
+    -fx-padding: 0 0 0 -8;
+}
+
+.editFotoLabel{
+
+}
+.editFotoLabel:hover{
+    -fx-background-image: url("../res/edit.png");
+    -fx-background-repeat:round;
+    -fx-border-radius: 2px;
+    -fx-border-color: white;
+    -fx-cursor: hand;
+}
+
+.logiPic, .registerPicturec{
+    -fx-border-radius: 10px;
+}

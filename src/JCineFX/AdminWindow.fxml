@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="556.0000999999975" prefWidth="800.0000999999975" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml" fx:controller="JCineFX.AdminWindowController">
+  <children>
+    <TabPane id="tabPane1" prefHeight="525.0001060962677" prefWidth="800.0000999999975" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <tabs>
+        <Tab id="tab1" text="Agregar Sala de Cine">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Accordion id="accordion1" prefHeight="494.9999694824219" prefWidth="801.0">
+                  <expandedPane>
+                    <TitledPane id="titledPane1" fx:id="x1" animated="false" text="untitled">
+                      <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      </content>
+                    </TitledPane>
+                  </expandedPane>
+                  <panes>
+                    <fx:reference source="x1" />
+                    <TitledPane id="titledPane2" animated="false" text="untitled">
+                      <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      </content>
+                    </TitledPane>
+                  </panes>
+                </Accordion>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab id="tab2" text="Agregar Pelicula">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label id="label2" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="27.0" layoutY="21.0" prefHeight="21.0" prefWidth="85.0" text="Titulo:" />
+                <TextField id="textField1" layoutX="126.0" layoutY="21.0" prefWidth="244.0" />
+                <Slider id="sliderHorizontal1" layoutX="126.0" layoutY="66.0" prefWidth="244.0" />
+                <Label id="label2" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="27.0" layoutY="62.0" prefHeight="21.0" prefWidth="85.0" text="Duracion:" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab id="tab1" text="Edicion de Horarios">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          </content>
+        </Tab>
+        <Tab id="tab1" text="Edicion de datos de Perfil">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <ToolBar id="toolBar1" prefWidth="800.0001220703125">
+      <items>
+        <Button id="button1" mnemonicParsing="false" text="Button" />
+        <Button id="button2" mnemonicParsing="false" text="Button" />
+        <Separator id="separatorVertical1" orientation="VERTICAL" prefHeight="21.0" />
+        <Label id="label1" text="Label" />
+        <ChoiceBox id="choiceBox1" prefWidth="102.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+      </items>
+    </ToolBar>
+  </children>
+  <stylesheets>
+    <URL value="@adminwindow.css" />
+  </stylesheets>
+</AnchorPane>
