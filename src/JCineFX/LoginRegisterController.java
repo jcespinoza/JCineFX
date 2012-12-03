@@ -4,17 +4,17 @@
  */
 package JCineFX;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
@@ -25,7 +25,7 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
-import javax.swing.JOptionPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -59,7 +59,9 @@ public class LoginRegisterController implements Initializable {
     
     @FXML
     private void handleLoginButton(ActionEvent e){
-        //codigo para validar usuario aqui
+        if(validateUser(e)){
+            showAdminWindow(e);
+        }
     }
     
     @FXML
@@ -104,4 +106,24 @@ public class LoginRegisterController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }    
+
+    private boolean validateUser(ActionEvent e) {
+        return true;
+    }
+
+    private void showAdminWindow(ActionEvent e) {
+        try{
+            Parent p = FXMLLoader.load(getClass().getResource("AdminWindow.fxml"));
+            Stage st = new Stage();
+            Scene sce = new Scene(p);
+            st.setScene(sce);
+            //st.initOwner(lblTitle.getScene().getWindow());
+            //st.initModality(Modality.APPLICATION_MODAL);
+            st.show();
+            st.setResizable(false);
+            ((Node)e.getSource()).getScene().getWindow().hide();
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+    }
 }
