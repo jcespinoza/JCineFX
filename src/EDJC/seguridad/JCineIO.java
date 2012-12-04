@@ -28,7 +28,7 @@ public class JCineIO {
         if(!salas.exists())
             salas.mkdir();
 
-        File horarios = new File("salas");
+        File horarios = new File("horarios");
         if(!horarios.exists())
             horarios.mkdir();
     }

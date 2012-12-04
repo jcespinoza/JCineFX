@@ -161,3 +161,10 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+#JCineFX Ignores
+*.usr
+*.edc
+*.mov
+horarios
+salas
