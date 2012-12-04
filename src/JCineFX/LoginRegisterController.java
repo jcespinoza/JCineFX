@@ -87,7 +87,7 @@ public class LoginRegisterController implements Initializable {
     
     @FXML
     private void handleEntered(MouseEvent e){
-        String image = JCineFXLauncher1.class.getResource("edit.png").toExternalForm();
+        String image = JCineFX.class.getResource("edit.png").toExternalForm();
         editLabel.setStyle("-fx-background-image: url('" + image + "');"+
                         "-fx-background-repeat:round;" +
                         "-fx-border-radius: 2px;" +

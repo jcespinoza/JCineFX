@@ -1,0 +1,7 @@
+CineFilos.mov
+
+String username
+String pass
+String nombre
+String picturePath
+boolean active
