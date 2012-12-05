@@ -191,7 +191,7 @@
         <MenuButton id="menuButton2" fx:id="opMenu" mnemonicParsing="false" prefWidth="145.0" text="Opciones">
           <items>
             <MenuItem id="menuItem5" mnemonicParsing="false" text="Log out" />
-            <MenuItem id="menuItem6" mnemonicParsing="false" text="Salir del Sistema" />
+            <MenuItem id="menuItem6" onAction="#handleExit"  mnemonicParsing="false" text="Salir del Sistema" />
           </items>
         </MenuButton>
       </items>

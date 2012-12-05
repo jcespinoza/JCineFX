@@ -4,8 +4,13 @@
  */
 package JCineFX;
 
+import EDJC.seguridad.InvalidPasswordException;
+import EDJC.seguridad.UserBuilder;
+import EDJC.seguridad.Usuario;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +19,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -37,6 +45,15 @@ public class LoginRegisterController implements Initializable {
     public TitledPane titledRegister;
     public Label editLabel;
     public ImageView registerPicture;
+    public String imgPath = "src/res/user-icon-big.png";
+    public TextField userLog;
+    public PasswordField passLog;
+    public TextField userReg;
+    public TextField nameReg;
+    public PasswordField pass1Reg;
+    public PasswordField pass2Reg;
+    public Button registerButton;
+    public Button loginButton;
     
     @FXML
     private void KeyReleaseHandle(KeyEvent e){
@@ -58,8 +75,22 @@ public class LoginRegisterController implements Initializable {
     
     @FXML
     private void handleLoginButton(ActionEvent e){
+        boolean user = true, pass = true;
+        if(userLog.getText().length() <= 1){
+            System.out.println("Missing username");
+            user = false;
+        }
+        if(passLog.getText().length() <= 1){
+            System.out.println("Missing pass");
+            pass = false;
+        }
+        if(!user && !pass)
+            return;
+            
         if(validateUser(e)){
             showAdminWindow(e);
+        }else{
+            System.out.println("Wring credes");
         }
     }
     
@@ -73,6 +104,7 @@ public class LoginRegisterController implements Initializable {
             Image img = new Image(url);
             registerPicture.setImage(img);
             registerPicture.setSmooth(true);
+            imgPath = url;
         } catch (MalformedURLException ex) {
             System.out.println("Error was: " + ex);
         }
@@ -83,6 +115,54 @@ public class LoginRegisterController implements Initializable {
         titledLogin.setCollapsible(true);
         titledLogin.setExpanded(true);
         titledLogin.setCollapsible(false);
+        cleanRegFields();
+    }
+    
+    private void cleanRegFields(){
+        userReg.setText(null);
+        pass1Reg.setText(null);
+        pass2Reg.setText(null);
+        nameReg.setText(null);
+        imgPath = "src/res/user-icon-big.png";
+        try {
+            registerPicture.setImage(new Image("src/res/user-icon-big.png"));
+        }catch (Exception ex) {
+            System.out.println("Image was wrong: " + ex);
+        }
+    }
+    
+    @FXML
+    private void handleRegisterReg(ActionEvent e){
+        Usuario temp = new Usuario();
+        String user = userReg.getText();
+        String name = nameReg.getText();
+        char[] pass1 = pass1Reg.getText().toCharArray();
+        char[] pass2 = pass2Reg.getText().toCharArray();
+        if(Arrays.equals(pass1, pass2)){
+            System.out.println("Passwords dont match!");
+            return;
+        }
+        String picture = imgPath;
+
+        try{
+            temp.setUsername(user);
+            temp.setPassword(pass1);
+            temp.SetNombreCompleto(name);
+            temp.setFotoPath(imgPath);
+            
+            Usuario result = UserBuilder.leerUser(user);
+            if(result == null){
+                UserBuilder.escribirUser(temp);
+                cleanRegFields();
+            }else{
+                cleanRegFields();
+            }
+        }catch(InvalidPasswordException ex){
+            System.out.println(ex.getMessage());
+        }catch(IOException ex){
+            System.out.println("IOException while trying to read or write User." + ex);
+        }
+        
     }
     
     @FXML
@@ -98,16 +178,38 @@ public class LoginRegisterController implements Initializable {
     private void handleExited(MouseEvent e){
         editLabel.setStyle(null);
     }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        titledLogin.setCollapsible(false);
+        userLog.setPromptText("Ingrese su nombre de usuario");
+        //passLog.setPromptText("Ingrese su contraseña");
+        userReg.setPromptText("Ingrese un nombre de usuario unico");
+        nameReg.setPromptText("Ingrese su nombre completo");
+        pass1Reg.setPromptText("Ingrese una contraseña");
+        pass2Reg.setPromptText("Confirme su contraseña");
+        loginButton.setDefaultButton(true);
+        
     }    
 
     private boolean validateUser(ActionEvent e) {
-        return true;
+        String user = userLog.getText();
+        char[] pass = passLog.getText().toCharArray();
+        Usuario us = new Usuario(user, pass);
+        Usuario result;
+        try{
+            result = UserBuilder.leerUser(user);
+        }catch(IOException ex){
+            ex.printStackTrace();
+            return false;
+        }
+        if(result != null && (Arrays.equals(pass, result.getPassword())))
+            return true;
+        System.out.println("Didn't find it!");
+        return false;
     }
 
     private void showAdminWindow(ActionEvent e) {

@@ -6,13 +6,9 @@ package EDJC;
 
 import EDJC.seguridad.Usuario;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +19,7 @@ public class IOtest {
         
         FileOutputStream fout = null;
         try {
-            Usuario source = new Usuario("jcespinoza", "noTengoPass".toCharArray());
+            Usuario source = new Usuario("jcespinoza", "password".toCharArray());
             source.SetNombreCompleto("Juan Carlos Espinoza");
             source.setCredencialActiva(true);
             source.setFotoPath("fotos/pic1.jpg");

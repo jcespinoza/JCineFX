@@ -11,11 +11,11 @@ import java.io.Serializable;
  * @author Jay C Espinoza
  */
 public final class Usuario implements Serializable{
-    private String username;
+    private String username = "";
     private char[] cred;
-    private String NombreCompleto;
+    private String NombreCompleto = "";
     private boolean CredencialActiva = true;
-    private String fotoPath;
+    private String fotoPath = "";
 
     public String getFotoPath() {
         return fotoPath;

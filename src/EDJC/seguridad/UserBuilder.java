@@ -4,13 +4,11 @@
  */
 package EDJC.seguridad;
 
-import EDJC.seguridad.Usuario;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class UserBuilder {
     private static RandomAccessFile raf;
-    
+   
     ArrayList<Usuario> users;
     Usuario user;
     
@@ -65,15 +63,15 @@ public class UserBuilder {
             
         }
         
-        public static Usuario leerUser(String username){
-            try {
-                RandomAccessFile raf = new RandomAccessFile("cinefilos.mov", "r");
-                raf.seek(0);
+        public static Usuario leerUser(String username) throws IOException{
+            raf = new RandomAccessFile("cinefilos.mov", "r");
+            raf.seek(0);
+            while(raf.getFilePointer() < raf.length()){
                 Usuario leido = new Usuario();
                 leido.setUsername(raf.readUTF());
                 Usuario param = new Usuario();
                 param.setUsername(username);
-                
+
                 if(leido.equals(param)){
                     leido.setPassword(raf.readUTF().toCharArray());
                     leido.SetNombreCompleto(raf.readUTF());
@@ -81,45 +79,45 @@ public class UserBuilder {
                     leido.setCredencialActiva(raf.readBoolean());
                     return leido;
                 }
-            } catch (Exception ex) {
-                System.out.println("");
+                raf.readUTF();
+                raf.readUTF();
+                raf.readUTF();
+                raf.readBoolean();
             }
+            raf.close();
             return null;
         }
         
-        public static void escribirUser(Usuario user){
+        public static void escribirUser(Usuario user) throws FileNotFoundException, IOException{
             desactivarUsuario(user.getUsername());
-            try{
-                raf = new RandomAccessFile("cinefilos.mov", "w");
-                raf.seek(raf.length());
-                raf.writeUTF(user.getUsername());
-                raf.writeUTF(new String(user.getPassword()));
-                raf.writeUTF(user.getNombreCompleto());
-                raf.writeUTF(user.getFotoPath());
-                raf.writeBoolean(true);
-            }catch(Exception ex){
-                
-            }
-        }
-    private static void desactivarUsuario(String username) {
-        try {
             raf = new RandomAccessFile("cinefilos.mov", "rw");
-            raf.seek(0);
-            boolean stay = true;
-            while(raf.getFilePointer() < raf.length() && stay == true){
-                if(raf.readUTF().equals(username))
-                    stay = false;
+            raf.seek(raf.length());
+            raf.writeUTF(user.getUsername());
+            raf.writeUTF(new String(user.getPassword()));
+            raf.writeUTF(user.getNombreCompleto());
+            raf.writeUTF(user.getFotoPath());
+            raf.writeBoolean(true);
+            raf.close();
+        }
+    public static void desactivarUsuario(String username) throws FileNotFoundException, IOException {
+        raf = new RandomAccessFile("cinefilos.mov", "rw");
+        raf.seek(0);
+        boolean stay = true;
+        while(raf.getFilePointer() < raf.length() && stay == true){
+            if(raf.readUTF().equals(username)){
+                stay = false;
                 raf.readUTF();
                 raf.readUTF();
                 raf.readUTF();
                 if(!stay)
                     raf.writeBoolean(false);
-                raf.readBoolean();
             }
-            raf.close();
-        } catch (Exception ex) {
-            
+            raf.readUTF();
+            raf.readUTF();
+            raf.readUTF();
+            raf.readBoolean();
         }
+        raf.close();
     }
     public void setUsername(String username){
         boolean error=false;

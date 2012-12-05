@@ -5,7 +5,16 @@
 package JCineFX;
 
 import EDJC.seguridad.JCineIO;
+import EDJC.seguridad.UserBuilder;
 import EDJC.seguridad.Usuario;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.RandomAccessFile;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,13 +25,16 @@ import javafx.stage.Stage;
  * @author Jay C Espinoza
  */
 public class JCineFX extends Application{
+    public static final String confFile = "config.mov";
     private static int salaCounter;
     private static Usuario currentUser;
+    private static Configuracion conf;
     
     @Override
     public void start(Stage stage) throws Exception {
-        JCineIO.setFileStuff();
-        setData();
+        crearTodo();
+        conf = leerConf();
+        salaCounter = conf.getContador();
         
         Parent root = FXMLLoader.load(getClass().getResource("ModSelection.fxml"));
         
@@ -30,7 +42,7 @@ public class JCineFX extends Application{
         
         stage.setScene(scene);
         stage.show();
-        System.out.println("Counter: ");
+        System.out.println("Counter: "  + getSalaCounter());
     }
 
     public static void main(String[] args) {
@@ -56,8 +68,54 @@ public class JCineFX extends Application{
     public static void setCurrentUser(Usuario currentUser) {
         JCineFX.currentUser = currentUser;
     }
+    
+    private static void crearTodo() throws FileNotFoundException, IOException{
+        File confFile = new File(JCineFX.confFile);
+        //ver si el archivo de configuracion existe
+        if(!confFile.exists()){
+            conf = new Configuracion();
+            FileOutputStream fos = new FileOutputStream(confFile);
+            ObjectOutputStream ous = new ObjectOutputStream(fos);
+            ous.writeObject(conf);
 
-    private void setData() {
-        setSalaCounter(JCineIO.getCurrentCounter());
+            File salas = new File("salas");
+            if(!salas.exists())
+                salas.mkdir();
+
+            File horarios = new File("horarios");
+            if(!horarios.exists())
+                horarios.mkdir();
+            
+            RandomAccessFile raf = new RandomAccessFile("cinefilos.mov", "rw");
+            if( raf.length() == 0){
+                raf.close();
+                UserBuilder.escribirUser(new Usuario("guest", "password".toCharArray()));
+            }
+            
+            //si el archivo de configuracion existe no es necesario crear nada
+        }else{
+            System.out.println(confFile.getPath() + " ya existia");
+        }
+    }
+
+    public static Configuracion leerConf() throws FileNotFoundException, IOException, ClassNotFoundException {
+        File confFile = new File(JCineFX.confFile);
+        
+        if(confFile.exists()){
+            FileInputStream fis = new FileInputStream(confFile);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            return (Configuracion)(ois.readObject());
+        }
+        return new Configuracion();
+    }
+    
+    public static void escribirConf(Configuracion conf) throws FileNotFoundException, IOException{
+        File confFile = new File(JCineFX.confFile);
+        
+        if(!confFile.exists()){
+            FileOutputStream fos = new FileOutputStream(confFile);
+            ObjectOutputStream ous = new ObjectOutputStream(fos);
+            ous.writeObject(conf);
+        }
     }
 }

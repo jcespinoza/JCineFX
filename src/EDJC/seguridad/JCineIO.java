@@ -14,24 +14,6 @@ import java.io.RandomAccessFile;
  * @author Jay C Espinoza
  */
 public class JCineIO {
-
-    public static void setFileStuff() {
-        checkData();
-    }
-
-    private static void checkData() {
-        File count = new File("counter.edc");
-        if(!count.exists())
-            getCurrentCounter();
-        
-        File salas = new File("salas");
-        if(!salas.exists())
-            salas.mkdir();
-
-        File horarios = new File("horarios");
-        if(!horarios.exists())
-            horarios.mkdir();
-    }
     
     public static int getCurrentCounter(){
         int count = 1;       
