@@ -1,12 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package JCineFX;
 
 import EDJC.seguridad.InvalidPasswordException;
 import EDJC.seguridad.UserBuilder;
 import EDJC.seguridad.Usuario;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -125,9 +122,13 @@ public class LoginRegisterController implements Initializable {
         nameReg.setText(null);
         imgPath = "src/res/user-icon-big.png";
         try {
-            registerPicture.setImage(new Image("src/res/user-icon-big.png"));
+            registerPicture.setImage(new Image("file:" + imgPath));
         }catch (Exception ex) {
             System.out.println("Image was wrong: " + ex);
+            File test = new File(imgPath);
+            System.out.println("exists? " + test.exists());
+            System.out.println(imgPath);
+            System.out.println("File: " + test.getAbsolutePath());
         }
     }
     
@@ -138,7 +139,7 @@ public class LoginRegisterController implements Initializable {
         String name = nameReg.getText();
         char[] pass1 = pass1Reg.getText().toCharArray();
         char[] pass2 = pass2Reg.getText().toCharArray();
-        if(Arrays.equals(pass1, pass2)){
+        if(!Arrays.equals(pass1, pass2)){
             System.out.println("Passwords dont match!");
             return;
         }
@@ -154,6 +155,8 @@ public class LoginRegisterController implements Initializable {
             if(result == null){
                 UserBuilder.escribirUser(temp);
                 cleanRegFields();
+                System.out.println("sAved succesfuly!");
+                handleCancelarReg(e);
             }else{
                 cleanRegFields();
             }
