@@ -189,7 +189,7 @@ public class LoginRegisterController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         titledLogin.setCollapsible(false);
         userLog.setPromptText("Ingrese su nombre de usuario");
-        //passLog.setPromptText("Ingrese su contraseña");
+        passLog.setPromptText("Ingrese su contraseña");
         userReg.setPromptText("Ingrese un nombre de usuario unico");
         nameReg.setPromptText("Ingrese su nombre completo");
         pass1Reg.setPromptText("Ingrese una contraseña");

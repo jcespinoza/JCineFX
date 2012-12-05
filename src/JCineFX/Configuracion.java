@@ -17,7 +17,7 @@ public class Configuracion implements Serializable{
     private int contador = 1;
 
     public Usuario getUsuarioActual() {
-        return usuarioActual;
+        return usuarioActual; //MODIFIE THIS LINE TO FIX THE PROBLEM
     }
 
     public void setUsuarioActual(Usuario usuarioActual) {

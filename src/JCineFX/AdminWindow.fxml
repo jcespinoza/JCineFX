@@ -177,6 +177,7 @@
                     <Image url="@../res/lock.png" preserveRatio="false" smooth="false" />
                   </image>
                 </ImageView>
+                <Button fx:id="updateButton" layoutX="424.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleUpdateButton" prefHeight="31.0" prefWidth="200.0" text="Actualizar" />
               </children>
             </AnchorPane>
           </content>
@@ -191,7 +192,7 @@
         <MenuButton id="menuButton2" fx:id="opMenu" mnemonicParsing="false" prefWidth="145.0" text="Opciones">
           <items>
             <MenuItem id="menuItem5" mnemonicParsing="false" text="Log out" />
-            <MenuItem id="menuItem6" onAction="#handleExit"  mnemonicParsing="false" text="Salir del Sistema" />
+            <MenuItem id="menuItem6" mnemonicParsing="false" onAction="#handleExit" text="Salir del Sistema" />
           </items>
         </MenuButton>
       </items>

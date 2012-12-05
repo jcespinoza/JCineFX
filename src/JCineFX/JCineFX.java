@@ -25,7 +25,7 @@ import javafx.stage.Stage;
  * @author Jay C Espinoza
  */
 public class JCineFX extends Application{
-    public static final String confFile = "config.mov";
+    public static final String confFilePath = "config.mov";
     private static int salaCounter;
     private static Usuario currentUser;
     private static Configuracion conf;
@@ -35,6 +35,7 @@ public class JCineFX extends Application{
         crearTodo();
         conf = leerConf();
         salaCounter = conf.getContador();
+        currentUser = conf.getUsuarioActual();
         
         Parent root = FXMLLoader.load(getClass().getResource("ModSelection.fxml"));
         
@@ -70,11 +71,11 @@ public class JCineFX extends Application{
     }
     
     private static void crearTodo() throws FileNotFoundException, IOException{
-        File confFile = new File(JCineFX.confFile);
+        File confFile = new File(JCineFX.confFilePath);
         //ver si el archivo de configuracion existe
         if(!confFile.exists()){
             conf = new Configuracion();
-            FileOutputStream fos = new FileOutputStream(confFile);
+            FileOutputStream fos = new FileOutputStream(JCineFX.confFilePath);
             ObjectOutputStream ous = new ObjectOutputStream(fos);
             ous.writeObject(conf);
 
@@ -89,7 +90,10 @@ public class JCineFX extends Application{
             RandomAccessFile raf = new RandomAccessFile("cinefilos.mov", "rw");
             if( raf.length() == 0){
                 raf.close();
-                UserBuilder.escribirUser(new Usuario("guest", "password".toCharArray()));
+                Usuario nUser = new Usuario("guest", "password".toCharArray());
+                nUser.SetNombreCompleto("Administrator");
+                nUser.setFotoPath("src/res/user-icon-big.png");
+                UserBuilder.escribirUser(nUser);
             }
             
             //si el archivo de configuracion existe no es necesario crear nada
@@ -99,7 +103,7 @@ public class JCineFX extends Application{
     }
 
     public static Configuracion leerConf() throws FileNotFoundException, IOException, ClassNotFoundException {
-        File confFile = new File(JCineFX.confFile);
+        File confFile = new File(JCineFX.confFilePath);
         
         if(confFile.exists()){
             FileInputStream fis = new FileInputStream(confFile);
@@ -110,7 +114,7 @@ public class JCineFX extends Application{
     }
     
     public static void escribirConf(Configuracion conf) throws FileNotFoundException, IOException{
-        File confFile = new File(JCineFX.confFile);
+        File confFile = new File(JCineFX.confFilePath);
         
         if(!confFile.exists()){
             FileOutputStream fos = new FileOutputStream(confFile);
