@@ -11,9 +11,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
 
 /**
  *
@@ -23,7 +26,7 @@ public class TestPane extends AnchorPane implements Initializable{
     @FXML
     private Button helloButton;
 
-    public TestPane(Parent parent){
+    public TestPane(Node parent){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TestPane.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -32,7 +35,11 @@ public class TestPane extends AnchorPane implements Initializable{
         } catch (IOException ex) {
             System.out.println("Failed to to load TestPane");
         }
-        this.setPrefWidth( (Node)parent.pre);
+        //resize the control to completely fill the anchorpane
+        AnchorPane.setBottomAnchor(this, 0d);
+        AnchorPane.setTopAnchor(this, 0d);
+        AnchorPane.setLeftAnchor(this, 0d);
+        AnchorPane.setRightAnchor(this, 0d);
     }
     
     @Override
