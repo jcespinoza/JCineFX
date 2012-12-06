@@ -77,7 +77,9 @@ public class UserBuilder {
                     leido.SetNombreCompleto(raf.readUTF());
                     leido.setFotoPath(raf.readUTF());
                     leido.setCredencialActiva(raf.readBoolean());
-                    return leido;
+                    if(leido.isCredencialActiva()){
+                        return leido;
+                    }
                 }
                 raf.readUTF();
                 raf.readUTF();

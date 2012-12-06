@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author Jay C Espinoza
  */
-public final class Usuario implements Serializable{
+public final class Usuario{
     private String username = "";
     private char[] cred;
     private String NombreCompleto = "";
@@ -60,7 +60,7 @@ public final class Usuario implements Serializable{
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Username: " + username + " fotoPath: " +fotoPath + " Nombre: " + NombreCompleto + " isActive?: " + CredencialActiva;
     }
 
     public void setUsername(String username) {

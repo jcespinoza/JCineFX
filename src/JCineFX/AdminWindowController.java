@@ -4,8 +4,12 @@
  */
 package JCineFX;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,8 +47,13 @@ public class AdminWindowController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        fillUserData();
-        disableInput();
+        try {
+            fillUserData();
+            if( JCineFX.getCurrentUser().getUsername().equals("guest") )
+                disableInput();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
     
     @FXML
@@ -66,11 +75,11 @@ public class AdminWindowController implements Initializable {
         updateButton.setDisable(true);
     }
 
-    private void fillUserData() {
+    private void fillUserData() throws ClassNotFoundException, IOException {
         usernameField.setText(JCineFX.getCurrentUser().getUsername());
         nombreField.setText(JCineFX.getCurrentUser().getNombreCompleto());
         oldPassField.setText(new String(JCineFX.getCurrentUser().getPassword()));
-        String tempPath = "file:" + JCineFX.getCurrentUser().getFotoPath();
+        String tempPath = JCineFX.getCurrentUser().getFotoPath();
         System.out.println("TempFile:" + tempPath);
         try{
             imgUser.setImage(new Image(tempPath));

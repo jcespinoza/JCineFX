@@ -4,7 +4,6 @@
  */
 package JCineFX;
 
-import EDJC.seguridad.JCineIO;
 import EDJC.seguridad.UserBuilder;
 import EDJC.seguridad.Usuario;
 import java.io.File;
@@ -35,7 +34,7 @@ public class JCineFX extends Application{
         crearTodo();
         conf = leerConf();
         salaCounter = conf.getContador();
-        currentUser = conf.getUsuarioActual();
+        currentUser = UserBuilder.leerUser( conf.getUsuarioActual() );
         
         Parent root = FXMLLoader.load(getClass().getResource("ModSelection.fxml"));
         
@@ -50,24 +49,23 @@ public class JCineFX extends Application{
         launch(args);
     }
 
-    private void setContadorSalas() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-
-    public static int getSalaCounter() {
+    public static int getSalaCounter() throws FileNotFoundException, IOException, ClassNotFoundException {
+        salaCounter = leerConf().getContador();
         return salaCounter;
     }
 
-    public static void setSalaCounter(int salaCounter) {
-        JCineFX.salaCounter = salaCounter;
+    public static void setSalaCounter(int salaCounter) throws FileNotFoundException, IOException, ClassNotFoundException {
+        JCineFX.salaCounter = leerConf().getContador() + 1;
     }
 
-    public static Usuario getCurrentUser() {
+    public static Usuario getCurrentUser() throws FileNotFoundException, IOException, ClassNotFoundException {
+        currentUser = UserBuilder.leerUser( leerConf().getUsuarioActual() );
         return currentUser;
     }
 
-    public static void setCurrentUser(Usuario currentUser) {
-        JCineFX.currentUser = currentUser;
+    public static void setCurrentUser(Usuario currentUser) throws ClassNotFoundException, IOException {
+        actualizarConf(currentUser);
+        JCineFX.currentUser = UserBuilder.leerUser(leerConf().getUsuarioActual());
     }
     
     private static void crearTodo() throws FileNotFoundException, IOException{
@@ -75,9 +73,7 @@ public class JCineFX extends Application{
         //ver si el archivo de configuracion existe
         if(!confFile.exists()){
             conf = new Configuracion();
-            FileOutputStream fos = new FileOutputStream(JCineFX.confFilePath);
-            ObjectOutputStream ous = new ObjectOutputStream(fos);
-            ous.writeObject(conf);
+            escribirConf(conf);
 
             File salas = new File("salas");
             if(!salas.exists())
@@ -102,24 +98,45 @@ public class JCineFX extends Application{
         }
     }
 
-    public static Configuracion leerConf() throws FileNotFoundException, IOException, ClassNotFoundException {
+    public static Configuracion leerConf() throws FileNotFoundException, IOException {
         File confFile = new File(JCineFX.confFilePath);
         
         if(confFile.exists()){
-            FileInputStream fis = new FileInputStream(confFile);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            return (Configuracion)(ois.readObject());
+            RandomAccessFile raf = new RandomAccessFile(confFile, "r");
+            String user = raf.readUTF();
+            String dir = raf.readUTF();
+            int count = raf.readInt();
+            
+            Configuracion c = new Configuracion();
+            c.setUsuarioActual(user);
+            c.setDirectorio(dir);
+            c.setContador(count);
+            
+            System.out.println("Read: Returning " + c);
+            return c;
         }
         return new Configuracion();
     }
     
     public static void escribirConf(Configuracion conf) throws FileNotFoundException, IOException{
         File confFile = new File(JCineFX.confFilePath);
-        
-        if(!confFile.exists()){
-            FileOutputStream fos = new FileOutputStream(confFile);
-            ObjectOutputStream ous = new ObjectOutputStream(fos);
-            ous.writeObject(conf);
-        }
+        System.out.println("Conf is: " + conf);
+        RandomAccessFile raf = new RandomAccessFile(confFile, "rw");
+        raf.writeUTF(conf.getUsuarioActual());
+        raf.writeUTF(conf.getDirectorio());
+        raf.writeInt(conf.getContador());
+
+        /*if(!confFile.exists()){
+            raf.writeInt(1);
+        }*/
+    }
+    
+    public static Configuracion actualizarConf(Usuario u) throws FileNotFoundException, IOException, ClassNotFoundException{
+        Configuracion conf = leerConf();
+        conf.setUsuarioActual(u.getUsername());
+        escribirConf(conf);
+        System.out.println("escrito: " + conf);
+        JCineFX.conf = leerConf();
+        return conf;
     }
 }

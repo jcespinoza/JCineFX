@@ -12,15 +12,15 @@ import java.io.Serializable;
  * @author Jay C Espinoza
  */
 public class Configuracion implements Serializable{
-    private Usuario usuarioActual = new Usuario("guest", "password".toCharArray());
+    private String usuarioActual = "";
     private String directorio = ".";
     private int contador = 1;
 
-    public Usuario getUsuarioActual() {
-        return usuarioActual; //MODIFIE THIS LINE TO FIX THE PROBLEM
+    public String getUsuarioActual() {
+        return usuarioActual;
     }
 
-    public void setUsuarioActual(Usuario usuarioActual) {
+    public void setUsuarioActual(String usuarioActual) {
         this.usuarioActual = usuarioActual;
     }
 
@@ -41,5 +41,9 @@ public class Configuracion implements Serializable{
             this.contador = contador;
     }
     
-    
+    /*REMOVE tHIS LINE*/
+    @Override
+    public String toString(){
+        return "Contador: " + contador +" UsuarioActual:" + usuarioActual;
+    }
 }

@@ -37,12 +37,15 @@ import javafx.stage.Stage;
  * @author Jay C Espinoza
  */
 public class LoginRegisterController implements Initializable {
+    private Configuracion conf;
+    private Usuario usuario;
+    
     @FXML
     public TitledPane titledLogin;
     public TitledPane titledRegister;
     public Label editLabel;
     public ImageView registerPicture;
-    public String imgPath = "src/res/user-icon-big.png";
+    public String imgPath = "file:src/res/user-icon-big.png";
     public TextField userLog;
     public PasswordField passLog;
     public TextField userReg;
@@ -85,6 +88,12 @@ public class LoginRegisterController implements Initializable {
             return;
             
         if(validateUser(e)){
+            try{
+                JCineFX.actualizarConf(usuario);
+                System.out.println("Updated! Now Configuration is: " + JCineFX.leerConf());
+            }catch(Exception ex){
+                System.out.println("Could not update configuracion before opening Adminn window");
+            }
             showAdminWindow(e);
         }else{
             System.out.println("Wring credes");
@@ -120,9 +129,9 @@ public class LoginRegisterController implements Initializable {
         pass1Reg.setText(null);
         pass2Reg.setText(null);
         nameReg.setText(null);
-        imgPath = "src/res/user-icon-big.png";
+        imgPath = "file:src/res/user-icon-big.png";
         try {
-            registerPicture.setImage(new Image("file:" + imgPath));
+            registerPicture.setImage(new Image(imgPath));
         }catch (Exception ex) {
             System.out.println("Image was wrong: " + ex);
             File test = new File(imgPath);
@@ -209,8 +218,10 @@ public class LoginRegisterController implements Initializable {
             ex.printStackTrace();
             return false;
         }
-        if(result != null && (Arrays.equals(pass, result.getPassword())))
+        if(result != null && (Arrays.equals(pass, result.getPassword()))){
+            usuario = us;
             return true;
+        }
         System.out.println("Didn't find it!");
         return false;
     }
