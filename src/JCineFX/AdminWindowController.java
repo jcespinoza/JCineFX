@@ -4,12 +4,9 @@
  */
 package JCineFX;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -28,6 +26,7 @@ import javafx.scene.image.ImageView;
  */
 public class AdminWindowController implements Initializable {
     @FXML
+    public AnchorPane horariosPane;
     public TextField usernameField;
     public TextField nombreField;
     public PasswordField oldPassField;
@@ -36,7 +35,7 @@ public class AdminWindowController implements Initializable {
     public Button updateButton;
     public Button btnImagenUser;
     public ImageView imgUser;
-    public String imagePath = "file:src/res/user-icon-big.png";
+    public String imagePath = "file:src/res/user-icon-big.png"; //imagen por defecto
     
     
     @FXML
@@ -54,6 +53,7 @@ public class AdminWindowController implements Initializable {
         } catch (Exception ex) {
             System.out.println(ex);
         }
+        fillHorarioPane();
     }
     
     @FXML
@@ -88,5 +88,9 @@ public class AdminWindowController implements Initializable {
             System.out.println("Failed to set the image:" + tempPath);
             imgUser.setImage(new Image(imagePath));
         }
+    }
+
+    private void fillHorarioPane() {
+        horariosPane.getChildren().add(new TestPane(horariosPane));
     }
 }

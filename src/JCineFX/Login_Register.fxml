@@ -15,7 +15,7 @@
       <expandedPane>
         <TitledPane fx:id="titledLogin" ellipsisString="">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" onKeyReleased="#KeyReleaseHandle" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
                 <Label alignment="CENTER" prefHeight="29.0" prefWidth="596.0" text="Log In" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                 <ImageView fx:id="loginPicture" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" pickOnBounds="true" preserveRatio="true" styleClass="logiPic" AnchorPane.topAnchor="52.0">

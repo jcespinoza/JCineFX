@@ -142,7 +142,7 @@
         </Tab>
         <Tab id="tab1" text="Edicion de Horarios">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            <AnchorPane id="Content" fx:id="horariosPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
           </content>
         </Tab>
         <Tab id="tab1" text="Edicion de datos de Perfil">

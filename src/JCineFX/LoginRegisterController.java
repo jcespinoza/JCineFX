@@ -9,6 +9,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import javafx.beans.property.ReadOnlyProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,18 +57,13 @@ public class LoginRegisterController implements Initializable {
     public PasswordField pass2Reg;
     public Button registerButton;
     public Button loginButton;
+    public ChangeListener cListener;
+    //Notification Labels
+    public Label wrongPassLog;
+    public Label userMsgReg;
+    public Label pass1MsgReg;
+    public Label pass2MsgReg;
     
-    @FXML
-    private void KeyReleaseHandle(KeyEvent e){
-        final KeyCombination combo = new KeyCodeCombination(KeyCode.ENTER);
-        try{
-            if( combo.equals(new KeyCodeCombination(e.getCode())))
-                System.out.println("Enter");
-        }catch(Exception ex){
-            System.out.println("Error: " + ex);
-        }
-
-    }
     @FXML
     private void handleRegisterButton(ActionEvent e){
         titledLogin.setCollapsible(true);
@@ -174,7 +172,6 @@ public class LoginRegisterController implements Initializable {
         }catch(IOException ex){
             System.out.println("IOException while trying to read or write User." + ex);
         }
-        
     }
     
     @FXML
@@ -197,14 +194,24 @@ public class LoginRegisterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         titledLogin.setCollapsible(false);
-        userLog.setPromptText("Ingrese su nombre de usuario");
+        userLog.setPromptText("Ingrese su username");
         passLog.setPromptText("Ingrese su contraseña");
-        userReg.setPromptText("Ingrese un nombre de usuario unico");
+        userReg.setPromptText("Ingrese su username");
         nameReg.setPromptText("Ingrese su nombre completo");
         pass1Reg.setPromptText("Ingrese una contraseña");
         pass2Reg.setPromptText("Confirme su contraseña");
         loginButton.setDefaultButton(true);
         
+        //Inicializa el changeListener nates de asignarselo a los controles
+        initFocusListener();
+        
+        //Add focus change listener for input fields
+        userLog.focusedProperty().addListener(cListener);
+        passLog.focusedProperty().addListener(cListener);
+        
+        userReg.focusedProperty().addListener(cListener);
+        pass1Reg.focusedProperty().addListener(cListener);
+        pass2Reg.focusedProperty().addListener(cListener);
     }    
 
     private boolean validateUser(ActionEvent e) {
@@ -240,5 +247,49 @@ public class LoginRegisterController implements Initializable {
         }catch(Exception ex){
             System.out.println(ex);
         }
+    }
+
+    private void initFocusListener() {
+        cListener = new ChangeListener() {
+            @Override
+            public void changed(ObservableValue focusProperty, Object previous, Object newValue) {
+                //cast to ReadOnlyProperty, then to Node, to get the control that owns the changed property
+                Node control = (Node)( ((ReadOnlyProperty)(focusProperty)).getBean() );
+                boolean focus = (Boolean)newValue;
+                
+                //check wich control triggered the event and call the corresponding method
+                if(control.equals(userLog)){
+                    handleUserLogFocus(focus);
+                }else if(control.equals(passLog)){
+                    handlePassLogfocus(focus);
+                }else if(control.equals(userReg)){
+                    handleUserRegFocus(focus);
+                }else if(control.equals(pass1Reg)){
+                    handlePass1RegFocus(focus);
+                }else if(control.equals(pass2Reg)){
+                    handlePass2RegFocus(focus);
+                }
+            }
+        };
+    }
+    
+    private void handleUserLogFocus(Boolean hasFocus){
+        System.out.println("userLog focus: " + hasFocus);
+    }
+    
+    private void handlePassLogfocus(boolean hasFocus) {
+        System.out.println("passLog focus: " + hasFocus);
+    }
+
+    private void handleUserRegFocus(boolean hasFocus) {
+        System.out.println("userReg focus: " + hasFocus);
+    }
+
+    private void handlePass1RegFocus(boolean hasFocus) {
+        System.out.println("pass1Reg focus: " + hasFocus);
+    }
+
+    private void handlePass2RegFocus(boolean hasFocus) {
+        System.out.println("pass2Reg focus: " + hasFocus);
     }
 }
