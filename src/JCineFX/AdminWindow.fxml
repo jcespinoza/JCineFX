@@ -24,6 +24,29 @@
               <children>
                 <Accordion id="accordion1" prefHeight="494.9999694824219" prefWidth="801.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <expandedPane>
+                    <TitledPane id="titledPane2" fx:id="x3">
+                      <content>
+                        <AnchorPane id="Content" fx:id="sillasPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                          <children>
+                            <Rectangle id="rectangle2" arcHeight="5.0" arcWidth="5.0" fill="#66a3ff" height="22.0" layoutX="147.0" stroke="#bfbfbf" strokeType="INSIDE" width="504.0">
+                              <effect>
+                                <Reflection />
+                              </effect>
+                            </Rectangle>
+                            <Text id="text3" layoutX="361.0" layoutY="16.0" opacity="0.73" strokeType="OUTSIDE" strokeWidth="0.0" text="PANTALLA">
+                              <font>
+                                <Font size="16.0" />
+                              </font>
+                              <rotationAxis>
+                                <Point3D z="-30.0" />
+                              </rotationAxis>
+                            </Text>
+                          </children>
+                        </AnchorPane>
+                      </content>
+                    </TitledPane>
+                  </expandedPane>
+                  <panes>
                     <TitledPane id="titledPane1" fx:id="x1">
                       <content>
                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -46,30 +69,7 @@
                         </AnchorPane>
                       </content>
                     </TitledPane>
-                  </expandedPane>
-                  <panes>
-                    <fx:reference source="x1" />
-                    <TitledPane id="titledPane2">
-                      <content>
-                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                          <children>
-                            <Rectangle id="rectangle2" arcHeight="5.0" arcWidth="5.0" fill="#66a3ff" height="22.0" layoutX="147.0" stroke="#bfbfbf" strokeType="INSIDE" width="504.0">
-                              <effect>
-                                <Reflection />
-                              </effect>
-                            </Rectangle>
-                            <Text id="text3" layoutX="361.0" layoutY="16.0" opacity="0.73" strokeType="OUTSIDE" strokeWidth="0.0" text="PANTALLA">
-                              <font>
-                                <Font size="16.0" />
-                              </font>
-                              <rotationAxis>
-                                <Point3D z="-30.0" />
-                              </rotationAxis>
-                            </Text>
-                          </children>
-                        </AnchorPane>
-                      </content>
-                    </TitledPane>
+                    <fx:reference source="x3" />
                   </panes>
                 </Accordion>
               </children>

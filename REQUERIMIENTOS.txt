@@ -8,4 +8,4 @@ Que hay que hacer:
 
 ACTUAL
 -Crear un control para los horarios.
-crear un controlador para testPane
+-Crear un controlador para testPane.

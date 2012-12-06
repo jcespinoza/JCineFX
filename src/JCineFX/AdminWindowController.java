@@ -36,6 +36,7 @@ public class AdminWindowController implements Initializable {
     public Button btnImagenUser;
     public ImageView imgUser;
     public String imagePath = "file:src/res/user-icon-big.png"; //imagen por defecto
+    public AnchorPane sillasPane;
     
     
     @FXML
@@ -90,7 +91,7 @@ public class AdminWindowController implements Initializable {
         }
     }
 
-    private void fillHorarioPane() {
+    private void fillHorarioPane(){
         horariosPane.getChildren().add(new TestPane(horariosPane));
     }
 }
