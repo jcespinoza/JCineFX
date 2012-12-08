@@ -10,6 +10,7 @@ package EDJC.peliculas;
  */
 public enum TipoClasificacion {
     TODO_PUBLICO("Todo publico", 100), MAYORES_15("Mayores de 15 Años", 15), MAYORES_18("Mayores de 18 años", 18), ADULTOS("Adultos", 21);
+
     private String descrip;
     private int minEdadPermitida;
     
@@ -21,5 +22,20 @@ public enum TipoClasificacion {
     @Override
     public String toString(){
         return this.descrip;
+    }
+    
+    public static TipoClasificacion parseClas(String text) {
+        switch(text){
+            case "Todo Público":
+                return TODO_PUBLICO;
+            case "Mayores de 15":
+                return MAYORES_15;
+            case "Mayores de 18":
+                return MAYORES_18;
+            case "Adultos":
+                return ADULTOS;
+            default:
+                throw new IllegalArgumentException("Clasificacion Inválida");
+        }
     }
 }

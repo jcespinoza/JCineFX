@@ -53,7 +53,5 @@ public class PeliculaBuilder {
             ret.setImgArchivo(imgPath);
         }
         return ret;
-    }
-    
-    
+    }  
 }

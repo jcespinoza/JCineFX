@@ -20,7 +20,7 @@ public class IOtest {
         FileOutputStream fout = null;
         try {
             Usuario source = new Usuario("jcespinoza", "password".toCharArray());
-            source.SetNombreCompleto("Juan Carlos Espinoza");
+            source.setNombreCompleto("Juan Carlos Espinoza");
             source.setCredencialActiva(true);
             source.setFotoPath("fotos/pic1.jpg");
             

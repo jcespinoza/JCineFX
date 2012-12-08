@@ -4,8 +4,6 @@
  */
 package EDJC.seguridad;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Jay C Espinoza
@@ -33,7 +31,7 @@ public final class Usuario{
     public Usuario(){
         username = "";
         NombreCompleto = "";
-        cred = "".toCharArray();
+        cred = "000000".toCharArray();
         fotoPath = "";
     }
     
@@ -78,7 +76,7 @@ public final class Usuario{
         
         this.cred = cred;
     }
-    public void SetNombreCompleto(String nombre){
+    public void setNombreCompleto(String nombre){
         this.NombreCompleto=nombre;
     }
 

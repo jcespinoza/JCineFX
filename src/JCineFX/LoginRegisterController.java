@@ -26,10 +26,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -155,7 +151,7 @@ public class LoginRegisterController implements Initializable {
         try{
             temp.setUsername(user);
             temp.setPassword(pass1);
-            temp.SetNombreCompleto(name);
+            temp.setNombreCompleto(name);
             temp.setFotoPath(imgPath);
             
             Usuario result = UserBuilder.leerUser(user);

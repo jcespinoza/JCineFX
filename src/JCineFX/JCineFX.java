@@ -21,11 +21,11 @@ import javafx.stage.Stage;
  */
 public class JCineFX extends Application{
     public static final String confFilePath = "config.mov";
-    private static int salaCounter;
-    private static int movCounter;
+    private static int salaCounter = 1;
+    private static int movCounter = 1;
     private static Usuario currentUser;
     private static Configuracion conf;
-    
+   
     @Override
     public void start(Stage stage) throws Exception {
         crearTodo();
@@ -33,13 +33,10 @@ public class JCineFX extends Application{
         salaCounter = conf.getContadorSala();
         currentUser = UserBuilder.leerUser( conf.getUsuarioActual() );
         
-        Parent root = FXMLLoader.load(getClass().getResource("ModSelection.fxml"));
-        
+        Parent root = FXMLLoader.load(getClass().getResource("ModSelection.fxml"));       
         Scene scene = new Scene(root);
-        
         stage.setScene(scene);
         stage.show();
-        System.out.println("Counter: "  + getSalaCounter());
     }
 
     public static void main(String[] args) {
@@ -56,7 +53,6 @@ public class JCineFX extends Application{
     }
 
     public static int getSalaCounter() throws FileNotFoundException, IOException, ClassNotFoundException {
-        salaCounter = leerConf().getContadorSala();
         return salaCounter;
     }
 
@@ -64,7 +60,7 @@ public class JCineFX extends Application{
         JCineFX.salaCounter = leerConf().getContadorSala() + 1;
     }
 
-    public static Usuario getCurrentUser() throws FileNotFoundException, IOException, ClassNotFoundException {
+    public static Usuario getCurrentUser() throws FileNotFoundException, IOException{
         currentUser = UserBuilder.leerUser( leerConf().getUsuarioActual() );
         return currentUser;
     }
@@ -93,16 +89,14 @@ public class JCineFX extends Application{
             if( raf.length() == 0){
                 raf.close();
                 Usuario nUser = new Usuario("guest", "password".toCharArray());
-                nUser.SetNombreCompleto("Administrator");
-                nUser.setFotoPath("src/res/user-icon-big.png");
+                nUser.setNombreCompleto("Administrator");
+                nUser.setFotoPath("file:src/res/user-icon-big.png");
                 UserBuilder.escribirUser(nUser);
             }
             
             raf = new RandomAccessFile("peliculas.mov", "rw");
             
             //si el archivo de configuracion existe no es necesario crear nada
-        }else{
-            System.out.println(confFile.getPath() + " ya existia");
         }
     }
 
@@ -122,7 +116,6 @@ public class JCineFX extends Application{
             c.setContadorSala(countSala);
             c.setContadorPeli(countMov);
             
-            System.out.println("Read: Returning " + c);
             return c;
         }
         return new Configuracion();
@@ -130,7 +123,6 @@ public class JCineFX extends Application{
     
     public static void escribirConf(Configuracion conf) throws FileNotFoundException, IOException{
         File confFile = new File(JCineFX.confFilePath);
-        System.out.println("Conf is: " + conf);
         RandomAccessFile raf = new RandomAccessFile(confFile, "rw");
         raf.writeUTF(conf.getUsuarioActual());
         raf.writeUTF(conf.getDirectorio());
@@ -142,8 +134,21 @@ public class JCineFX extends Application{
         Configuracion conf = leerConf();
         conf.setUsuarioActual(u.getUsername());
         escribirConf(conf);
-        System.out.println("escrito: " + conf);
         JCineFX.conf = leerConf();
         return conf;
+    }
+    
+    public static void aumentarContMov() throws IOException{
+        Configuracion conf = leerConf();
+        conf.setContadorPeli( conf.getContadorPeli() + 1);
+        escribirConf(conf);
+        JCineFX.conf = leerConf();
+    }
+    
+    public static void aumentarContSala() throws IOException{
+        Configuracion conf = leerConf();
+        conf.setContadorSala( conf.getContadorSala() + 1);
+        escribirConf(conf);
+        JCineFX.conf = leerConf();
     }
 }

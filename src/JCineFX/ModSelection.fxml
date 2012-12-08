@@ -18,6 +18,6 @@
     <Label fx:id="lblTitle" alignment="CENTER" prefHeight="19.0" prefWidth="443.0" text="Seleccion de Modulo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0" />
   </children>
   <stylesheets>
-    <URL value="@modselection.css" />
+    <URL value="@../CSS/modselection.css" />
   </stylesheets>
 </AnchorPane>

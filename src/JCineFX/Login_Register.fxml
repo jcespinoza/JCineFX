@@ -65,7 +65,7 @@
                 <Button fx:id="cancelReg" layoutX="282.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleCancelarReg" prefHeight="29.0" prefWidth="134.0" text="Cancelar" />
                 <Label fx:id="editLabel" ellipsisString="" layoutX="182.0" layoutY="49.0" onMouseClicked="#handleFotoClick" prefHeight="36.0" prefWidth="35.0" styleClass="editFotoLabel">
                   <stylesheets>
-                    <URL value="@loginregister.css" />
+                    <URL value="@../CSS/loginregister.css" />
                   </stylesheets>
                 </Label>
                 <Label id="label2" fx:id="userMsgReg" layoutX="107.0" layoutY="241.0" prefWidth="162.0" text="Label" />
@@ -79,6 +79,6 @@
     </Accordion>
   </children>
   <stylesheets>
-    <URL value="@loginregister.css" />
+    <URL value="@../CSS/loginregister.css" />
   </stylesheets>
 </AnchorPane>
