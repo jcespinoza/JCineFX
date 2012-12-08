@@ -14,7 +14,16 @@ import java.io.Serializable;
 public class Configuracion implements Serializable{
     private String usuarioActual = "";
     private String directorio = ".";
-    private int contador = 1;
+    private int contSala = 1;
+    private int contPeli = 1;
+
+    public int getContadorPeli() {
+        return contPeli;
+    }
+
+    public void setContadorPeli(int contPeli) {
+        this.contPeli = contPeli;
+    }
 
     public String getUsuarioActual() {
         return usuarioActual;
@@ -32,18 +41,18 @@ public class Configuracion implements Serializable{
         this.directorio = directorio;
     }
 
-    public int getContador() {
-        return contador;
+    public int getContadorSala() {
+        return contSala;
     }
 
-    public void setContador(int contador) {
-        if(contador > this.contador)
-            this.contador = contador;
+    public void setContadorSala(int contador) {
+        if(contador > this.contSala)
+            this.contSala = contador;
     }
     
     /*REMOVE tHIS LINE*/
     @Override
     public String toString(){
-        return "Contador: " + contador +" UsuarioActual:" + usuarioActual;
+        return "Contador: " + contSala +" UsuarioActual:" + usuarioActual;
     }
 }

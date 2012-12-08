@@ -7,12 +7,8 @@ package JCineFX;
 import EDJC.seguridad.UserBuilder;
 import EDJC.seguridad.Usuario;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +22,7 @@ import javafx.stage.Stage;
 public class JCineFX extends Application{
     public static final String confFilePath = "config.mov";
     private static int salaCounter;
+    private static int movCounter;
     private static Usuario currentUser;
     private static Configuracion conf;
     
@@ -33,7 +30,7 @@ public class JCineFX extends Application{
     public void start(Stage stage) throws Exception {
         crearTodo();
         conf = leerConf();
-        salaCounter = conf.getContador();
+        salaCounter = conf.getContadorSala();
         currentUser = UserBuilder.leerUser( conf.getUsuarioActual() );
         
         Parent root = FXMLLoader.load(getClass().getResource("ModSelection.fxml"));
@@ -49,13 +46,22 @@ public class JCineFX extends Application{
         launch(args);
     }
 
+    public static int getMovCounter() throws IOException {
+        movCounter = leerConf().getContadorPeli();
+        return movCounter;
+    }
+
+    public static void setMovCounter(int movCounter) throws IOException {
+        JCineFX.movCounter = leerConf().getContadorPeli() + 1;
+    }
+
     public static int getSalaCounter() throws FileNotFoundException, IOException, ClassNotFoundException {
-        salaCounter = leerConf().getContador();
+        salaCounter = leerConf().getContadorSala();
         return salaCounter;
     }
 
     public static void setSalaCounter(int salaCounter) throws FileNotFoundException, IOException, ClassNotFoundException {
-        JCineFX.salaCounter = leerConf().getContador() + 1;
+        JCineFX.salaCounter = leerConf().getContadorSala() + 1;
     }
 
     public static Usuario getCurrentUser() throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -82,7 +88,7 @@ public class JCineFX extends Application{
             File horarios = new File("horarios");
             if(!horarios.exists())
                 horarios.mkdir();
-            
+                        
             RandomAccessFile raf = new RandomAccessFile("cinefilos.mov", "rw");
             if( raf.length() == 0){
                 raf.close();
@@ -91,6 +97,8 @@ public class JCineFX extends Application{
                 nUser.setFotoPath("src/res/user-icon-big.png");
                 UserBuilder.escribirUser(nUser);
             }
+            
+            raf = new RandomAccessFile("peliculas.mov", "rw");
             
             //si el archivo de configuracion existe no es necesario crear nada
         }else{
@@ -105,12 +113,14 @@ public class JCineFX extends Application{
             RandomAccessFile raf = new RandomAccessFile(confFile, "r");
             String user = raf.readUTF();
             String dir = raf.readUTF();
-            int count = raf.readInt();
+            int countSala = raf.readInt();
+            int countMov = raf.readInt();
             
             Configuracion c = new Configuracion();
             c.setUsuarioActual(user);
             c.setDirectorio(dir);
-            c.setContador(count);
+            c.setContadorSala(countSala);
+            c.setContadorPeli(countMov);
             
             System.out.println("Read: Returning " + c);
             return c;
@@ -124,11 +134,8 @@ public class JCineFX extends Application{
         RandomAccessFile raf = new RandomAccessFile(confFile, "rw");
         raf.writeUTF(conf.getUsuarioActual());
         raf.writeUTF(conf.getDirectorio());
-        raf.writeInt(conf.getContador());
-
-        /*if(!confFile.exists()){
-            raf.writeInt(1);
-        }*/
+        raf.writeInt(conf.getContadorSala());
+        raf.writeInt(conf.getContadorPeli());
     }
     
     public static Configuracion actualizarConf(Usuario u) throws FileNotFoundException, IOException, ClassNotFoundException{

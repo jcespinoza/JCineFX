@@ -10,8 +10,8 @@ package EDJC.peliculas;
  */
 public class Pelicula2D extends Pelicula{
 
-    public Pelicula2D(int d, String nom, GeneroPelicula gen, TipoClasificacion clas) {
-        super(d, nom, gen, clas);
+    public Pelicula2D(int c, int d, String nom, GeneroPelicula gen, TipoClasificacion clas) {
+        super(c, d, nom, gen, clas);
         this.tipo = TipoPelicula.PELICULA2D;
     }
 }

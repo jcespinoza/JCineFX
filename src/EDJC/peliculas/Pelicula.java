@@ -11,6 +11,7 @@ import java.util.Date;
  * @author Jay C Espinoza
  */
 public class Pelicula {
+    protected int codigo;
     protected int duracion;
     protected String nombre;
     protected GeneroPelicula genero;
@@ -18,12 +19,18 @@ public class Pelicula {
     protected TipoPelicula tipo;
     protected Date fechaAdicion;
     protected String imgArchivo;
+    protected Formato3D formato3D = Formato3D.NONE;
 
-    public Pelicula(int d, String n, GeneroPelicula g, TipoClasificacion c) {
+    public Pelicula(int cod, int d, String n, GeneroPelicula g, TipoClasificacion c) {
+        this.codigo = cod;
         this.duracion = d;
         this.nombre = n;
         this.genero = g;
         this.clasificacion = c;
+    }
+
+    public Formato3D getFormato3D() {
+        return formato3D;
     }
     
     public boolean is3D(){

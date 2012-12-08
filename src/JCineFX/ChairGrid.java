@@ -6,13 +6,15 @@ package JCineFX;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx. // implementar
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -20,7 +22,7 @@ import javafx.scene.layout.GridPane;
  *
  * @author Jay C Espinoza
  */
-public class ChairGrid extends AnchorPane implements Initializable, ActionListener{
+public class ChairGrid extends AnchorPane implements Initializable, EventHandler<MouseEvent> {
     private int countRow;
     private int countCol;
     private final int maxRows;
@@ -49,7 +51,13 @@ public class ChairGrid extends AnchorPane implements Initializable, ActionListen
     
     private void setActionListeners(){
         for(Node sc: this.getChildren()){
-            ((Button)sc).setOnAction(this);
+            ((Label)sc).setOnMouseClicked(this);
         }
+    }
+
+    @Override
+    public void handle(MouseEvent t) {
+        String text = ((Button)t.getSource()).getText();
+        System.out.println("A button with the text: " + text + " was clicked");
     }
 }
