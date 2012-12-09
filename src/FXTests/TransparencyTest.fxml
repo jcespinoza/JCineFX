@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml" fx:controller="FXTests.TransparencyTestController">
+  <children>
+    <Label id="label1" alignment="CENTER" ellipsisString="" layoutX="191.0" layoutY="84.0" onMouseClicked="#handleLabelClick" prefHeight="162.00009999999747" prefWidth="198.0" text="I'm a Label. If you click me I'll go transparent, if you click me again I'll go opaque back." wrapText="true" />
+  </children>
+  <stylesheets>
+    <URL value="@transparencytest.css" />
+  </stylesheets>
+</AnchorPane>

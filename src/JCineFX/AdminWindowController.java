@@ -20,8 +20,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -211,6 +209,12 @@ public class AdminWindowController implements Initializable {
     
     @FXML
     private void handleChangeUserImg(ActionEvent e){
-        System.out.println("I was clicked. My name is change user picture");
+        FileChooser fc = new FileChooser();
+        fc.setInitialDirectory(new File(System.getProperty("user.dir")));
+        String temp = fc.showOpenDialog( imgUser.getScene().getWindow() ).getPath();
+        if( temp != null ){
+            imagePath = "file:" + temp;
+        }
+        imgUser.setImage( new Image(imagePath));
     }
 }
