@@ -217,4 +217,9 @@ public class AdminWindowController implements Initializable {
         }
         imgUser.setImage( new Image(imagePath));
     }
+    
+    @FXML
+    private void handleDiseniar(ActionEvent e){
+        Disenio.showDesignDialog();
+    }
 }

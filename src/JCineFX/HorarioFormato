@@ -1,0 +1,7 @@
+int codPelicula
+int year
+int month
+int day
+int hora
+int minuto
+int duracion

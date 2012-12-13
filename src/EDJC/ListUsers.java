@@ -4,7 +4,6 @@
  */
 package EDJC;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -13,7 +12,7 @@ import java.io.RandomAccessFile;
  * @author Jay C Espinoza
  */
 public class ListUsers {
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws IOException {
         RandomAccessFile raf = new RandomAccessFile("cinefilos.mov", "r");
         
         while(raf.getFilePointer() < raf.length()){

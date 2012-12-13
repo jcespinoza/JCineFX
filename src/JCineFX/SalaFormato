@@ -1,0 +1,7 @@
+Sala#.mov File Format
+
+int rows
+int colums
+String tipo
+String formato3D
+int...int state
