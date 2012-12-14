@@ -10,13 +10,13 @@ import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 /**
  *
  * @author Jay C Espinoza
  */
-public class SillaControl extends Button implements Initializable, ChangeListener<SeatState> {
+public class SillaControl extends Label implements Initializable, ChangeListener<SeatState> {
     private ObservableValue<SeatState> state;
 
     @Override
@@ -24,12 +24,21 @@ public class SillaControl extends Button implements Initializable, ChangeListene
         //initialize the button with its state
     }
 
+    public SeatState getState(){
+        return state.getValue();
+    }
+    
+    public void setState(SeatState s){
+        SeatState s2 = this.state.getValue();
+        s2 = s;
+    }
+    
     @Override
     public void changed(ObservableValue<? extends SeatState> ov, SeatState oldState, SeatState newState) {
         changeSillaColor(newState);
     }
 
     private void changeSillaColor(SeatState state) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        System.out.println("I should change color");
     }
 }

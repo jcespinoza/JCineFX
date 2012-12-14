@@ -90,6 +90,11 @@ public class AdminWindowController implements Initializable {
     }
     
     @FXML
+    private void handleLogOut(ActionEvent e){
+        System.out.println("Loggin out...");
+    }
+    
+    @FXML
     private void handleUpdateButton(ActionEvent e){
         try {
             boolean oldPassOk = false;
@@ -220,6 +225,8 @@ public class AdminWindowController implements Initializable {
     
     @FXML
     private void handleDiseniar(ActionEvent e){
+        System.out.println("Iniciando...");
         Disenio.showDesignDialog();
+        System.out.println("clicked and shown");
     }
 }

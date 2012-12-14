@@ -5,6 +5,7 @@ import EDJC.salas.sillas.SeatState;
 import EDJC.seguridad.IllegalPasswordLengthException;
 import EDJC.seguridad.Usuario;
 import EDJC.util.Util;
+import java.applet.Applet;
 import java.util.ArrayList;
 
 /*
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author Jay C Espinoza
  */
-public class Test {
+public class Test extends Applet{
 
     /**
      * @param args the command line arguments
@@ -26,8 +27,8 @@ public class Test {
          * Testing SalaLayout
          */
         SalaLayout sl = new SalaLayout(4,5);
-        sl.setTodasVisibles();
-        sl.setSilla(2, 3, false);
+//        sl.setTodasVisibles();
+//        sl.setSilla(2, 3, false);
         System.out.println(sl);
         
         /*

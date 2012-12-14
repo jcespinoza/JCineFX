@@ -33,7 +33,7 @@
                             <TextField id="textField3" fx:id="filasField" layoutX="162.0" layoutY="196.0" prefWidth="145.0" />
                             <Label id="label3" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="265.0" prefWidth="135.0" text="Numero de Columnas:" />
                             <TextField id="textField3" fx:id="colsField" layoutX="162.0" layoutY="262.0" prefWidth="145.0" />
-                            <Button id="button6" fx:id="diseniarButton" layoutX="162.0" layoutY="308.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="145.0" text="Diseniar" />
+                            <Button id="button6" fx:id="diseniarButton" layoutX="162.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleDiseniar" prefHeight="31.0" prefWidth="145.0" text="Diseniar" />
                             <ChoiceBox id="tipoSalaBox" fx:id="tipoSalaCombo" layoutX="162.0" layoutY="132.0" prefWidth="145.0">
                               <items>
                                 <FXCollections fx:factory="observableArrayList">
@@ -205,7 +205,7 @@
         <Separator id="separatorVertical1" orientation="VERTICAL" prefHeight="21.0" />
         <MenuButton id="menuButton2" fx:id="opMenu" mnemonicParsing="false" prefWidth="145.0" text="Opciones">
           <items>
-            <MenuItem id="menuItem5" mnemonicParsing="false" text="Log out" />
+            <MenuItem id="menuItem5" mnemonicParsing="false" onAction="#handleLogOut" text="Log out" />
             <MenuItem id="menuItem6" mnemonicParsing="false" onAction="#handleExit" text="Salir del Sistema" />
           </items>
         </MenuButton>

@@ -1,22 +1,28 @@
 package JCineFX;
 
 import EDJC.salas.SalaLayout;
+import EDJC.salas.sillas.SeatState;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.RandomAccessFile;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class Disenio implements EventHandler<MouseEvent>{
-    private static RandomAccessFile raf;
-
+    
     public static void showDesignDialog(){
-        //codigo para hacer otra ventana
-        //luego de mostrar, guardar el arreglo
+        System.out.println("inicialezando");
+        Stage ns = new Stage();
+        System.out.println("passed stage creation");
+        ns.setScene(new Scene(new ChairGrid(null, 10, 10, true)));
+        System.out.println("let see N");
+        ns.show();
+        System.out.println("Disenio constructor donde");
     }
     
     public static void guardarDisenio(SalaLayout sala) throws IOException{
@@ -45,7 +51,11 @@ public class Disenio implements EventHandler<MouseEvent>{
 
     @Override
     public void handle(MouseEvent t) {
-        //change the state of the label on click
-        
+        SillaControl s = ((SillaControl)t.getSource());
+        if( s.getState() == SeatState.DISPONIBLE){
+            s.setState(SeatState.OCULTO);
+        }else{
+            s.setState(SeatState.DISPONIBLE);
+        }
     }
 }
