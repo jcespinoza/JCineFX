@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.beans.value.WritableValue;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
@@ -18,10 +19,16 @@ import javafx.scene.control.Label;
  */
 public class SillaControl extends Label implements Initializable, ChangeListener<SeatState> {
     private ObservableValue<SeatState> state;
+    private WritableValue<SeatState> st;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //initialize the button with its state
+    }
+    
+    public SillaControl(SeatState s){
+        super("X");
+        state = ((ObservableValue<SeatState>)(SeatState.valueOf(s.name())) );
     }
 
     public SeatState getState(){

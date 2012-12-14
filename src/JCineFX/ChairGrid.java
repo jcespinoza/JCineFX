@@ -4,6 +4,7 @@
  */
 package JCineFX;
 
+import EDJC.salas.sillas.SeatState;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.EventHandler;
@@ -23,10 +24,12 @@ public class ChairGrid extends AnchorPane implements Initializable{
     private int countCol;
     private final int maxRows;
     private final int maxCols;
+    private boolean design;
     
     private GridPane grid;
     
     public ChairGrid(Parent p, int maxR, int maxC, boolean design){
+        this.design = design;
         maxRows = maxR;
         maxCols = maxC;
         /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TestPane.fxml"));
@@ -34,7 +37,7 @@ public class ChairGrid extends AnchorPane implements Initializable{
         fxmlLoader.setController(this);*/
         grid = new GridPane();
         addElements();
-        setActionListeners(design);
+        setActionListeners();
         this.getChildren().add(grid);
         System.out.println("Constructor terminated");
     }
@@ -49,7 +52,7 @@ public class ChairGrid extends AnchorPane implements Initializable{
         
     }
     
-    private void setActionListeners(boolean design){
+    private void setActionListeners(){
         EventHandler<MouseEvent> handler;
         if( design ){
             handler = new Disenio();
@@ -63,9 +66,14 @@ public class ChairGrid extends AnchorPane implements Initializable{
     }
 
     private void addElements() {
+        grid.setGridLinesVisible(true);
+        SeatState s;
+        if( design ) s = SeatState.DISPONIBLE;
+        else s = SeatState.SELECCIONADO
         for(int i = 0; i < maxRows; i++){
-            for(int k = 0; i < maxCols; k++){
-                grid.add(new SillaControl(), k, i);
+            for(int k = 0; k < maxCols; k++){
+                
+                grid.add(new SillaControl(s), k, i);
             }
         }
         System.out.println("Finished addeing elements");
