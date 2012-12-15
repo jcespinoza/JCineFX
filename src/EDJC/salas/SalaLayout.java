@@ -1,75 +1,80 @@
 package EDJC.salas;
 
+import EDJC.salas.sillas.SeatState;
 import java.io.Serializable;
+import java.util.Arrays;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Clase para manipular la visibilidad de las sillas en un <code>SalaCine<code>.
- */
 public class SalaLayout implements Serializable{
+    private boolean is3D;
     private int[][] sillas;
     private int nSillas;
     private int filas;
     private int cols;
     
-    /**
-     * Crea un objeto <code>SalaLayout<code>, inicializa el numero de sillas
-     * con los parametros recibidos.
-     * @param filas El numero de filas que tendra la sala de cine.
-     * @param cols El numero de columnas que tendra la sala de cine.
-     */
-    public SalaLayout(int filas, int cols){
+    public SalaLayout(int filas, int cols, boolean is3D){
         this.filas = filas;
         this.cols = cols;
+        this.is3D = is3D;
         sillas = new int[filas][cols];
         nSillas = filas * cols;
     }
-    
-    /**
-     * Metodo para obtener la visibilidad de la silla en la posicion especificada.
-     * @param fila La posicion en la fila del cine.
-     * @param col La columna donde se ubica esa silla.
-     * @return <code>true</code> si la silla esta visible.
-     * @return <code>false</code> si la silla es invisible.
-     */
-    public int sillaVisible(int fila, int col){
-        return sillas[fila][col];
-    }
-    
-    /**
-     * Establece el estado de la Silla.
-     * @param fila La fila donde se ubica la silla.
-     * @param col La fila de la silla.
-     * @param estado <code>true</code> o <code>false</code> para poner visible o no esa silla.
-     */
-    public void setSilla(int fila, int col, int estado){
-        sillas[fila][col] = estado;
-    }
-    
-    /**
-     * Oculta todas las sillas inicializando de nuevo el arreglo de sillas.
-     */
-    /*public void setTodasOcultas(){
-        sillas = new int[filas][cols];
-    }*/
 
-    /**
-     * Establece visibles todas las sillas con la ayuda de <code>Arrays.fill(array, value)</code>
-     */
-    /*public void setTodasVisibles(){
-        for(int i = 0; i < filas; i++){
-            java.util.Arrays.fill(sillas[i], true);
-        }
-    }*/
+    public int[][] getSillas() {
+        return sillas;
+    }
+
+    public boolean isIs3D() {
+        return is3D;
+    }
+
+    public int getnSillas() {
+        return nSillas;
+    }
+
+    public int getFilas() {
+        return filas;
+    }
     
-    /**
-     * Metodo para obtener el Layout en forma de una cadena de caracteres.
-     * @return Un String representando el Layout de la Sala con una O donde hay una silla visible.
-     */
+    public SeatState getSeatState(int row, int col){
+        return SeatState.valueOf( sillas[row][col] );
+    }
+
+    public int getCols() {
+        return cols;
+    }
+    
+    public void setSilla(int fila, int col, SeatState s){
+        sillas[fila][col] = s.toInt();
+    }
+    
+    public static SalaLayout genSalaLayout(int rows, int cols, SeatState s, boolean _3D){
+        SalaLayout sala = new SalaLayout(rows, cols, _3D);
+        sala.makeAll(s);
+        return sala;
+    }
+    
+    public void makeAll(SeatState s){
+        int st = s.toInt();
+        for(int i = 0; i < filas; i++){
+            Arrays.fill(sillas[i], st);
+            /*for(int k = 0; k < cols; k++){
+                sillas[i][k] = st;
+            }*/
+        }
+    }
+    
+    public int howMany(SeatState s){
+        int filter = s.toInt();
+        int count = 0;
+        for(int i = 0; i < filas; i++){
+            for(int k = 0; k < cols; k++){
+                if( sillas[i][k] == filter)
+                    count++;
+            }
+        }
+        return count;
+    }
+    
     @Override
     public String toString(){
         String res = "";
@@ -78,13 +83,13 @@ public class SalaLayout implements Serializable{
                 //res += (sillas[i][j])?"O":" ";
                 int temp = sillas[i][j];
                 if( temp == 0)
-                    res = " ";
+                    res += " ";
                 else if( temp == 1)
-                    res = "D";
+                    res += "D";
                 else if(temp==2)
-                    res = "S";
+                    res += "S";
                 else
-                    res = "R";
+                    res += "R";
             }
             res += "\n";
         }

@@ -4,42 +4,52 @@
  */
 package JCineFX;
 
+import EDJC.salas.SalaLayout;
 import EDJC.salas.sillas.SeatState;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 
 /**
  *
  * @author Jay C Espinoza
  */
 public class ChairGrid extends AnchorPane implements Initializable{
-    private int countRow;
-    private int countCol;
+    private SalaLayout layout;
     private final int maxRows;
     private final int maxCols;
     private boolean design;
     
     private GridPane grid;
     
-    public ChairGrid(Parent p, int maxR, int maxC, boolean design){
+    public ChairGrid(SalaLayout lay, boolean design){
         this.design = design;
-        maxRows = maxR;
-        maxCols = maxC;
+        layout = lay;
+        maxRows = lay.getFilas();
+        maxCols = lay.getCols();
         /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TestPane.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);*/
         grid = new GridPane();
         addElements();
+        setConstrainst();
         setActionListeners();
         this.getChildren().add(grid);
-        System.out.println("Constructor terminated");
+        grid.setAlignment(Pos.CENTER);
+        setTopAnchor(grid, 0.0);
+        setBottomAnchor(grid, 0.);
+        setLeftAnchor(grid, 0.0);
+        setRightAnchor(grid, 0.0);
+        setPrefSize(maxCols*100, maxRows*100);
+        setMaxSize(800, 600);
     }
     
     @Override
@@ -47,35 +57,40 @@ public class ChairGrid extends AnchorPane implements Initializable{
         
     }
     
-    private void addChair(Node n){
-        grid.add(n, countRow++, countCol++);
-        
-    }
-    
     private void setActionListeners(){
         EventHandler<MouseEvent> handler;
         if( design ){
-            handler = new Disenio();
+            handler = Disenio.getHandler();
         }else{
             handler = null;
         }
         for(Node sc: this.grid.getChildren()){
             sc.setOnMouseClicked(handler);
         }
-        System.out.println("Listeners set");
     }
 
     private void addElements() {
-        grid.setGridLinesVisible(true);
+        //grid.setGridLinesVisible(true);
         SeatState s;
-        if( design ) s = SeatState.DISPONIBLE;
-        else s = SeatState.SELECCIONADO
         for(int i = 0; i < maxRows; i++){
             for(int k = 0; k < maxCols; k++){
-                
-                grid.add(new SillaControl(s), k, i);
+                s = layout.getSeatState(i, k);
+                SillaControl silla = new SillaControl(s, i, k);
+                grid.add(silla, k, i);
             }
         }
-        System.out.println("Finished addeing elements");
+    }
+
+    private void setConstrainst() {
+        for(int i = 0; i < maxRows; i++){
+            RowConstraints row = new RowConstraints();
+            row.setPercentHeight(100/maxRows);
+            grid.getRowConstraints().add(row);
+        }
+        for(int i = 0; i < maxCols; i++){
+            ColumnConstraints cols = new ColumnConstraints();
+            cols.setPercentWidth(100/(maxCols));
+            grid.getColumnConstraints().add(cols);
+        }
     }
 }

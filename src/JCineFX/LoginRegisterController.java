@@ -90,7 +90,7 @@ public class LoginRegisterController implements Initializable {
             }
             showAdminWindow(e);
         }else{
-            System.out.println("Wring credes");
+            System.out.println("Wrong creds");
         }
     }
     

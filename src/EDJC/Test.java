@@ -26,7 +26,7 @@ public class Test extends Applet{
         /*
          * Testing SalaLayout
          */
-        SalaLayout sl = new SalaLayout(4,5);
+        SalaLayout sl = new SalaLayout(4,5, true);
 //        sl.setTodasVisibles();
 //        sl.setSilla(2, 3, false);
         System.out.println(sl);

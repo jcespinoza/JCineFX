@@ -25,6 +25,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.PasswordField;
@@ -47,6 +48,10 @@ public class AdminWindowController implements Initializable {
     public PasswordField oldPassField;
     public PasswordField newPass1Field;
     public PasswordField newPass2Field;
+    //Sala tab
+    public TextField filasField;
+    public TextField colsField;
+    public ChoiceBox tipoSalaCombo;
     //Pelicula Tab
     public TextField tituloField;
     public TextField duracionField;
@@ -119,7 +124,6 @@ public class AdminWindowController implements Initializable {
             }else{
                 //si algo estaba mal, tomar acciones basandose en los boolean de alla arriba
             }
-            //UserBuilder.escribirUser();
         } catch (FileNotFoundException ex) {
             System.out.println("Unable to find file");
         } catch (IOException ex) {
@@ -225,8 +229,17 @@ public class AdminWindowController implements Initializable {
     
     @FXML
     private void handleDiseniar(ActionEvent e){
-        System.out.println("Iniciando...");
-        Disenio.showDesignDialog();
-        System.out.println("clicked and shown");
+        try{
+            int filas = Integer.parseInt(filasField.getText());
+            int cols = Integer.parseInt(colsField.getText());
+            String tipo = (String)(tipoSalaCombo.getValue());
+            boolean _3D = tipo.equals("3D");
+            Disenio dis = new Disenio(filas, cols, _3D);
+            dis.showDesignDialog();
+        }catch(NumberFormatException ex){
+            System.out.println("There were no numbers");
+        }catch(NullPointerException ex){
+            System.out.println("Tipo de Sala not selected");
+        }
     }
 }
