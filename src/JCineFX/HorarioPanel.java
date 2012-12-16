@@ -4,11 +4,18 @@
  */
 package JCineFX;
 
-import EDJC.peliculas.MovieTile;
+import EDJC.peliculas.Pelicula;
 import EDJC.peliculas.PeliculaBuilder;
+import EDJC.salas.HorarioBuilder;
+import EDJC.salas.SalaBuilder;
+import EDJC.salas.SalaLayout;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,6 +24,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
@@ -43,8 +52,13 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
     private TitledPane unclePane;
     public ImageView movImg;
     public VBox vboxPane;
+    public ChoiceBox salasChoiceBox;
+    private Pelicula peli;
+    public Label tipoSala;
+    private ArrayList<String> salas;
     
     public HorarioPanel(Node uncle){
+        salas = new ArrayList<>();
         unclePane = (TitledPane)uncle;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewHorarioWindow.fxml"));
         fxmlLoader.setRoot(this);
@@ -75,11 +89,25 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
         //column, row
         rGrid.add(fechaControl, 2, 2);
         rGrid.add(timeControl, 2, 3);
-        PeliculaBuilder.fillMoviesPanel(vboxPane);
+        tipoSala.setText("");
+        salasChoiceBox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
+                tipoSala.setText(salas.get(t1.intValue()));
+            }
+        });
+        PeliculaBuilder.fillMoviesPanel(vboxPane, this);
+        emptySalaChoices();
+        SalaBuilder.fillSalaChoices(salasChoiceBox, salas);
     }
     
     public void emptyMoviesPanel(){
         vboxPane.getChildren().removeAll(vboxPane.getChildren());
+    }
+
+    public void emptySalaChoices(){
+        salasChoiceBox.getItems().removeAll(salasChoiceBox.getItems());
     }
     
     @FXML
@@ -87,11 +115,19 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
         unclePane.setCollapsible(true);
         unclePane.setExpanded(true);
         unclePane.setCollapsible(false);
+        int codSala = Integer.parseInt( (String)salasChoiceBox.getValue() );
+        if( HorarioBuilder.dataMakeSense(peli, codSala, fechaControl, timeControl) ){
+            System.out.println("Pelicula Code: " + peli);
+            System.out.println("Fecha: " + fechaControl);
+            System.out.println("Time: " + timeControl);
+            System.out.println("Cod Sala: " + codSala);
+        }
     }
 
     @Override
     public void handle(MouseEvent t) {
         MovieTile mov = ((MovieTile)t.getSource());
-        movImg.setImage(new Image(mov.getPelicula().getImgArchivo()));
+        peli = mov.getPelicula();
+        movImg.setImage(new Image(peli.getImgArchivo()));
     }
 }

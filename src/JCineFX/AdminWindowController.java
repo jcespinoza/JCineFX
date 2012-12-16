@@ -79,6 +79,7 @@ public class AdminWindowController implements Initializable {
     public Menu userMenuItem;
     private Configuracion localConf;
     public TabPane tabs;
+    private HorarioPanel hp;
 
     /**
      * Initializes the controller class.
@@ -164,7 +165,7 @@ public class AdminWindowController implements Initializable {
     }
 
     private void fillHorarioPane(){
-        HorarioPanel hp = new HorarioPanel(x4);
+        hp = new HorarioPanel(x4);
 //        hp.setPrefSize(horariosPane.heightProperty().doubleValue(), horariosPane.widthProperty().doubleValue());
         horariosPane.setTopAnchor(hp, 0.0);
         horariosPane.setBottomAnchor(hp, 0.0);
@@ -221,7 +222,7 @@ public class AdminWindowController implements Initializable {
     @FXML
     private void handleBuscarImg(ActionEvent e){
         FileChooser fc = new FileChooser();
-        fc.setInitialDirectory(new File(System.getProperty("user.dir")));
+        fc.setInitialDirectory(new File(System.getProperty("user.dir") + "/src/res/img"));
         String temp = fc.showOpenDialog( imgPelicula.getScene().getWindow() ).getPath();
         if( temp != null){
             peliImg = "file:" + temp;  
@@ -266,6 +267,7 @@ public class AdminWindowController implements Initializable {
     private void handleNewHorario(ActionEvent e){
         horariosPane.getChildren().removeAll(horariosPane.getChildren());
         fillHorarioPane();
+        x4.setCollapsible(true);
         exHorario.setExpanded(true);
         x4.setCollapsible(false);
     }

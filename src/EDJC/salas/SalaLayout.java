@@ -23,7 +23,7 @@ public class SalaLayout implements Serializable{
         return sillas;
     }
 
-    public boolean isIs3D() {
+    public boolean is3D() {
         return is3D;
     }
 
