@@ -1,19 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package EDJC.salas;
 
 import EDJC.peliculas.Pelicula;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import jfxtras.labs.scene.control.CalendarTextField;
 
-/**
- *
- * @author Jay C Espinoza
- */
 public final class Horario {
     private Calendar fecha;
     private int codPeli;

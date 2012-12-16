@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="726.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <MenuBar id="menuBar1" prefHeight="28.0" prefWidth="726.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <menus>
+        <Menu id="fileMenu1" mnemonicParsing="false" text="Programa">
+          <items>
+            <MenuItem id="close1" mnemonicParsing="false" text="Close" />
+          </items>
+        </Menu>
+        <Menu id="editMenu1" mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem id="delete1" mnemonicParsing="false" text="Delete" />
+          </items>
+        </Menu>
+        <Menu id="helpMenu1" mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem id="about1" mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane id="anchorPane1" fx:id="content" prefHeight="533.0" prefWidth="726.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0" />
+  </children>
+</AnchorPane>

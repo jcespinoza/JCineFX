@@ -32,7 +32,7 @@ public class SillaControl extends AnchorPane implements Initializable{
         setBottomAnchor(label, 0.0);
         setLeftAnchor(label, 0.0);
         setRightAnchor(label, 0.0);
-        
+        changeSillaColor(state);
         getChildren().add(label);
     }
 
@@ -53,15 +53,15 @@ public class SillaControl extends AnchorPane implements Initializable{
         changeSillaColor(state);
     }
     
-    private void changeSillaColor(SeatState state) {
-        switch(state){
+    private void changeSillaColor(SeatState s) {
+        switch(s){
             case DISPONIBLE: case SELECCIONADO: case RESERVADO:
                 label.setText(getName());
                 break;
             default:
                 label.setText("");
         }
-        setId(state.toString());
+        setStyle("-fx-background-color: rgb("+s.r()+","+s.g()+","+s.b()+");");
     }
 
     public String getName() {

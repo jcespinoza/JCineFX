@@ -74,6 +74,6 @@
     </SplitPane>
   </children>
   <stylesheets>
-    <URL value="@newhorariowindow.css" />
+    <URL value="@../CSS/newhorariowindow.css" />
   </stylesheets>
 </fx:root>

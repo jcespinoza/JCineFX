@@ -38,9 +38,6 @@ public class ChairGrid extends AnchorPane implements Initializable{
         layout = lay;
         maxRows = lay.getFilas();
         maxCols = lay.getCols();
-        /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TestPane.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);*/
         grid = new GridPane();
         addElements();
         setConstrainst();

@@ -25,6 +25,17 @@ public enum SeatState {
         this.index = i;
     }
     
+    public int r(){
+        return red;
+    }
+    
+    public int g(){
+        return green;
+    }
+    public int b(){
+        return blue;
+    }
+    
     @Override
     public String toString(){
         return Util.toTitleCase(super.toString());
