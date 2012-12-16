@@ -4,9 +4,11 @@
  */
 package EDJC.salas;
 
+import EDJC.peliculas.Pelicula;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import jfxtras.labs.scene.control.CalendarTextField;
 
 /**
  *
@@ -33,6 +35,14 @@ public final class Horario {
         setMinuto(min);
         setCodPeli(cod);
         setDuracion(duracion);
+    }
+    public Horario(Pelicula p, Calendar fecha, Calendar hora){
+        this();
+        setFecha(fecha.getTime());
+        setHora(hora.get(Calendar.HOUR_OF_DAY));
+        setMinuto(hora.get(Calendar.MINUTE));
+        setCodPeli(p.getCodigo());
+        setDuracion(p.getDuracion());
     }
         
     public Calendar getFecha(){

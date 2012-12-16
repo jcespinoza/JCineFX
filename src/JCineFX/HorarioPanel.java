@@ -6,17 +6,17 @@ package JCineFX;
 
 import EDJC.peliculas.Pelicula;
 import EDJC.peliculas.PeliculaBuilder;
+import EDJC.salas.Horario;
 import EDJC.salas.HorarioBuilder;
 import EDJC.salas.SalaBuilder;
-import EDJC.salas.SalaLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -117,10 +117,16 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
         unclePane.setCollapsible(false);
         int codSala = Integer.parseInt( (String)salasChoiceBox.getValue() );
         if( HorarioBuilder.dataMakeSense(peli, codSala, fechaControl, timeControl) ){
-            System.out.println("Pelicula Code: " + peli);
-            System.out.println("Fecha: " + fechaControl);
-            System.out.println("Time: " + timeControl);
-            System.out.println("Cod Sala: " + codSala);
+            try {
+                if( HorarioBuilder.areCompatible(codSala, peli.getCodigo())){
+                    HorarioBuilder.escribirHorario(codSala, new Horario(peli, fechaControl.getValue(), timeControl.getValue()));
+                    System.out.println("Success!");
+                }
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }else{
+            System.out.println("Doesnt make sense");
         }
     }
 

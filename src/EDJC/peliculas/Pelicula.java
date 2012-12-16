@@ -42,6 +42,10 @@ public class Pelicula {
         return (formato3D != Formato3D.NONE);
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
     public int getDuracion() {
         return duracion;
     }

@@ -60,6 +60,7 @@ public class HorarioBuilder {
         } catch (Exception ex) {
             return false;
         }
+        System.out.println("Incompatible");
         return false;
     }
     
