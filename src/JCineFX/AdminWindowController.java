@@ -11,15 +11,20 @@ import EDJC.peliculas.PeliculaBuilder;
 import EDJC.peliculas.TipoClasificacion;
 import EDJC.peliculas.TipoPelicula;
 import EDJC.salas.Disenio;
+import EDJC.salas.HorarioBuilder;
+import EDJC.salas.SalaBuilder;
 import EDJC.seguridad.UserBuilder;
 import EDJC.seguridad.Usuario;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -36,6 +41,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 
 /**
@@ -80,6 +86,8 @@ public class AdminWindowController implements Initializable {
     private Configuracion localConf;
     public TabPane tabs;
     private HorarioPanel hp;
+    public HBox hboxHoras;
+    public ChoiceBox salasChoice;
 
     /**
      * Initializes the controller class.
@@ -95,6 +103,15 @@ public class AdminWindowController implements Initializable {
         } catch (Exception ex) {
             System.out.println(ex);
         }
+        SalaBuilder.fillSalaChoices(salasChoice, new ArrayList<String>());
+        salasChoice.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
+                loadHorarios();
+                System.out.println("Salachoice changed " + t1);
+            }
+        });
     }
     
     @FXML
@@ -154,19 +171,15 @@ public class AdminWindowController implements Initializable {
         nombreField.setText(JCineFX.getCurrentUser().getNombreCompleto());
         oldPassField.setText(new String(JCineFX.getCurrentUser().getPassword()));
         String tempPath = JCineFX.getCurrentUser().getFotoPath();
-        System.out.println("TempFile:" + tempPath);
         try{
             imgUser.setImage(new Image(tempPath));
-            System.out.println("Succesfuly set the image:" + tempPath);
         }catch(IllegalArgumentException ex){
-            System.out.println("Failed to set the image:" + tempPath);
             imgUser.setImage(new Image(imagePath));
         }
     }
 
     private void fillHorarioPane(){
-        hp = new HorarioPanel(x4);
-//        hp.setPrefSize(horariosPane.heightProperty().doubleValue(), horariosPane.widthProperty().doubleValue());
+        hp = new HorarioPanel(x4, this);
         horariosPane.setTopAnchor(hp, 0.0);
         horariosPane.setBottomAnchor(hp, 0.0);
         horariosPane.setLeftAnchor(hp, 0.0);
@@ -187,11 +200,7 @@ public class AdminWindowController implements Initializable {
             TipoClasificacion clas  = TipoClasificacion.parseClas( (String)clasiCombo.getValue() );
             Date adicion            = new Date();
             
-            Pelicula peli;
-            //if(tipo == TipoPelicula.PELICULA2D)
-               // peli = new Pelicula(cod, dur, title, gen, clas);
-            //else
-                peli = new Pelicula(cod, dur, title, gen, clas, form);
+            Pelicula peli = new Pelicula(cod, dur, title, gen, clas, form);
             
             peli.setFechaAdicion(adicion);
             peli.setImgArchivo(peliImg);
@@ -261,6 +270,10 @@ public class AdminWindowController implements Initializable {
     private void handleMod(ActionEvent e){
         SelectionModel<Tab> tSelection = tabs.getSelectionModel();
         tSelection.select(profileTab);
+    }
+    
+    public void loadHorarios(){
+        HorarioBuilder.fillPanel(hboxHoras, salasChoice);
     }
     
     @FXML

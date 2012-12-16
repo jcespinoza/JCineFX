@@ -166,10 +166,20 @@
                           <children>
                             <ScrollPane id="scrollPane1" layoutX="-1.0" layoutY="37.0" prefHeight="361.0" prefWidth="797.0">
                               <content>
-                                <HBox id="hBox1" prefHeight="335.0" prefWidth="786.0" />
+                                <HBox id="hBox1" fx:id="hboxHoras" prefHeight="335.0" prefWidth="786.0" />
                               </content>
                             </ScrollPane>
                             <Button id="button1" fx:id="newHorarioButton" defaultButton="true" layoutX="339.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleNewHorario" prefHeight="30.000099999997474" prefWidth="120.0" text="Agregar Horario" />
+                            <ChoiceBox id="choiceBox1" fx:id="salasChoice" layoutX="108.0" layoutY="5.0" prefWidth="97.0">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                            </ChoiceBox>
+                            <Label id="label5" layoutX="14.0" layoutY="7.0" text="Codigo de Sala:" />
                           </children>
                         </AnchorPane>
                       </content>

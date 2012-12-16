@@ -25,7 +25,6 @@ public class Disenio{
             @Override
             public void handle(MouseEvent t) {
                 SillaControl s = ((SillaControl)t.getSource());
-                System.out.println("I'm " + s.getName() + ". My previous state was " + s.getState());
                 if( s.getState() == SeatState.DISPONIBLE){
                     s.setState(SeatState.OCULTO);
                 }else{

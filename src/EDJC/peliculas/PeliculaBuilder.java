@@ -31,33 +31,6 @@ public class PeliculaBuilder {
         raf.writeUTF(p.getImgArchivo());
     }
     
-    public static Pelicula leerPeliculas(int codigo) throws IOException{
-        RandomAccessFile raf = new RandomAccessFile("peliculas.mov", "r");
-        raf.seek(0);
-        Pelicula ret = null;
-        while(raf.getFilePointer() < raf.length()){
-            int cod = raf.readInt();
-            String titulo = raf.readUTF();
-            int durac = raf.readInt();
-            GeneroPelicula gen = GeneroPelicula.valueOf( raf.readUTF() );
-            TipoClasificacion clas = TipoClasificacion.valueOf( raf.readUTF() );
-            long fecha = raf.readLong();
-            TipoPelicula tipo = TipoPelicula.valueOf( raf.readUTF() );
-            String sForm3D = raf.readUTF();
-            Formato3D form3D = Formato3D.valueOf(sForm3D);
-            String imgPath = raf.readUTF();
-            
-            //if( sForm3D.equals("NONE") ){
-                //ret = new Pelicula(cod, durac, titulo, gen, clas);
-            //}else{
-                ret = new Pelicula(cod, durac, titulo, gen, clas, form3D);
-            //}
-            ret.setFechaAdicion(new Date(fecha));
-            ret.setImgArchivo(imgPath);
-        }
-        return ret;
-    }
-    
     public static Pelicula leerPelicula(int codigo) throws IOException{
         RandomAccessFile raf = new RandomAccessFile("peliculas.mov", "r");
         raf.seek(0);

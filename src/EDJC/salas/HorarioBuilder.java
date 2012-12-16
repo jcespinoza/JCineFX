@@ -2,6 +2,7 @@ package EDJC.salas;
 
 import EDJC.peliculas.Pelicula;
 import EDJC.peliculas.PeliculaBuilder;
+import JCineFX.HorarioControl;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -9,12 +10,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.HBox;
 import jfxtras.labs.scene.control.CalendarTextField;
 import jfxtras.labs.scene.control.CalendarTimeTextField;
 
 public class HorarioBuilder {
-    
-    
     
     public static void escribirHorario(int cod, Horario h) throws IOException{
         RandomAccessFile raf = new RandomAccessFile("horarios/horarios_" + cod + ".mov", "rw");
@@ -54,6 +55,8 @@ public class HorarioBuilder {
             SalaLayout s = SalaBuilder.leerSala(codSala);
             Pelicula p = PeliculaBuilder.leerPelicula(codPeli);
             if(s.is3D() && p.is3D())
+                return true;
+            if(s.is3D() && !p.is3D())
                 return true;
             if(!s.is3D() && !p.is3D())
                 return true;
@@ -140,5 +143,18 @@ public class HorarioBuilder {
             array.add(array.indexOf(next), hor);
         }
         return false;
+    }
+
+    public static void fillPanel(HBox box, ChoiceBox salas) {
+        try {
+            box.getChildren().removeAll(box.getChildren());
+            ArrayList<Horario> hors = readHorarios(salas.getSelectionModel().getSelectedIndex()+1);
+            for(Horario h: hors){
+                HorarioControl hc = new HorarioControl(h, box);
+                box.getChildren().add(hc);
+            }
+        } catch (IOException ex) {
+            System.out.println("Error when trying to read Horarios");
+        }
     }
 }

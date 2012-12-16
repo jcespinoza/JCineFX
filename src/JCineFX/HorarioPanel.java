@@ -56,8 +56,10 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
     private Pelicula peli;
     public Label tipoSala;
     private ArrayList<String> salas;
+    private final AdminWindowController admin;
     
-    public HorarioPanel(Node uncle){
+    public HorarioPanel(Node uncle, AdminWindowController ad){
+        this.admin = ad;
         salas = new ArrayList<>();
         unclePane = (TitledPane)uncle;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewHorarioWindow.fxml"));
@@ -128,6 +130,7 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
         }else{
             System.out.println("Doesnt make sense");
         }
+        admin.loadHorarios();
     }
 
     @Override

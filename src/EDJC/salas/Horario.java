@@ -127,4 +127,22 @@ public final class Horario {
         return getAnio()+ " "+ getMes()+" " + getDia() + " " +
                 getHora() + " " + getMinuto() + " D: " + getDuracion();
     }
+    
+    public String getTime(){
+        return getHora() + ":" + getMinuto();
+    }
+    
+    public String getDuracionStr(){
+        return getDuracion() + " min.";
+    }
+    
+    public String getInicioStr(){
+        return fecha.get(Calendar.HOUR_OF_DAY) + ":" + fecha.get(Calendar.MINUTE);
+    }
+    
+    public String getFinStr(){
+        Calendar c = new GregorianCalendar();
+        c.setTime(new Date(getFin()));
+        return c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE);
+    }
 }

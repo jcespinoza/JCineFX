@@ -12,10 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ListChangeListener.Change;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 
 /**
  *
@@ -24,6 +21,7 @@ import javafx.scene.control.Label;
 public class SalaBuilder {
     public static void fillSalaChoices(ChoiceBox box, ArrayList<String> salas) {
         try{
+            box.getItems().removeAll(box.getItems());
             int count = JCineFX.leerConf().getContadorSala() - 1;
             for(int i = 1; i <= count; i++){
                 String item = "Sala ";
