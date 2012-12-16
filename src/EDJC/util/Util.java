@@ -9,6 +9,15 @@ package EDJC.util;
  * @author Jay C Espinoza
  */
 public class Util {
+
+    public static boolean puedeConvertirse(String text) {
+        try{
+            Integer.parseInt(text);
+            return true;
+        }catch(Exception ex){
+            return false;
+        }
+    }
     
     /**
      * Don't let anyone instantiate this class. :D Just like Math !^_^!

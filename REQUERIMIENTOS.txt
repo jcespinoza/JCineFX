@@ -9,6 +9,7 @@ Que hay que hacer:
 -Cambiar el directorio de las recursos
 -habilitar el log out y proveer una forma de pasar de administrador a cliente DONE
 -Crear un control para los horarios. DONE
+-Habilitar abstract paths.
 
 ACTUAL
 -mostrar la ventana de tickets

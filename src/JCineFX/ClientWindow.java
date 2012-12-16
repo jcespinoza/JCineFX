@@ -22,8 +22,10 @@ import javafx.scene.layout.AnchorPane;
  */
 public class ClientWindow implements Initializable{
     public SalaLayout currentSala;
-    public Pelicula currentNov;
+    public Pelicula currentMov;
     public Horario currentHorario;
+    public String nomCliente;
+    public int[] tickets = new int[3];
     
     @FXML
     private AnchorPane content;
@@ -52,7 +54,8 @@ public class ClientWindow implements Initializable{
     }
 
     public void showTicketPanel() {
-        throw new UnsupportedOperationException("Not yet implemented");
+        TicketPanel tp = new TicketPanel(this);
+        changeContent(tp);
     }
     
     @FXML
@@ -65,5 +68,9 @@ public class ClientWindow implements Initializable{
         ModSelectionController m = new ModSelectionController();
         m.handleAdminButton(e);
         content.getScene().getWindow().hide();
+    }
+
+    public void showSeatSelectionPanel() {
+        System.out.println("In progress..");
     }
 }

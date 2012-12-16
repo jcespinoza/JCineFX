@@ -45,7 +45,7 @@ public class Cartelera extends AnchorPane implements Initializable, EventHandler
     }
     
     private void sendInfoToFather(){
-        father.currentNov = selectedMov;
+        father.currentMov = selectedMov;
         father.currentSala = selectedSala;
         father.currentHorario = selectedHorario;
         father.showTicketPanel();
@@ -66,6 +66,6 @@ public class Cartelera extends AnchorPane implements Initializable, EventHandler
         } catch (IOException ex) {
             System.out.println("Could not send Sala to ClienWindow");
         }
-        System.out.println("the MovieControl was clicked!");
+        sendInfoToFather();
     }
 }
