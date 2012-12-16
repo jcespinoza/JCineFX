@@ -168,3 +168,5 @@ pip-log.txt
 *.mov
 horarios
 salas
+!/src/EDJC/salas/Horario.java
+!/src/EDJC/salas/
