@@ -3,10 +3,11 @@ Que hay que hacer:
 -Cuando se clickea Login se construye un nuevo usuario con la contraseña del passwordfield, usar el metodo de handleFocus para prevenir eso.
 -notificar al usuario que las credenciales no son correctas usando el wrongPassLabel de la ventana de login.
 -validar que el usuario en la ventana de registro sea unico aprovechando la propiedad focused del campo de usuario.
--notificar al usuario que las contraseñas no coinciden en el ventana de registro.
+-notificar al usuario que las contraseñas no coinciden en la ventana de registro.
 -desactivar el boton de cambiar imagen si el usuario es guest DONE
 -Escribir CSS para el fondo de SillaControl.
 -Cambiar el directorio de las recursos
+-habilitar el log out y proveer una forma de pasar de administrador a cliente
 
 ACTUAL
 -Crear un control para los horarios.

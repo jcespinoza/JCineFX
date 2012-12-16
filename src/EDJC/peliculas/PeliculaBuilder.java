@@ -8,6 +8,7 @@ import JCineFX.JCineFX;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Date;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -54,4 +55,8 @@ public class PeliculaBuilder {
         }
         return ret;
     }  
+
+    public static void fillMoviesPanel(VBox box) {
+        //addEverySingleMovie
+    }
 }

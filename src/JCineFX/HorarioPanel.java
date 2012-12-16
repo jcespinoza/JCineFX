@@ -4,10 +4,14 @@
  */
 package JCineFX;
 
+import EDJC.peliculas.MovieTile;
+import EDJC.peliculas.PeliculaBuilder;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,8 +19,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import jfxtras.labs.scene.control.CalendarTextField;
 import jfxtras.labs.scene.control.CalendarTimeTextField;
 
@@ -25,7 +33,7 @@ import jfxtras.labs.scene.control.CalendarTimeTextField;
  *
  * @author Jay C Espinoza
  */
-public class HorarioPanel extends AnchorPane implements Initializable {
+public class HorarioPanel extends AnchorPane implements Initializable, EventHandler<MouseEvent> {
     @FXML
     public GridPane rGrid;
     public SplitPane split;
@@ -33,6 +41,8 @@ public class HorarioPanel extends AnchorPane implements Initializable {
     private CalendarTimeTextField timeControl;
     public Button saveButton;
     private TitledPane unclePane;
+    public ImageView movImg;
+    public VBox vboxPane;
     
     public HorarioPanel(Node uncle){
         unclePane = (TitledPane)uncle;
@@ -58,17 +68,30 @@ public class HorarioPanel extends AnchorPane implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        rGrid.setGridLinesVisible(true);
+        //rGrid.setGridLinesVisible(true);
         fechaControl = new CalendarTextField();
         timeControl = new CalendarTimeTextField();
         timeControl.setShowLabels(Boolean.TRUE);
         //column, row
         rGrid.add(fechaControl, 2, 2);
-        rGrid.add(timeControl, 2, 3);                
+        rGrid.add(timeControl, 2, 3);
+        PeliculaBuilder.fillMoviesPanel(vboxPane);
+    }
+    
+    public void emptyMoviesPanel(){
+        vboxPane.getChildren().removeAll(vboxPane.getChildren());
     }
     
     @FXML
     private void handleSave(ActionEvent e){
+        unclePane.setCollapsible(true);
         unclePane.setExpanded(true);
+        unclePane.setCollapsible(false);
+    }
+
+    @Override
+    public void handle(MouseEvent t) {
+        MovieTile mov = ((MovieTile)t.getSource());
+        movImg.setImage(new Image(mov.getPelicula().getImgArchivo()));
     }
 }

@@ -14,7 +14,15 @@
   <children>
     <SplitPane id="splitPaneHorizontal1" fx:id="split" dividerPositions="0.29236499068901306" focusTraversable="true" prefHeight="496.0" prefWidth="801.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <items>
-        <AnchorPane id="anchorPane1" fx:id="lPane" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="176.0" />
+        <AnchorPane id="anchorPane1" fx:id="lPane" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="176.0">
+          <children>
+            <ScrollPane id="scrollPane1" prefHeight="407.0" prefWidth="154.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <content>
+                <VBox id="vBox1" fx:id="vboxPane" prefHeight="394.0" prefWidth="146.0" />
+              </content>
+            </ScrollPane>
+          </children>
+        </AnchorPane>
         <AnchorPane id="anchorPane2" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
           <children>
             <GridPane id="gridPane1" fx:id="rGrid" prefHeight="493.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
@@ -22,9 +30,9 @@
                 <Label id="label1" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="115.0" text="Hora:" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.valignment="TOP" />
                 <Label id="label2" alignment="CENTER_RIGHT" prefWidth="115.0" text="Pelicula:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                 <Button id="button1" mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="127.0" text="Guardar" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                <ImageView id="emptyImageView1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <ImageView fx:id="movImg"  id="emptyImageView1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
                   <image>
-                    <Image url="@../res/img/default_movie.png" preserveRatio="false" smooth="false" />
+                    <Image url="@../res/img/default_movie.png" preserveRatio="false" smooth="false"/>
                   </image>
                   <GridPane.margin>
                     <Insets />

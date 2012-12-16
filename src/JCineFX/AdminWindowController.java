@@ -56,6 +56,7 @@ public class AdminWindowController implements Initializable {
     public TextField colsField;
     public ChoiceBox tipoSalaCombo;
     public TitledPane x4;
+    public TitledPane exHorario;
     //Pelicula Tab
     public TextField tituloField;
     public TextField duracionField;
@@ -93,7 +94,6 @@ public class AdminWindowController implements Initializable {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        fillHorarioPane();
     }
     
     @FXML
@@ -260,5 +260,13 @@ public class AdminWindowController implements Initializable {
     private void handleMod(ActionEvent e){
         SelectionModel<Tab> tSelection = tabs.getSelectionModel();
         tSelection.select(profileTab);
+    }
+    
+    @FXML
+    private void handleNewHorario(ActionEvent e){
+        horariosPane.getChildren().removeAll(horariosPane.getChildren());
+        fillHorarioPane();
+        exHorario.setExpanded(true);
+        x4.setCollapsible(false);
     }
 }

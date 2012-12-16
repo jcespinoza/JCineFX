@@ -169,7 +169,7 @@
                                 <HBox id="hBox1" prefHeight="335.0" prefWidth="786.0" />
                               </content>
                             </ScrollPane>
-                            <Button id="button1" layoutX="371.0" layoutY="413.0" mnemonicParsing="false" text="Button" />
+                            <Button id="button1" fx:id="newHorarioButton" defaultButton="true" layoutX="339.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleNewHorario" prefHeight="30.000099999997474" prefWidth="120.0" text="Agregar Horario" />
                           </children>
                         </AnchorPane>
                       </content>
@@ -177,7 +177,7 @@
                   </expandedPane>
                   <panes>
                     <fx:reference source="x4" />
-                    <TitledPane id="titledPane4">
+                    <TitledPane id="titledPane4" fx:id="exHorario" collapsible="false" expanded="false">
                       <content>
                         <AnchorPane id="Content" fx:id="horariosPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                       </content>
