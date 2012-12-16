@@ -16,15 +16,15 @@
 
 <AnchorPane id="AnchorPane" minHeight="550.0" minWidth="760.0" prefHeight="556.0000999999975" prefWidth="800.0000999999975" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml" fx:controller="JCineFX.AdminWindowController">
   <children>
-    <TabPane id="tabPane1" prefHeight="525.0001060962677" prefWidth="800.0000999999975" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+    <TabPane id="tabPane1" fx:id="tabs" prefHeight="525.0001060962677" prefWidth="800.0000999999975" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
       <tabs>
         <Tab id="tab1" text="Agregar Sala de Cine">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <Accordion id="accordion1" prefHeight="494.9999694824219" prefWidth="801.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Accordion id="accordion1" prefHeight="496.0" prefWidth="801.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <expandedPane>
-                    <TitledPane id="titledPane1" fx:id="x1">
+                    <TitledPane id="titledPane1" fx:id="x1" collapsible="false">
                       <content>
                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                           <children>
@@ -156,10 +156,39 @@
         </Tab>
         <Tab id="tab1" text="Edicion de Horarios">
           <content>
-            <AnchorPane id="Content" fx:id="horariosPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Accordion id="accordion2" prefHeight="496.0" prefWidth="800.0001220703125" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <expandedPane>
+                    <TitledPane id="titledPane3" fx:id="x4">
+                      <content>
+                        <AnchorPane id="Content" fx:id="currentSche" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                          <children>
+                            <ScrollPane id="scrollPane1" layoutX="-1.0" layoutY="37.0" prefHeight="361.0" prefWidth="797.0">
+                              <content>
+                                <HBox id="hBox1" prefHeight="335.0" prefWidth="786.0" />
+                              </content>
+                            </ScrollPane>
+                            <Button id="button1" layoutX="371.0" layoutY="413.0" mnemonicParsing="false" text="Button" />
+                          </children>
+                        </AnchorPane>
+                      </content>
+                    </TitledPane>
+                  </expandedPane>
+                  <panes>
+                    <fx:reference source="x4" />
+                    <TitledPane id="titledPane4">
+                      <content>
+                        <AnchorPane id="Content" fx:id="horariosPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      </content>
+                    </TitledPane>
+                  </panes>
+                </Accordion>
+              </children>
+            </AnchorPane>
           </content>
         </Tab>
-        <Tab id="tab1" text="Edicion de datos de Perfil">
+        <Tab id="tab1" fx:id="profileTab" text="Edicion de datos de Perfil">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
@@ -198,19 +227,26 @@
         </Tab>
       </tabs>
     </TabPane>
-    <ToolBar id="toolBar1" prefWidth="800.0001220703125" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0">
-      <items>
-        <Button id="button1" mnemonicParsing="false" text="Button" />
-        <Button id="button2" mnemonicParsing="false" text="Button" />
-        <Separator id="separatorVertical1" orientation="VERTICAL" prefHeight="21.0" />
-        <MenuButton id="menuButton2" fx:id="opMenu" mnemonicParsing="false" prefWidth="145.0" text="Opciones">
+    <MenuBar id="menuBar1" minHeight="22.000000817868568" prefHeight="30.0" prefWidth="801.0000999999975" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+      <menus>
+        <Menu id="fileMenu1" mnemonicParsing="false" text="Programa">
           <items>
-            <MenuItem id="menuItem5" mnemonicParsing="false" onAction="#handleLogOut" text="Log out" />
-            <MenuItem id="menuItem6" mnemonicParsing="false" onAction="#handleExit" text="Salir del Sistema" />
+            <MenuItem id="close1" mnemonicParsing="false" onAction="#handleExit" text="Salir del Sistema" />
           </items>
-        </MenuButton>
-      </items>
-    </ToolBar>
+        </Menu>
+        <Menu id="menu1" mnemonicParsing="false" text="user" fx:id="userMenuItem">
+          <items>
+            <MenuItem id="menuItem2" mnemonicParsing="false" onAction="#handleMod" text="Modificar Perfil" />
+            <MenuItem id="menuItem1" mnemonicParsing="false" onAction="#handleLogOut" text="Cerrar Sesion" />
+          </items>
+        </Menu>
+        <Menu id="helpMenu1" mnemonicParsing="false" text="Ayuda">
+          <items>
+            <MenuItem id="about1" mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
   </children>
   <stylesheets>
     <URL value="@../CSS/adminwindow.css" />

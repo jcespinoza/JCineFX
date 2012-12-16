@@ -21,12 +21,17 @@ public class Pelicula {
     protected String imgArchivo;
     protected Formato3D formato3D = Formato3D.NONE;
 
-    public Pelicula(int cod, int d, String n, GeneroPelicula g, TipoClasificacion c) {
+    public Pelicula(int cod, int d, String n, GeneroPelicula g, TipoClasificacion c, Formato3D f) {
         this.codigo = cod;
         this.duracion = d;
         this.nombre = n;
         this.genero = g;
         this.clasificacion = c;
+        this.formato3D = f;
+        if(f == Formato3D.NONE)
+            tipo = TipoPelicula.PELICULA2D;
+        else
+            tipo = TipoPelicula.PELICULA3D;
     }
 
     public Formato3D getFormato3D() {
@@ -34,7 +39,7 @@ public class Pelicula {
     }
     
     public boolean is3D(){
-        return (this instanceof Pelicula3D);
+        return (formato3D != Formato3D.NONE);
     }
 
     public int getDuracion() {

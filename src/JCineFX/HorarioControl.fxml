@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="359.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <GridPane id="gridPane1" minHeight="271.0" prefHeight="318.0" prefWidth="412.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <ImageView id="emptyImageView1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <image>
+            <Image url="@../../../../../../JuanCarls/Projects/GitHub/JCineFX/src/res/img/gijoe.jpg" preserveRatio="false" smooth="false" />
+          </image>
+        </ImageView>
+        <Label id="label1" text="Titulo" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+        <Label id="label4" text="codigo" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+        <Label id="label6" text="duracion minutos" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label id="label5" text="formato 3d" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Label id="label3" text="genero" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label id="label2" text="clasificacion" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Label id="label7" text="Hora de Inicio:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <Label id="label8" text="Hora de fin" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="191.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="15.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="189.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="17.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="164.0" minHeight="10.0" percentHeight="45.0" prefHeight="145.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="63.0" minHeight="10.0" percentHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="63.0" minHeight="10.0" percentHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="72.0" minHeight="4.0" percentHeight="10.0" prefHeight="4.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="111.0" minHeight="10.0" percentHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="111.0" minHeight="10.0" percentHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</AnchorPane>

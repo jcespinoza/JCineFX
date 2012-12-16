@@ -96,7 +96,6 @@ public class LoginRegisterController implements Initializable {
     
     @FXML
     private void handleFotoClick(MouseEvent e){
-        //Codigo para poner la imagen aqui
         FileChooser fc = new FileChooser();
         String url = null;
         try {
@@ -191,7 +190,9 @@ public class LoginRegisterController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         titledLogin.setCollapsible(false);
         userLog.setPromptText("Ingrese su username");
+        userLog.setText("guest");
         passLog.setPromptText("Ingrese su contraseña");
+        passLog.setText("password");
         userReg.setPromptText("Ingrese su username");
         nameReg.setPromptText("Ingrese su nombre completo");
         pass1Reg.setPromptText("Ingrese una contraseña");

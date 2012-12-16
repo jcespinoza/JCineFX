@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="AnchorPane" id="AnchorPane" prefHeight="410.0" prefWidth="539.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <SplitPane id="splitPaneHorizontal1" fx:id="split" dividerPositions="0.29236499068901306" focusTraversable="true" prefHeight="496.0" prefWidth="801.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <items>
+        <AnchorPane id="anchorPane1" fx:id="lPane" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="176.0" />
+        <AnchorPane id="anchorPane2" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <GridPane id="gridPane1" fx:id="rGrid" prefHeight="493.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+              <children>
+                <Label id="label1" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="115.0" text="Hora:" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                <Label id="label2" alignment="CENTER_RIGHT" prefWidth="115.0" text="Pelicula:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <Button id="button1" mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="127.0" text="Guardar" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                <ImageView id="emptyImageView1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                  <image>
+                    <Image url="@../res/img/default_movie.png" preserveRatio="false" smooth="false" />
+                  </image>
+                  <GridPane.margin>
+                    <Insets />
+                  </GridPane.margin>
+                </ImageView>
+                <Label id="label1" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="115.0" text="Fecha:" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                <Label id="label3" text="Sala:" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                <Label id="label4" text="Sala Type" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                <ChoiceBox id="choiceBox1" prefWidth="171.0" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ChoiceBox>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="210.0" minWidth="10.0" prefWidth="84.0" />
+                <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="SOMETIMES" maxWidth="367.0" minWidth="0.0" prefWidth="12.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="367.0" minWidth="10.0" prefWidth="122.0" />
+                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="367.0" minWidth="9.0" prefWidth="14.0" />
+                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="367.0" minWidth="10.0" prefWidth="144.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="98.0" minHeight="10.0" percentHeight="5.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="119.0" minHeight="10.0" percentHeight="10.0" prefHeight="63.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="122.0" minHeight="10.0" percentHeight="10.0" prefHeight="32.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="145.0" minHeight="10.0" percentHeight="10.0" prefHeight="23.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="238.0" minHeight="10.0" percentHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="359.0" minHeight="10.0" prefHeight="188.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="229.0" minHeight="10.0" percentHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+  <stylesheets>
+    <URL value="@newhorariowindow.css" />
+  </stylesheets>
+</fx:root>

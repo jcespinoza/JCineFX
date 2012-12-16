@@ -4,13 +4,16 @@
  */
 package JCineFX;
 
+import EDJC.salas.Disenio;
 import EDJC.salas.SalaLayout;
 import EDJC.salas.sillas.SeatState;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -85,11 +88,13 @@ public class ChairGrid extends AnchorPane implements Initializable{
         for(int i = 0; i < maxRows; i++){
             RowConstraints row = new RowConstraints();
             row.setPercentHeight(100/maxRows);
+            row.setValignment(VPos.CENTER);
             grid.getRowConstraints().add(row);
         }
         for(int i = 0; i < maxCols; i++){
             ColumnConstraints cols = new ColumnConstraints();
             cols.setPercentWidth(100/(maxCols));
+            cols.setHalignment(HPos.CENTER);
             grid.getColumnConstraints().add(cols);
         }
     }

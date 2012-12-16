@@ -44,11 +44,11 @@ public class PeliculaBuilder {
             Formato3D form3D = Formato3D.valueOf(sForm3D);
             String imgPath = raf.readUTF();
             
-            if( sForm3D.equals("NONE") ){
-                ret = new Pelicula2D(cod, durac, titulo, gen, clas);
-            }else{
-                ret = new Pelicula3D(cod, durac, titulo, gen, clas, form3D);
-            }
+            //if( sForm3D.equals("NONE") ){
+                //ret = new Pelicula(cod, durac, titulo, gen, clas);
+            //}else{
+                ret = new Pelicula(cod, durac, titulo, gen, clas, form3D);
+            //}
             ret.setFechaAdicion(new Date(fecha));
             ret.setImgArchivo(imgPath);
         }

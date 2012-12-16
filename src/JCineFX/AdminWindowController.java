@@ -7,11 +7,10 @@ package JCineFX;
 import EDJC.peliculas.Formato3D;
 import EDJC.peliculas.GeneroPelicula;
 import EDJC.peliculas.Pelicula;
-import EDJC.peliculas.Pelicula2D;
-import EDJC.peliculas.Pelicula3D;
 import EDJC.peliculas.PeliculaBuilder;
 import EDJC.peliculas.TipoClasificacion;
 import EDJC.peliculas.TipoPelicula;
+import EDJC.salas.Disenio;
 import EDJC.seguridad.UserBuilder;
 import EDJC.seguridad.Usuario;
 import java.io.File;
@@ -27,9 +26,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.MenuButton;
+import javafx.scene.control.Menu;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.SelectionModel;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -52,6 +55,7 @@ public class AdminWindowController implements Initializable {
     public TextField filasField;
     public TextField colsField;
     public ChoiceBox tipoSalaCombo;
+    public TitledPane x4;
     //Pelicula Tab
     public TextField tituloField;
     public TextField duracionField;
@@ -62,6 +66,7 @@ public class AdminWindowController implements Initializable {
     public String peliImg = "file:src/res/img/default_movie.png";
     public ImageView imgPelicula;
     //UserIngo tab
+    public Tab profileTab;
     public Button updateButton;
     public Button btnImagenUser;
     public ImageView imgUser;
@@ -70,8 +75,9 @@ public class AdminWindowController implements Initializable {
     
     
     @FXML
-    public MenuButton opMenu;
+    public Menu userMenuItem;
     private Configuracion localConf;
+    public TabPane tabs;
 
     /**
      * Initializes the controller class.
@@ -81,6 +87,7 @@ public class AdminWindowController implements Initializable {
         try {
             localConf = JCineFX.leerConf();
             fillUserData();
+            userMenuItem.setText(localConf.getUsuarioActual());
             if( JCineFX.getCurrentUser().getUsername().equals("guest") )
                 disableInput();
         } catch (Exception ex) {
@@ -157,7 +164,13 @@ public class AdminWindowController implements Initializable {
     }
 
     private void fillHorarioPane(){
-        horariosPane.getChildren().add(new TestPane(horariosPane));
+        HorarioPanel hp = new HorarioPanel(x4);
+//        hp.setPrefSize(horariosPane.heightProperty().doubleValue(), horariosPane.widthProperty().doubleValue());
+        horariosPane.setTopAnchor(hp, 0.0);
+        horariosPane.setBottomAnchor(hp, 0.0);
+        horariosPane.setLeftAnchor(hp, 0.0);
+        horariosPane.setRightAnchor(hp, 0.0);
+        horariosPane.getChildren().add(hp);
     }
     
     @FXML
@@ -174,10 +187,10 @@ public class AdminWindowController implements Initializable {
             Date adicion            = new Date();
             
             Pelicula peli;
-            if(tipo == TipoPelicula.PELICULA2D)
-                peli = new Pelicula2D(cod, dur, title, gen, clas);
-            else
-                peli = new Pelicula3D(cod, dur, title, gen, clas, form);
+            //if(tipo == TipoPelicula.PELICULA2D)
+               // peli = new Pelicula(cod, dur, title, gen, clas);
+            //else
+                peli = new Pelicula(cod, dur, title, gen, clas, form);
             
             peli.setFechaAdicion(adicion);
             peli.setImgArchivo(peliImg);
@@ -241,5 +254,11 @@ public class AdminWindowController implements Initializable {
         }catch(NullPointerException ex){
             System.out.println("Tipo de Sala not selected");
         }
+    }
+    
+    @FXML
+    private void handleMod(ActionEvent e){
+        SelectionModel<Tab> tSelection = tabs.getSelectionModel();
+        tSelection.select(profileTab);
     }
 }
