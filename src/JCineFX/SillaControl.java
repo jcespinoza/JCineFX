@@ -3,14 +3,12 @@ package JCineFX;
 import EDJC.salas.sillas.SeatState;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-/**
- *
- * @author Jay C Espinoza
- */
 public class SillaControl extends AnchorPane implements Initializable{
     private SeatState state;
     private int number;
@@ -19,21 +17,33 @@ public class SillaControl extends AnchorPane implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //initialize the button with its state
+        
     }
     
     public SillaControl(SeatState s, int row, int number){
-        super();
+//        try{
+//            FXMLLoader fx = new FXMLLoader(getClass().getResource("SillaControl.fxml"));
+//            fx.setRoot(this);
+//            fx.setController(this);
+//            fx.load();
+//        }catch(Exception ex){
+//            System.out.println("Error" + ex);
+//        }
         this.number = number;
         this.row = row;
         this.state = s;
+        //label.setText("" + (char)(65+row) + (number + 1));
         label = new Label("" + (char)(65+row) + (number + 1));
-        setTopAnchor(label, 0.0);
-        setBottomAnchor(label, 0.0);
-        setLeftAnchor(label, 0.0);
-        setRightAnchor(label, 0.0);
-        changeSillaColor(state);
+        label.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        
+        setBottomAnchor(label ,0.0);
+        setTopAnchor(label ,0.0);
+        setLeftAnchor(label ,0.0);
+        setRightAnchor(label ,0.0);
+        
+        
         getChildren().add(label);
+        changeSillaColor(state);
     }
 
     public SeatState getState(){

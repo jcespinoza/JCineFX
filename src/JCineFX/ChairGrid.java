@@ -86,12 +86,14 @@ public class ChairGrid extends AnchorPane implements Initializable{
             RowConstraints row = new RowConstraints();
             row.setPercentHeight(100/maxRows);
             row.setValignment(VPos.CENTER);
+            row.setFillHeight(true);
             grid.getRowConstraints().add(row);
         }
         for(int i = 0; i < maxCols; i++){
             ColumnConstraints cols = new ColumnConstraints();
             cols.setPercentWidth(100/(maxCols));
             cols.setHalignment(HPos.CENTER);
+            cols.setFillWidth(true);
             grid.getColumnConstraints().add(cols);
         }
     }

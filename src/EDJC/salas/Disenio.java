@@ -57,6 +57,7 @@ public class Disenio{
         });
         content.getChildren().add(saveButton);
         ns.setScene(new Scene(content));
+        System.out.println("Got here");
         ns.show();
     }
     
