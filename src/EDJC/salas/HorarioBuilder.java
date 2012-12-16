@@ -2,7 +2,9 @@ package EDJC.salas;
 
 import EDJC.peliculas.Pelicula;
 import EDJC.peliculas.PeliculaBuilder;
+import JCineFX.Cartelera;
 import JCineFX.HorarioControl;
+import JCineFX.JCineFX;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -148,13 +150,31 @@ public class HorarioBuilder {
     public static void fillPanel(HBox box, ChoiceBox salas) {
         try {
             box.getChildren().removeAll(box.getChildren());
-            ArrayList<Horario> hors = readHorarios(salas.getSelectionModel().getSelectedIndex()+1);
+            int cod = salas.getSelectionModel().getSelectedIndex()+1;
+            ArrayList<Horario> hors = readHorarios(cod);
             for(Horario h: hors){
-                HorarioControl hc = new HorarioControl(h, box);
+                HorarioControl hc = new HorarioControl(cod,h, box);
                 box.getChildren().add(hc);
             }
         } catch (IOException ex) {
             System.out.println("Error when trying to read Horarios");
+        }
+    }
+
+    public static void fillPanel(HBox box, Cartelera cart) {
+        try{
+            box.getChildren().removeAll(box.getChildren());
+            int count = JCineFX.leerConf().getContadorSala() - 1;
+            for(int i = 1; i <= count; i++){
+                ArrayList<Horario> hors = readHorarios(i);
+                for( Horario h: hors){
+                    HorarioControl hc = new HorarioControl(i,h, box);
+                    hc.setOnMouseClicked(cart);
+                    box.getChildren().add(hc);
+                }
+            }
+        }catch(Exception ex){
+            System.out.println("Error in BatchHorarioReading");
         }
     }
 }

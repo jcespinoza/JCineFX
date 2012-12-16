@@ -42,7 +42,7 @@ public class Disenio{
         content.getChildren().add(new Text("Pantalla"));
         ChairGrid chairs = new ChairGrid(layout, true);
         content.getChildren().add(chairs);
-        Button saveButton = new Button("Save");
+        Button saveButton = new Button("Guardar Disenio");
         saveButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -62,7 +62,7 @@ public class Disenio{
     
     public void guardarDisenio(SalaLayout sala) throws IOException{
         SalaBuilder.escribirSala(sala);
-        System.out.println("sala saved");
+        System.out.println("Sala Guardada");
     }
 
     /**

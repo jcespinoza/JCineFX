@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="683.0" xmlns:fx="http://javafx.com/fxml">
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="683.0" xmlns:fx="http://javafx.com/fxml">
   <children>
     <GridPane id="gridPane1" prefHeight="506.0" prefWidth="683.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -20,7 +20,7 @@
             <Font name="Cambria Math" size="32.0" />
           </font>
         </Text>
-        <ScrollPane id="scrollPane1" prefHeight="253.0" prefWidth="683.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <ScrollPane id="scrollPane1" prefHeight="293.0" prefWidth="683.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <content>
             <HBox id="hBox1" fx:id="hboxPane" prefHeight="238.0" prefWidth="668.0" />
           </content>
@@ -34,9 +34,9 @@
       </columnConstraints>
       <rowConstraints>
         <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="307.0" minHeight="10.0" prefHeight="253.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="168.0" minHeight="10.0" prefHeight="147.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="307.0" minHeight="10.0" prefHeight="295.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="168.0" minHeight="10.0" prefHeight="105.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
   </children>
-</AnchorPane>
+</fx:root>

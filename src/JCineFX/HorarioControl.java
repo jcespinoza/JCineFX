@@ -7,6 +7,8 @@ package JCineFX;
 import EDJC.peliculas.Pelicula;
 import EDJC.peliculas.PeliculaBuilder;
 import EDJC.salas.Horario;
+import EDJC.salas.SalaBuilder;
+import EDJC.salas.SalaLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 public class HorarioControl extends AnchorPane implements Initializable{
     private Pelicula pelicula;
     private Horario horario;
+    private int codSala;
     @FXML
     public Label codigo;
     public Label titulo;
@@ -39,7 +42,8 @@ public class HorarioControl extends AnchorPane implements Initializable{
     private Node father;
     
        
-    public HorarioControl(Horario h, Node container) {
+    public HorarioControl(int codSala, Horario h, Node container) {
+        this.codSala = codSala;
         father = container;
         horario = h;
         FXMLLoader fx = new FXMLLoader(getClass().getResource("HorarioControl.fxml"));
@@ -70,4 +74,21 @@ public class HorarioControl extends AnchorPane implements Initializable{
             ex.printStackTrace();
         }
     }
+    
+    public Horario getHorario(){
+        return this.horario;
+    }
+
+    public Pelicula getPelicula() {
+        return pelicula;
+    }
+
+    public SalaLayout getSala() throws IOException{
+        try{
+            return SalaBuilder.leerSala(codSala);
+        }catch(ClassNotFoundException ex){
+            return null;
+        }
+    }
+    
 }

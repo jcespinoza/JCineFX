@@ -27,7 +27,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -43,6 +46,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -121,7 +125,9 @@ public class AdminWindowController implements Initializable {
     
     @FXML
     private void handleLogOut(ActionEvent e){
-        System.out.println("Loggin out...");
+       ModSelectionController m = new ModSelectionController();
+       m.handleAdminButton(e);
+       imgUser.getScene().getWindow().hide();
     }
     
     @FXML
@@ -283,5 +289,12 @@ public class AdminWindowController implements Initializable {
         x4.setCollapsible(true);
         exHorario.setExpanded(true);
         x4.setCollapsible(false);
+    }
+    
+    @FXML
+    private void handleGoClient(ActionEvent e){
+        ModSelectionController m = new ModSelectionController();
+        m.handleClientButton(e);
+        imgUser.getScene().getWindow().hide();       
     }
 }

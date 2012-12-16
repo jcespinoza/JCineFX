@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -35,9 +36,23 @@ public class ModSelectionController implements Initializable {
             //st.initModality(Modality.APPLICATION_MODAL);
             st.show();
             st.setResizable(false);
-            lblTitle.getScene().getWindow().hide();
+            ((Node)e.getSource()).getScene().getWindow().hide();
         }catch(Exception ex){
-            System.out.println(ex);
+
+        }
+    }
+    
+    @FXML
+    public void handleClientButton(ActionEvent e){
+        try{
+            Parent p = FXMLLoader.load(getClass().getResource("ClientWindow.fxml"));
+            Stage st = new Stage();
+            Scene sce = new Scene(p);
+            st.setScene(sce);
+            st.show();
+            //lblTitle.getScene().getWindow().hide();
+            ((Node)e.getSource()).getScene().getWindow().hide();
+        }catch(Exception ex){
         }
     }
 

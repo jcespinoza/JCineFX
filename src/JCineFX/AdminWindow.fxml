@@ -241,7 +241,7 @@
       <menus>
         <Menu id="fileMenu1" mnemonicParsing="false" text="Programa">
           <items>
-            <MenuItem id="menuItem3" mnemonicParsing="false" text="Ir al Modulo Cliente" />
+            <MenuItem id="menuItem3" mnemonicParsing="false" onAction="#handleGoClient" text="Ir al Modulo Cliente" />
             <MenuItem id="close1" mnemonicParsing="false" onAction="#handleExit" text="Salir del Sistema" />
           </items>
         </Menu>

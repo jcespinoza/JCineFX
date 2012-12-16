@@ -14,7 +14,7 @@
         <Tooltip opacity="0.79" text="Crear nuevos Usuarios, Manejar Salas, Peliculas y Horarios." wrapText="true" fx:id="tooltipAdmin" />
       </tooltip>
     </Button>
-    <Button layoutY="151.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="378.0" text="Modulo Cliente" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0" />
+    <Button layoutY="151.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="378.0" text="Modulo Cliente" onAction="#handleClientButton" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0" />
     <Label fx:id="lblTitle" alignment="CENTER" prefHeight="19.0" prefWidth="443.0" text="Seleccion de Modulo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0" />
   </children>
   <stylesheets>
