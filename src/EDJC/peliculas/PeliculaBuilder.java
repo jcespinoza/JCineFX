@@ -4,13 +4,11 @@
  */
 package EDJC.peliculas;
 
-import JCineFX.MovieTile;
 import JCineFX.JCineFX;
+import JCineFX.MovieTile;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
 
