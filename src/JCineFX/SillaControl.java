@@ -13,6 +13,7 @@ public class SillaControl extends AnchorPane implements Initializable{
     private SeatState state;
     private int number;
     private int row;
+    @FXML
     private Label label;
 
     @Override
@@ -21,28 +22,22 @@ public class SillaControl extends AnchorPane implements Initializable{
     }
     
     public SillaControl(SeatState s, int row, int number){
-//        try{
-//            FXMLLoader fx = new FXMLLoader(getClass().getResource("SillaControl.fxml"));
-//            fx.setRoot(this);
-//            fx.setController(this);
-//            fx.load();
-//        }catch(Exception ex){
-//            System.out.println("Error" + ex);
-//        }
+        try{
+            FXMLLoader fx = new FXMLLoader(getClass().getResource("SillaControl.fxml"));
+            fx.setRoot(this);
+            fx.setController(this);
+            fx.load();
+        }catch(Exception ex){
+            System.out.println("Error" + ex);
+        }
         this.number = number;
         this.row = row;
         this.state = s;
-        //label.setText("" + (char)(65+row) + (number + 1));
-        label = new Label("" + (char)(65+row) + (number + 1));
+        label.setText("" + (char)(65+row) + (number + 1));
+
+        setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         label.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        
-        setBottomAnchor(label ,0.0);
-        setTopAnchor(label ,0.0);
-        setLeftAnchor(label ,0.0);
-        setRightAnchor(label ,0.0);
-        
-        
-        getChildren().add(label);
+
         changeSillaColor(state);
     }
 
