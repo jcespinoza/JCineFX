@@ -52,10 +52,10 @@ public class HorarioBuilder {
         return ret;
     }
     
-    public static boolean areCompatible(int codSala, int codPeli){
+    public static boolean areCompatible(int codSala, Pelicula p){
         try {
             SalaLayout s = SalaBuilder.leerSala(codSala);
-            Pelicula p = PeliculaBuilder.leerPelicula(codPeli);
+            System.out.println(""+codSala);
             if(s.is3D() && p.is3D())
                 return true;
             if(s.is3D() && !p.is3D())
@@ -63,6 +63,8 @@ public class HorarioBuilder {
             if(!s.is3D() && !p.is3D())
                 return true;
         } catch (Exception ex) {
+            System.out.println("Error in compatibility check" + ex);
+            ex.printStackTrace();
             return false;
         }
         System.out.println("Incompatible");

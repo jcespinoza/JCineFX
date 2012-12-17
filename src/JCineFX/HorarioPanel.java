@@ -120,11 +120,12 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
         int codSala = Integer.parseInt( (String)salasChoiceBox.getValue() );
         if( HorarioBuilder.dataMakeSense(peli, codSala, fechaControl, timeControl) ){
             try {
-                if( HorarioBuilder.areCompatible(codSala, peli.getCodigo())){
-                    HorarioBuilder.escribirHorario(codSala, new Horario(peli, fechaControl.getValue(), timeControl.getValue()));
-                    System.out.println("Success!");
+                if( HorarioBuilder.areCompatible(codSala, peli)){
+                    Horario h = new Horario(peli, fechaControl.getValue(), timeControl.getValue());
+                    HorarioBuilder.escribirHorario(codSala, h);
+                    SalaBuilder.escribirSalaT(SalaBuilder.leerSala(codSala), h);
                 }
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 System.out.println("Error");
             }
         }else{

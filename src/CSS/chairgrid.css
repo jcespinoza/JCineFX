@@ -2,11 +2,18 @@
  * Empty Stylesheet file.
 */
 
-.mainFxmlClass {
-
+#SELECCIONADO{
+    -fx-background-color: lightgreen;
 }
 
-.SELECCIONADO{
+#DISPONIBLE{
+    -fx-background-color: aliceblue;
+}
+
+#RESERVADO{
     -fx-background-color: grey;
 }
 
+#OCULTO{
+    -fx-background-color: transparent;
+}

@@ -7,6 +7,8 @@ package JCineFX;
 import EDJC.peliculas.Pelicula;
 import EDJC.salas.Horario;
 import EDJC.salas.HorarioBuilder;
+import EDJC.salas.Sala4Ticket;
+import EDJC.salas.SalaBuilder;
 import EDJC.salas.SalaLayout;
 import java.io.IOException;
 import java.net.URL;
@@ -48,6 +50,9 @@ public class Cartelera extends AnchorPane implements Initializable, EventHandler
         father.currentMov = selectedMov;
         father.currentSala = selectedSala;
         father.currentHorario = selectedHorario;
+        try {
+            father.selectedST = SalaBuilder.leerSalaT( Sala4Ticket.parseNombre(selectedSala.getCodigo(), selectedMov.getCodigo(), selectedHorario.getFecha()));
+        } catch (Exception ex) {}
         father.showTicketPanel();
     }
     
@@ -63,9 +68,9 @@ public class Cartelera extends AnchorPane implements Initializable, EventHandler
         selectedMov = hc.getPelicula();
         try {
             selectedSala = hc.getSala();
+            sendInfoToFather();
         } catch (IOException ex) {
             System.out.println("Could not send Sala to ClienWindow");
         }
-        sendInfoToFather();
     }
 }

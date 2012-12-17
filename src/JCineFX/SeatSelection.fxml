@@ -9,27 +9,28 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml">
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <GridPane id="gridPane1" prefHeight="399.0" prefWidth="599.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+    <Button id="button1" defaultButton="true" mnemonicParsing="false" onAction="#handleAccept" prefHeight="30.0" prefWidth="132.0" text="Button" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="14.0" />
+    <Button id="button2" cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" prefHeight="26.0" prefWidth="99.0" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+    <GridPane id="gridPane1" minWidth="599.0" prefHeight="351.0" prefWidth="599.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
       <children>
-        <AnchorPane id="anchorPane1" fx:id="chairPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="9" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
         <Label id="label1" fx:id="fecha" alignment="CENTER" text="Fecha" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-        <Text id="text2" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+        <Text id="text2" fx:id="titulo" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
           <font>
             <Font name="Candara Bold" size="18.0" />
           </font>
         </Text>
-        <Label id="label2" text="ESTRENO" textFill="#ff0000b8" GridPane.columnIndex="5" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+        <Label id="label2" fx:id="estreno" text="ESTRENO" textFill="#ff0000b8" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
         <GridPane id="gridPane2" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.valignment="CENTER">
           <children>
-            <Label id="label3" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label id="label3" fx:id="duracion" text="Label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
               <font>
                 <Font name="Arial Bold" size="12.0" fx:id="x1" />
               </font>
             </Label>
-            <Label id="label4" font="$x1" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Label id="label5" font="$x1" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label id="label4" fx:id="genero" font="$x1" text="Label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <Label id="label5" fx:id="clasi" font="$x1" text="Label" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -41,18 +42,14 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           </rowConstraints>
         </GridPane>
-        <ListView id="listView1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="6" />
+        <ListView id="listView1" fx:id="lista" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="6" />
         <Rectangle id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="310.0" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
         <Text id="text1" strokeType="OUTSIDE" strokeWidth="0.0" text="Pantalla" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
           <font>
             <Font name="Cambria Math" size="32.0" />
           </font>
         </Text>
-        <Button id="button1" defaultButton="true" mnemonicParsing="false" prefHeight="30.0" prefWidth="132.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-          <GridPane.margin>
-            <Insets />
-          </GridPane.margin>
-        </Button>
+        <VBox id="vBox1" fx:id="chairPane" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="10" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="10.0" prefWidth="12.0" />
@@ -78,4 +75,4 @@
       </rowConstraints>
     </GridPane>
   </children>
-</AnchorPane>
+</fx:root>

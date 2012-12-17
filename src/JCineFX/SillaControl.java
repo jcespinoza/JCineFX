@@ -32,13 +32,11 @@ public class SillaControl extends AnchorPane implements Initializable{
         }
         this.number = number;
         this.row = row;
-        this.state = s;
         label.setText("" + (char)(65+row) + (number + 1));
 
         setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         label.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-
-        changeSillaColor(state);
+        setState(s);
     }
 
     public SeatState getState(){
@@ -66,7 +64,9 @@ public class SillaControl extends AnchorPane implements Initializable{
             default:
                 label.setText("");
         }
-        setStyle("-fx-background-color: rgb("+s.r()+","+s.g()+","+s.b()+");");
+        label.setId(s.name());
+
+        
     }
 
     public String getName() {

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="726.0" xmlns:fx="http://javafx.com/fxml" fx:controller="JCineFX.ClientWindow">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="726.0" xmlns:fx="http://javafx.com/fxml" fx:controller="JCineFX.ClientWindow">
   <children>
     <MenuBar id="menuBar1" prefHeight="28.0" prefWidth="726.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <menus>

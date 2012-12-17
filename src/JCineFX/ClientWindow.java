@@ -6,6 +6,7 @@ package JCineFX;
 
 import EDJC.peliculas.Pelicula;
 import EDJC.salas.Horario;
+import EDJC.salas.Sala4Ticket;
 import EDJC.salas.SalaLayout;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,6 +27,7 @@ public class ClientWindow implements Initializable{
     public Horario currentHorario;
     public String nomCliente;
     public int[] tickets = new int[3];
+    public Sala4Ticket selectedST;
     
     @FXML
     private AnchorPane content;
@@ -71,6 +73,7 @@ public class ClientWindow implements Initializable{
     }
 
     public void showSeatSelectionPanel() {
-        System.out.println("In progress..");
+        SeatSelection sel = new SeatSelection(this);
+        changeContent(sel);
     }
 }

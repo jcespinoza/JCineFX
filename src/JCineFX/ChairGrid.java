@@ -30,6 +30,7 @@ public class ChairGrid extends AnchorPane implements Initializable{
     private final int maxRows;
     private final int maxCols;
     private boolean design;
+    private EventHandler<MouseEvent> handler;
     
     private GridPane grid;
     
@@ -51,6 +52,11 @@ public class ChairGrid extends AnchorPane implements Initializable{
         setPrefSize(maxCols*100, maxRows*100);
         setMaxSize(800, 600);
     }
+
+    ChairGrid(SalaLayout sala, EventHandler<MouseEvent> handler) {
+        this(sala, false);
+        this.handler = handler;
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -62,7 +68,19 @@ public class ChairGrid extends AnchorPane implements Initializable{
         if( design ){
             handler = Disenio.getHandler();
         }else{
-            handler = null;
+            handler = new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent t) {
+                    SillaControl s = ((SillaControl)t.getSource());
+                    if( s.getState() == SeatState.DISPONIBLE)
+                        s.setState(SeatState.SELECCIONADO);
+
+                    else if( s.getState() == SeatState.SELECCIONADO)
+                        s.setState(SeatState.DISPONIBLE);
+                    layout.setSilla(s.getRow(), s.getNumber(), s.getState());
+                }
+            };
         }
         for(Node sc: this.grid.getChildren()){
             sc.setOnMouseClicked(handler);

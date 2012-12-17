@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class SalaLayout implements Serializable{
+    private int codigo;
     private boolean is3D;
     private int[][] sillas;
     private int nSillas;
@@ -19,6 +20,14 @@ public class SalaLayout implements Serializable{
         nSillas = filas * cols;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
     public int[][] getSillas() {
         return sillas;
     }
@@ -73,6 +82,17 @@ public class SalaLayout implements Serializable{
             }
         }
         return count;
+    }
+    
+    public void changeStates(SeatState old, SeatState newV){
+        int filter = old.toInt();
+        int newVal = newV.toInt();
+        for(int i = 0; i < filas; i++){
+            for(int k = 0; k < cols; k++){
+                if(sillas[i][k] == filter)
+                    sillas[i][k] = newVal;
+            }
+        }
     }
     
     @Override
