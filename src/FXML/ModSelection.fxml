@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="AnchorPane" id="AnchorPane" fx:id="MainForm" prefHeight="254.0" prefWidth="443.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <Button fx:id="btnAdmin" layoutY="59.0" mnemonicParsing="false" onAction="#handleAdminButton" prefHeight="55.0" prefWidth="378.0" styleClass="btnAdminC" text="Modulo Administrador" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0">
+      <tooltip>
+        <Tooltip opacity="0.79" text="Crear nuevos Usuarios, Manejar Salas, Peliculas y Horarios." wrapText="true" fx:id="tooltipAdmin" />
+      </tooltip>
+    </Button>
+    <Button layoutY="151.0" mnemonicParsing="false" onAction="#handleClientButton" prefHeight="55.0" prefWidth="378.0" text="Modulo Cliente" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0" />
+    <Label fx:id="lblTitle" alignment="CENTER" prefHeight="19.0" prefWidth="443.0" text="Seleccion de Modulo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0" />
+  </children>
+  <stylesheets>
+    <URL value="@../CSS/modselection.css" />
+  </stylesheets>
+</fx:root>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="359.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <GridPane id="gridPane1" minHeight="271.0" prefHeight="290.0" prefWidth="331.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+      <children>
+        <Label id="label1" fx:id="titulo" text="Titulo" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+          <font>
+            <Font name="Cambria Math" size="14.0" fx:id="x1" />
+          </font>
+        </Label>
+        <Label id="label4" fx:id="codigo" font="$x1" text="codigo" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+        <Label id="label6" fx:id="duracion" font="$x1" text="duracion minutos" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label id="label5" fx:id="formato3D" font="$x1" text="formato 3d" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Label id="label3" fx:id="genero" font="$x1" text="genero" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label id="label2" fx:id="clasi" font="$x1" text="clasificacion" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Label id="label7" fx:id="inicio" font="$x1" text="Hora de Inicio:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <Label id="label8" fx:id="fin" font="$x1" text="Hora de fin" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <ImageView id="emptyImageView1" fx:id="img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <image>
+            <Image url="@../res/img/default_movie.png" preserveRatio="false" smooth="false" />
+          </image>
+        </ImageView>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="191.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="15.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="189.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="17.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="164.0" minHeight="10.0" percentHeight="45.0" prefHeight="145.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="63.0" minHeight="10.0" percentHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="63.0" minHeight="10.0" percentHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="72.0" minHeight="4.0" percentHeight="10.0" prefHeight="4.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="111.0" minHeight="10.0" percentHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="111.0" minHeight="10.0" percentHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</fx:root>

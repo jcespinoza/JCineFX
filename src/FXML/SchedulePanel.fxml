@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0000999999975" prefWidth="714.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <GridPane id="gridPane1" prefHeight="460.0000999999975" prefWidth="713.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+      <children>
+        <ScrollPane id="scrollPane1" prefHeight="361.0" prefWidth="797.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <content>
+            <HBox id="hBox1" prefHeight="308.0" prefWidth="698.0" />
+          </content>
+        </ScrollPane>
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" prefHeight="21.0" prefWidth="109.0" text="Label" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <ChoiceBox id="choiceBox1" prefWidth="124.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+          <GridPane.margin>
+            <Insets left="10.0" />
+          </GridPane.margin>
+        </ChoiceBox>
+        <Button id="button1" defaultButton="true" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Agregar Horarios" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" percentWidth="15.0" prefWidth="125.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="588.0" minWidth="10.0" percentWidth="85.0" prefWidth="588.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="150.0" minHeight="10.0" percentHeight="15.0" prefHeight="59.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="338.0" minHeight="10.0" percentHeight="70.0" prefHeight="335.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="167.0" minHeight="10.0" percentHeight="15.0" prefHeight="66.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</AnchorPane>

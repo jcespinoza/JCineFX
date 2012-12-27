@@ -4,15 +4,13 @@
  */
 package JCineFX;
 
+import Controllers.ModSelection;
 import EDJC.seguridad.UserBuilder;
 import EDJC.seguridad.Usuario;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 /**
  *
@@ -27,15 +25,11 @@ public class JCineFX extends Application{
    
     @Override
     public void start(Stage stage) throws Exception {
-        crearTodo();
+        /*crearTodo();
         conf = leerConf();
         salaCounter = conf.getContadorSala();
-        currentUser = UserBuilder.leerUser( conf.getUsuarioActual() );
-        
-        Parent root = FXMLLoader.load(getClass().getResource("ModSelection.fxml"));       
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        currentUser = UserBuilder.leerUser( conf.getUsuarioActual() );*/
+        ModSelection.show();
     }
 
     public static void main(String[] args) {
@@ -89,7 +83,7 @@ public class JCineFX extends Application{
                 raf.close();
                 Usuario nUser = new Usuario("guest", "password".toCharArray());
                 nUser.setNombreCompleto("Administrator");
-                nUser.setFotoPath("file:src/res/user-icon-big.png");
+                nUser.setFotoPath("file:JCineFX.jar!/res/user-icon-big.png" );
                 UserBuilder.escribirUser(nUser);
             }
             

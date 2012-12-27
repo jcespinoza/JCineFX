@@ -41,9 +41,7 @@ public class TicketPanel extends AnchorPane implements Initializable{
         fx.setController(this);
         try{
             fx.load();
-        }catch(Exception ex){
-            
-        }
+        }catch(Exception ex){}
     }
 
     @Override

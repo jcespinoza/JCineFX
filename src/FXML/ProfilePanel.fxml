@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="680.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <GridPane id="gridPane1" prefHeight="461.0" prefWidth="679.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+      <children>
+        <Text id="text1" fill="#006299" scaleX="3.3089465090462555" scaleY="2.9473723620408787" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeWidth="0.0" text="Datos de Perfil" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <font>
+            <Font name="Cambria" size="14.0" />
+          </font>
+        </Text>
+        <ImageView id="emptyImageView1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <image>
+            <Image url="@../res/user-icon-big.png" preserveRatio="false" smooth="false" />
+          </image>
+        </ImageView>
+        <Button id="button2" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Button" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <AnchorPane id="anchorPane1" opacity="0.48" prefHeight="106.0" prefWidth="456.0" style="-fx-border-radius: 15px;&#10;-fx-border-width: 3px;&#10;-fx-border-color: white;&#10;-fx-background-color: red;" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.rowSpan="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+          </padding>
+          <GridPane.margin>
+            <Insets left="10.0" right="10.0" top="5.0" />
+          </GridPane.margin>
+        </AnchorPane>
+        <Label id="label1" alignment="CENTER_RIGHT" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label1" alignment="CENTER_RIGHT" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label1" alignment="CENTER_RIGHT" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label1" alignment="CENTER_RIGHT" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label1" alignment="CENTER_RIGHT" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <TextField id="textField1" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets left="5.0" fx:id="x1" />
+          </GridPane.margin>
+        </TextField>
+        <TextField id="textField1" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets left="5.0" fx:id="x1" />
+          </GridPane.margin>
+        </TextField>
+        <PasswordField id="passwordField1" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <PasswordField id="passwordField1" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets left="5.0" fx:id="x1" />
+          </GridPane.margin>
+        </PasswordField>
+        <PasswordField id="passwordField1" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets left="5.0" fx:id="x1" />
+          </GridPane.margin>
+        </PasswordField>
+        <Button id="button1" mnemonicParsing="false" prefHeight="33.0" prefWidth="176.0" text="Button" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+        <ImageView id="emptyImageView2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.rowSpan="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <image>
+            <Image url="@../res/lock.png" preserveRatio="false" smooth="false" />
+          </image>
+        </ImageView>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" percentWidth="30.0" prefWidth="214.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" percentWidth="20.0" prefWidth="148.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" percentWidth="25.0" prefWidth="148.0" />
+        <ColumnConstraints hgrow="ALWAYS" maxWidth="169.0" minWidth="10.0" percentWidth="25.0" prefWidth="169.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="126.0" minHeight="10.0" percentHeight="30.0" prefHeight="126.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="104.0" minHeight="10.0" percentHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="83.0" minHeight="10.0" percentHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="76.0" minHeight="10.0" percentHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="66.0" minHeight="10.0" percentHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="68.0" minHeight="10.0" percentHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="102.0" minHeight="10.0" percentHeight="20.0" prefHeight="102.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</AnchorPane>

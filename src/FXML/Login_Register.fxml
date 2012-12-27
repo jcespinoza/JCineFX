@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="loginAnchorPane" prefHeight="438.0" prefWidth="634.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml" fx:controller="JCineFX.LoginRegisterController">
+  <children>
+    <Accordion fx:id="acordion" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <expandedPane>
+        <TitledPane fx:id="titledLogin" ellipsisString="">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label alignment="CENTER" prefHeight="29.0" prefWidth="596.0" text="Log In" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <ImageView fx:id="loginPicture" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" pickOnBounds="true" preserveRatio="true" styleClass="logiPic" AnchorPane.topAnchor="52.0">
+                  <effect>
+                    <Reflection />
+                  </effect>
+                  <image>
+                    <Image url="@../res/lock.png" preserveRatio="false" smooth="false" />
+                  </image>
+                </ImageView>
+                <Label alignment="CENTER_RIGHT" layoutX="112.0" layoutY="213.0" minHeight="13.5389404296875" prefHeight="22.0" prefWidth="131.0" text="Username:" />
+                <TextField fx:id="userLog" layoutX="255.0" layoutY="213.0" prefWidth="161.5390625" />
+                <Label alignment="CENTER_RIGHT" layoutX="112.0" layoutY="264.0" minHeight="13.5389404296875" prefHeight="22.0" prefWidth="131.0" text="Contrase≡a:" />
+                <PasswordField fx:id="passLog" layoutX="255.0" layoutY="264.0" prefWidth="162.0" />
+                <Button fx:id="loginButton" defaultButton="true" layoutX="318.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="36.0" prefWidth="110.0" text="Log in" />
+                <Button fx:id="regLog" layoutX="168.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="36.0" prefWidth="110.0" text="Registrarse" />
+                <Label id="label1" fx:id="wrongPassLog" layoutX="435.0" layoutY="213.0" prefHeight="73.0" prefWidth="162.0" text="Label" wrapText="true" />
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+      </expandedPane>
+      <panes>
+        <fx:reference source="titledLogin" />
+        <TitledPane fx:id="titledRegister" collapsible="false" ellipsisString="">
+          <content>
+            <AnchorPane id="registerContent" fx:id="registerPane" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="596.0">
+              <children>
+                <ImageView fx:id="registerPicture" fitHeight="161.5390625" fitWidth="215.38543823751283" onMouseEntered="#handleEntered" onMouseExited="#handleExited" pickOnBounds="true" preserveRatio="true" styleClass="registerPictureC" AnchorPane.leftAnchor="234.23" AnchorPane.rightAnchor="200.23" AnchorPane.topAnchor="36.0">
+                  <effect>
+                    <Reflection fraction="0.49603174603174605" topOpacity="0.1031746031746032" />
+                  </effect>
+                  <image>
+                    <Image url="@../res/user-icon-big.png" preserveRatio="false" smooth="false" />
+                  </image>
+                </ImageView>
+                <Label fx:id="registerTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="35.9609375" prefWidth="600.0" text="Registrar Nuevo Usuario" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-4.0" />
+                <Label alignment="CENTER_RIGHT" layoutY="211.0" minHeight="13.5389404296875" prefHeight="22.0" prefWidth="89.0" text="Username:" />
+                <TextField fx:id="userReg" layoutX="107.0" layoutY="211.0" prefWidth="161.5390625" />
+                <Label alignment="CENTER_RIGHT" layoutY="266.0" minHeight="13.5389404296875" prefHeight="22.0" prefWidth="89.0" text="Nombre:" />
+                <TextField fx:id="nameReg" layoutX="107.0" layoutY="266.0" prefWidth="161.5390625" />
+                <Label alignment="CENTER_RIGHT" layoutX="282.0" layoutY="266.0" minHeight="13.5389404296875" prefHeight="22.0" prefWidth="107.0" text="Confirm Password:" />
+                <Label alignment="CENTER_RIGHT" layoutX="300.0" layoutY="211.0" minHeight="13.5389404296875" prefHeight="22.0" prefWidth="89.0" text="Password:" />
+                <PasswordField fx:id="pass1Reg" layoutX="407.0" layoutY="211.0" prefWidth="162.0" />
+                <PasswordField fx:id="pass2Reg" layoutX="407.0" layoutY="266.0" prefWidth="162.0" />
+                <Button fx:id="regButtonReg" defaultButton="true" layoutX="456.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleRegisterReg" prefHeight="29.0" prefWidth="122.0" text="Registrar" />
+                <Button fx:id="cancelReg" cancelButton="true" layoutX="282.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleCancelarReg" prefHeight="29.0" prefWidth="134.0" text="Cancelar" />
+                <Label fx:id="editLabel" ellipsisString="" layoutX="182.0" layoutY="49.0" onMouseClicked="#handleFotoClick" prefHeight="36.0" prefWidth="35.0" styleClass="editFotoLabel">
+                  <stylesheets>
+                    <URL value="@../CSS/loginregister.css" />
+                  </stylesheets>
+                </Label>
+                <Label id="label2" fx:id="userMsgReg" layoutX="107.0" layoutY="241.0" prefWidth="162.0" text="Label" />
+                <Label id="label2" fx:id="pass1MsgReg" layoutX="407.0" layoutY="241.0" prefWidth="179.0" text="Label" />
+                <Label id="label2" fx:id="pass2MsgReg" layoutX="407.0" layoutY="295.0" prefWidth="179.0" text="Label" />
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+      </panes>
+    </Accordion>
+  </children>
+  <stylesheets>
+    <URL value="@../CSS/loginregister.css" />
+  </stylesheets>
+</AnchorPane>
