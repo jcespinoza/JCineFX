@@ -13,7 +13,7 @@ import EDJC.util.Util;
 public enum MovieGenre {
     COMEDIA, DRAMA, ACCION, MUSICAL, DOCUMENTAL, ANIMADA;
 
-    public static MovieGenre parseGenero(String t) {
+    public static MovieGenre parseGenre(String t) {
         switch(t){
             case "Comedia":
                 return COMEDIA;

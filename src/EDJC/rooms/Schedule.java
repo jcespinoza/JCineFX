@@ -33,7 +33,7 @@ public final class Schedule {
         setHora(hora.get(Calendar.HOUR_OF_DAY));
         setMinuto(hora.get(Calendar.MINUTE));
         setCodPeli(p.getCodigo());
-        setDuracion(p.getDuracion());
+        setDuracion(p.getLenght());
     }
         
     public Calendar getFecha(){

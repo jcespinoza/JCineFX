@@ -11,73 +11,73 @@ import java.util.Date;
  * @author Jay C Espinoza
  */
 public class Movie {
-    protected int codigo;
-    protected int duracion;
-    protected String nombre;
-    protected MovieGenre genero;
-    protected Rating clasificacion;
-    protected MovieType tipo;
-    protected Date fechaAdicion;
-    protected String imgArchivo;
-    protected Format3D formato3D = Format3D.NONE;
+    protected int code;
+    protected int lenght;
+    protected String title;
+    protected MovieGenre genre;
+    protected Rating rating;
+    protected MovieType type;
+    protected Date aditionDate;
+    protected String imgFile;
+    protected Format3D format3D = Format3D.NONE;
 
     public Movie(int cod, int d, String n, MovieGenre g, Rating c, Format3D f) {
-        this.codigo = cod;
-        this.duracion = d;
-        this.nombre = n;
-        this.genero = g;
-        this.clasificacion = c;
-        this.formato3D = f;
+        this.code = cod;
+        this.lenght = d;
+        this.title = n;
+        this.genre = g;
+        this.rating = c;
+        this.format3D = f;
         if(f == Format3D.NONE)
-            tipo = MovieType.PELICULA2D;
+            type = MovieType.PELICULA2D;
         else
-            tipo = MovieType.PELICULA3D;
+            type = MovieType.PELICULA3D;
     }
 
-    public Format3D getFormato3D() {
-        return formato3D;
+    public Format3D getFormat3D() {
+        return format3D;
     }
     
     public boolean is3D(){
-        return (formato3D != Format3D.NONE);
+        return (format3D != Format3D.NONE);
     }
 
     public int getCodigo() {
-        return codigo;
+        return code;
     }
 
-    public int getDuracion() {
-        return duracion;
+    public int getLenght() {
+        return lenght;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTitle() {
+        return title;
     }
 
-    public MovieGenre getGenero() {
-        return genero;
+    public MovieGenre getGenre() {
+        return genre;
     }
 
-    public Rating getClasificacion() {
-        return clasificacion;
+    public Rating getRating() {
+        return rating;
     }
 
-    public MovieType getTipo() {
-        return tipo;
+    public MovieType getType() {
+        return type;
     }
-    public String getImgArchivo() {
-        return imgArchivo;
-    }
-
-    public void setImgArchivo(String imgArchivo) {
-        this.imgArchivo = imgArchivo;
+    public String getImgFile() {
+        return imgFile;
     }
 
-    public Date getFechaAdicion() {
-        return fechaAdicion;
+    public void setImgFile(String imgFile) {
+        this.imgFile = imgFile;
     }
 
-    public void setFechaAdicion(Date fechaAdicion) {
-        this.fechaAdicion = fechaAdicion;
+    public Date getAditionDate() {
+        return aditionDate;
+    }
+
+    public void setAditionDate(Date aditionDate) {
+        this.aditionDate = aditionDate;
     }
 }

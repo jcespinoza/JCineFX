@@ -40,7 +40,7 @@ public class MovieTile extends AnchorPane implements Initializable{
         try {
             fx.load();
             setListener();
-            peliImg.setImage(new Image(p.getImgArchivo()));
+            peliImg.setImage(new Image(p.getImgFile()));
         } catch (IOException ex) {
             System.out.println("Failed to load MovieTile.fxml");
         }

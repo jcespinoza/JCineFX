@@ -138,6 +138,6 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
     public void handle(MouseEvent t) {
         MovieTile mov = ((MovieTile)t.getSource());
         peli = mov.getPelicula();
-        movImg.setImage(new Image(peli.getImgArchivo()));
+        movImg.setImage(new Image(peli.getImgFile()));
     }
 }

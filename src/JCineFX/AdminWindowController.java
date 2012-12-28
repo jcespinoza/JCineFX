@@ -201,17 +201,17 @@ public class AdminWindowController implements Initializable {
             int cod                 = JCineFX.getMovCounter();
             String title            = tituloField.getText();
             int dur                 = Integer.parseInt(duracionField.getText());
-            MovieType tipo       = MovieType.parseTipo( (String)(formatoCombo.getValue()) );
-            Format3D form          = Format3D.parseFormato( (String)formatoCombo.getValue() );
-            MovieGenre gen      = MovieGenre.parseGenero( ( (String)generoCombo.getValue() ) );
-            Rating clas  = Rating.parseClas( (String)clasiCombo.getValue() );
+            MovieType tipo       = MovieType.parseType( (String)(formatoCombo.getValue()) );
+            Format3D form          = Format3D.parseFormat( (String)formatoCombo.getValue() );
+            MovieGenre gen      = MovieGenre.parseGenre( ( (String)generoCombo.getValue() ) );
+            Rating clas  = Rating.parseRating( (String)clasiCombo.getValue() );
             Date adicion            = new Date();
             
             Movie peli = new Movie(cod, dur, title, gen, clas, form);
             
-            peli.setFechaAdicion(adicion);
-            peli.setImgArchivo(peliImg);
-            MovieBuilder.escribirPelicula(peli);
+            peli.setAditionDate(adicion);
+            peli.setImgFile(peliImg);
+            MovieBuilder.writeMovie(peli);
             JCineFX.setMovCounter(1); //aumenta el contador de peliculas en 1
             JCineFX.aumentarContMov();
             cancelPelicula(e);//limpia los campos despues de guardar la pelicula

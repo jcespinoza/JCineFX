@@ -77,11 +77,11 @@ public class SeatSelection extends AnchorPane implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         chairPane.getChildren().add(new ChairGrid(sala, false));
-        titulo.setText(peli.getNombre());
+        titulo.setText(peli.getTitle());
         fecha.setText(horario.getFecha().getTime() + "");
         duracion.setText("Duracion: " + horario.getDuracionStr());
-        genero.setText("Genero: " + peli.getGenero());
-        clasi.setText("Clasificacion: " + peli.getClasificacion());
+        genero.setText("Genero: " + peli.getGenre());
+        clasi.setText("Clasificacion: " + peli.getRating());
     }
 
 

@@ -50,7 +50,7 @@ public class HorarioControl extends AnchorPane implements Initializable{
         fx.setRoot(this);
         fx.setController(this);
         try {
-            pelicula = MovieBuilder.leerPelicula(h.getCodPeli());
+            pelicula = MovieBuilder.readMovie(h.getCodPeli());
             fx.load();
         } catch (IOException ex) {
             System.out.println("Error " + ex);
@@ -61,14 +61,14 @@ public class HorarioControl extends AnchorPane implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         try{
         codigo.setText(horario.getCodPeli() + "");
-        titulo.setText(pelicula.getNombre());
+        titulo.setText(pelicula.getTitle());
         inicio.setText("Inicio: "+horario.getInicioStr());
         fin.setText("Fin: "+horario.getFinStr());
-        genero.setText("Genero: "+pelicula.getGenero().toString());
-        clasi.setText("Clasificacion: "+pelicula.getClasificacion().toString());
-        formato3D.setText("Formato 3D: "+pelicula.getFormato3D().toString());
+        genero.setText("Genero: "+pelicula.getGenre().toString());
+        clasi.setText("Clasificacion: "+pelicula.getRating().toString());
+        formato3D.setText("Formato 3D: "+pelicula.getFormat3D().toString());
         duracion.setText(horario.getDuracionStr());
-        img.setImage(new Image(pelicula.getImgArchivo()));
+        img.setImage(new Image(pelicula.getImgFile()));
         }catch(Exception ex){
             System.out.println("Error: " + ex + " > " + ex.getMessage());
             ex.printStackTrace();

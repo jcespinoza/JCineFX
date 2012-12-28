@@ -11,7 +11,7 @@ package EDJC.movies;
 public enum MovieType {
     PELICULA2D, PELICULA3D;
     
-    public static MovieType parseTipo(String text){
+    public static MovieType parseType(String text){
         if(text.equals("2D")){
             return MovieType.PELICULA2D;
         }else if( text.equals("Real 3D") || text.equals("Digital 3D") || text.equals("Xtreme 3D") ){

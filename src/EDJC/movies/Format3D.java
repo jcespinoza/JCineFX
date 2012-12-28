@@ -11,7 +11,7 @@ package EDJC.movies;
 public enum Format3D {
     DIGITAL, EXTREME3D, REAL3D, NONE;
     
-    public static Format3D parseFormato(String text){
+    public static Format3D parseFormat(String text){
         
         switch(text){
             case "NONE": case "2D":

@@ -17,21 +17,21 @@ import javafx.scene.layout.VBox;
  * @author Jay C Espinoza
  */
 public class MovieBuilder {
-    public static void escribirPelicula(Movie p) throws IOException{
+    public static void writeMovie(Movie p) throws IOException{
         RandomAccessFile raf = new RandomAccessFile("peliculas.mov", "rw");
         raf.seek(raf.length());
         raf.writeInt(JCineFX.getMovCounter());
-        raf.writeUTF(p.getNombre());
-        raf.writeInt(p.getDuracion());
-        raf.writeUTF(p.getGenero().name());
-        raf.writeUTF(p.getClasificacion().name());
+        raf.writeUTF(p.getTitle());
+        raf.writeInt(p.getLenght());
+        raf.writeUTF(p.getGenre().name());
+        raf.writeUTF(p.getRating().name());
         raf.writeLong(new Date().getTime());
-        raf.writeUTF(p.getTipo().name());
-        raf.writeUTF(p.getFormato3D().name());
-        raf.writeUTF(p.getImgArchivo());
+        raf.writeUTF(p.getType().name());
+        raf.writeUTF(p.getFormat3D().name());
+        raf.writeUTF(p.getImgFile());
     }
     
-    public static Movie leerPelicula(int codigo) throws IOException{
+    public static Movie readMovie(int codigo) throws IOException{
         RandomAccessFile raf = new RandomAccessFile("peliculas.mov", "r");
         raf.seek(0);
         Movie ret = null;
@@ -48,8 +48,8 @@ public class MovieBuilder {
             String imgPath = raf.readUTF();
 
             ret = new Movie(cod, durac, titulo, gen, clas, form3D);
-            ret.setFechaAdicion(new Date(fecha));
-            ret.setImgArchivo(imgPath);
+            ret.setAditionDate(new Date(fecha));
+            ret.setImgFile(imgPath);
             if(cod == codigo)
                 break;
         }
@@ -60,7 +60,7 @@ public class MovieBuilder {
         try {
             int count = JCineFX.leerConf().getContadorPeli() - 1;
             for(int i = 1; i <= count; i++){
-                Movie p = leerPelicula(i);
+                Movie p = readMovie(i);
                 box.getChildren().add(new MovieTile(p, cont));
             }
         } catch (IOException ex) {

@@ -24,7 +24,7 @@ public enum Rating {
         return this.descrip;
     }
     
-    public static Rating parseClas(String text) {
+    public static Rating parseRating(String text) {
         switch(text){
             case "Todo Público":
                 return TODO_PUBLICO;
