@@ -8,7 +8,7 @@ package EDJC.security;
  *
  * @author Jay C Espinoza
  */
-public final class Usuario{
+public final class User{
     private String username = "";
     private char[] cred;
     private String NombreCompleto = "";
@@ -23,36 +23,36 @@ public final class Usuario{
         this.fotoPath = fotoPath;
     }
     
-    public Usuario(String username){
+    public User(String username){
         this.username = username;
         setCredencialActiva(true);
     }
     
-    public Usuario(){
+    public User(){
         username = "";
         NombreCompleto = "";
         cred = "000000".toCharArray();
         fotoPath = "";
     }
     
-    public Usuario(String username, char[] pass){
+    public User(String username, char[] pass){
         this(username); // :D
         setPassword(pass);
         setCredencialActiva(true);
     }
     
     /**
-     * Metodo para comparar objetos de tipo Usuario.
+     * Metodo para comparar objetos de tipo User.
      * @param obj el <code>Object</code> con el cual se va a comparar.
-     * @return <code>true</code> Si <code>obj</code> es una instancia de <code>Usuario</code>, 
+     * @return <code>true</code> Si <code>obj</code> es una instancia de <code>User</code>, 
      * son del mismo <code>TipoUsuario</code> tiene el mismo <code>username</code> y mismo <code>nombreCompleto</code>. 
      * @return <code> false</code> de lo contrario.
      */
     @Override
     public boolean equals(Object obj){
-        boolean sameObjectType = obj instanceof Usuario;
-        boolean sameUsername = this.username.equals( ((Usuario)obj).username);
-        //boolean sameNombreCompleto = this.NombreCompleto.equals( ((Usuario)obj).NombreCompleto);
+        boolean sameObjectType = obj instanceof User;
+        boolean sameUsername = this.username.equals( ((User)obj).username);
+        //boolean sameNombreCompleto = this.NombreCompleto.equals( ((User)obj).NombreCompleto);
         return sameObjectType && sameUsername;
     }
 
@@ -66,7 +66,7 @@ public final class Usuario{
     }
 
     /**
-     * Metodo para establecer el <code>cred</code> de un <code>Usuario</code>.
+     * Metodo para establecer el <code>cred</code> de un <code>User</code>.
      * @param cred El nuevo cred.
      * @throws IllegalPasswordLengthException Si el cred tiene menos de 6 caracteres.
      */

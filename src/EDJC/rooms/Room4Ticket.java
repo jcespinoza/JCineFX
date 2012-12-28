@@ -3,12 +3,12 @@ package EDJC.rooms;
 import java.io.Serializable;
 import java.util.Calendar;
 
-public class Sala4Ticket implements Serializable{
-    private SalaLayout sala;
+public class Room4Ticket implements Serializable{
+    private RoomLayout sala;
     private int codPeli;
     private String nombreArchivo;
     
-    public Sala4Ticket(SalaLayout s, int cod, Calendar fecha){
+    public Room4Ticket(RoomLayout s, int cod, Calendar fecha){
         sala =s;
         codPeli = cod;
         nombreArchivo = parseNombre(sala.getCodigo(), cod, fecha);
@@ -18,7 +18,7 @@ public class Sala4Ticket implements Serializable{
         return nombreArchivo;
     }
     
-    public void setSalaLayout(SalaLayout s){
+    public void setSalaLayout(RoomLayout s){
         this.sala = s;
     }
     

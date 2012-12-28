@@ -10,36 +10,36 @@ import java.util.Date;
  *
  * @author Jay C Espinoza
  */
-public class Pelicula {
+public class Movie {
     protected int codigo;
     protected int duracion;
     protected String nombre;
-    protected GeneroPelicula genero;
-    protected TipoClasificacion clasificacion;
-    protected TipoPelicula tipo;
+    protected MovieGenre genero;
+    protected Rating clasificacion;
+    protected MovieType tipo;
     protected Date fechaAdicion;
     protected String imgArchivo;
-    protected Formato3D formato3D = Formato3D.NONE;
+    protected Format3D formato3D = Format3D.NONE;
 
-    public Pelicula(int cod, int d, String n, GeneroPelicula g, TipoClasificacion c, Formato3D f) {
+    public Movie(int cod, int d, String n, MovieGenre g, Rating c, Format3D f) {
         this.codigo = cod;
         this.duracion = d;
         this.nombre = n;
         this.genero = g;
         this.clasificacion = c;
         this.formato3D = f;
-        if(f == Formato3D.NONE)
-            tipo = TipoPelicula.PELICULA2D;
+        if(f == Format3D.NONE)
+            tipo = MovieType.PELICULA2D;
         else
-            tipo = TipoPelicula.PELICULA3D;
+            tipo = MovieType.PELICULA3D;
     }
 
-    public Formato3D getFormato3D() {
+    public Format3D getFormato3D() {
         return formato3D;
     }
     
     public boolean is3D(){
-        return (formato3D != Formato3D.NONE);
+        return (formato3D != Format3D.NONE);
     }
 
     public int getCodigo() {
@@ -54,15 +54,15 @@ public class Pelicula {
         return nombre;
     }
 
-    public GeneroPelicula getGenero() {
+    public MovieGenre getGenero() {
         return genero;
     }
 
-    public TipoClasificacion getClasificacion() {
+    public Rating getClasificacion() {
         return clasificacion;
     }
 
-    public TipoPelicula getTipo() {
+    public MovieType getTipo() {
         return tipo;
     }
     public String getImgArchivo() {

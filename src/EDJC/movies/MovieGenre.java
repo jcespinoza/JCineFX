@@ -10,10 +10,10 @@ import EDJC.util.Util;
  *
  * @author Jay C Espinoza
  */
-public enum GeneroPelicula {
+public enum MovieGenre {
     COMEDIA, DRAMA, ACCION, MUSICAL, DOCUMENTAL, ANIMADA;
 
-    public static GeneroPelicula parseGenero(String t) {
+    public static MovieGenre parseGenero(String t) {
         switch(t){
             case "Comedia":
                 return COMEDIA;

@@ -61,7 +61,7 @@ public class ClientWindow extends AnchorPane implements Initializable{
     private void handleExit(){Platform.exit();}
     
     public void loadCartelera(){
-        Cartelera car = new Cartelera(this);
+        Billboard car = new Billboard(this);
         Util.changeContent(car, content);
     }
     

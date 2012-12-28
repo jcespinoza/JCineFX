@@ -17,10 +17,10 @@ import javafx.scene.layout.AnchorPane;
  * @author Juan Carlos Espinoza
  *
  */
-public class Cartelera extends AnchorPane implements Initializable{
+public class Billboard extends AnchorPane implements Initializable{
     private ClientWindow father;
     
-    public Cartelera(ClientWindow cli){
+    public Billboard(ClientWindow cli){
         father = cli;
         FXMLLoader fx = new FXMLLoader(getClass().getResource("/FXML/Cartelera.fxml"));
         fx.setRoot(this);

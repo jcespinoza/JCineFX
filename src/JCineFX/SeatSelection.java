@@ -4,10 +4,10 @@
  */
 package JCineFX;
 
-import EDJC.movies.Pelicula;
-import EDJC.rooms.Horario;
-import EDJC.rooms.Sala4Ticket;
-import EDJC.rooms.SalaLayout;
+import EDJC.movies.Movie;
+import EDJC.rooms.Schedule;
+import EDJC.rooms.Room4Ticket;
+import EDJC.rooms.RoomLayout;
 import EDJC.rooms.seats.SeatState;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,10 +32,10 @@ public class SeatSelection extends AnchorPane implements Initializable{
 
     @FXML
     private VBox chairPane;
-    private SalaLayout sala;
-    private Pelicula peli;
-    private Horario horario;
-    private Sala4Ticket st;
+    private RoomLayout sala;
+    private Movie peli;
+    private Schedule horario;
+    private Room4Ticket st;
     private int tickets;
     public Text titulo;
     public Label fecha;

@@ -5,7 +5,7 @@
 
 package controllers;
 
-import EDJC.security.Usuario;
+import EDJC.security.User;
 import EDJC.util.Util;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ public class LoginRegister extends AnchorPane implements Initializable{
     public AnchorPane registerPane;
     public TitledPane titledLogin;
     public TitledPane titledRegister;
-    
-    protected ArrayList<Usuario> usuarios;
+        
+    protected ArrayList<User> users;
     
     public LoginRegister(){
         FXMLLoader fx = new FXMLLoader(getClass().getResource("/FXML/Login_Register.fxml"));

@@ -7,7 +7,7 @@ package JCineFX;
 import EDJC.security.Configuracion;
 import controllers.ModSelection;
 import EDJC.security.UserBuilder;
-import EDJC.security.Usuario;
+import EDJC.security.User;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -21,7 +21,7 @@ public class JCineFX extends Application{
     public static final String confFilePath = "config.mov";
     private static int salaCounter = 1;
     private static int movCounter = 1;
-    private static Usuario currentUser;
+    private static User currentUser;
     private static Configuracion conf;
    
     @Override
@@ -54,12 +54,12 @@ public class JCineFX extends Application{
         JCineFX.salaCounter = leerConf().getContadorSala() + 1;
     }
 
-    public static Usuario getCurrentUser() throws IOException{
+    public static User getCurrentUser() throws IOException{
         currentUser = UserBuilder.leerUser( leerConf().getUsuarioActual() );
         return currentUser;
     }
 
-    public static void setCurrentUser(Usuario currentUser) throws IOException {
+    public static void setCurrentUser(User currentUser) throws IOException {
         actualizarConf(currentUser);
         JCineFX.currentUser = UserBuilder.leerUser(leerConf().getUsuarioActual());
     }
@@ -82,7 +82,7 @@ public class JCineFX extends Application{
             RandomAccessFile raf = new RandomAccessFile("cinefilos.mov", "rw");
             if( raf.length() == 0){
                 raf.close();
-                Usuario nUser = new Usuario("guest", "password".toCharArray());
+                User nUser = new User("guest", "password".toCharArray());
                 nUser.setNombreCompleto("Administrator");
                 nUser.setFotoPath("file:JCineFX.jar!/res/user-icon-big.png" );
                 UserBuilder.escribirUser(nUser);
@@ -124,7 +124,7 @@ public class JCineFX extends Application{
         raf.writeInt(conf.getContadorPeli());
     }
     
-    public static Configuracion actualizarConf(Usuario u) throws IOException{
+    public static Configuracion actualizarConf(User u) throws IOException{
         Configuracion conf = leerConf();
         conf.setUsuarioActual(u.getUsername());
         escribirConf(conf);

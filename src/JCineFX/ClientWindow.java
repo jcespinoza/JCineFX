@@ -4,10 +4,10 @@
  */
 package JCineFX;
 
-import EDJC.movies.Pelicula;
-import EDJC.rooms.Horario;
-import EDJC.rooms.Sala4Ticket;
-import EDJC.rooms.SalaLayout;
+import EDJC.movies.Movie;
+import EDJC.rooms.Schedule;
+import EDJC.rooms.Room4Ticket;
+import EDJC.rooms.RoomLayout;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -22,12 +22,12 @@ import javafx.scene.layout.AnchorPane;
  * @author Jay C Espinoza
  */
 public class ClientWindow implements Initializable{
-    public SalaLayout currentSala;
-    public Pelicula currentMov;
-    public Horario currentHorario;
+    public RoomLayout currentSala;
+    public Movie currentMov;
+    public Schedule currentHorario;
     public String nomCliente;
     public int[] tickets = new int[3];
-    public Sala4Ticket selectedST;
+    public Room4Ticket selectedST;
     
     @FXML
     private AnchorPane content;

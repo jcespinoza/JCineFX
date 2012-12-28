@@ -16,10 +16,10 @@ import javafx.scene.layout.AnchorPane;
  * @author Juan Carlos Espinoza
  *
  */
-public class AddSalaPanel extends AnchorPane implements Initializable{
+public class AddRoomPanel extends AnchorPane implements Initializable{
     private AdminWindow father;
     
-    public AddSalaPanel(AdminWindow ad){
+    public AddRoomPanel(AdminWindow ad){
         father = ad;
         FXMLLoader fx = new FXMLLoader(getClass().getResource("/FXML/AddSalaPanel.fxml"));
         fx.setRoot(this);

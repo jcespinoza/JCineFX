@@ -4,7 +4,7 @@
  */
 package EDJC;
 
-import EDJC.rooms.SalaLayout;
+import EDJC.rooms.RoomLayout;
 import JCineFX.JCineFX;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class ListRooms {
         for(int i = 1; i <= nu; i++){
             FileInputStream fil = new FileInputStream("salas/sala" + i + ".mov");
             ObjectInputStream oin = new ObjectInputStream(fil);
-            SalaLayout sal = (SalaLayout)(oin.readObject());
+            RoomLayout sal = (RoomLayout)(oin.readObject());
             System.out.println("Sala: " + i);
             System.out.println(sal.toString());
             System.out.println("\n");

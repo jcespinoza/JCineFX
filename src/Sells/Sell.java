@@ -6,14 +6,14 @@ import java.io.Serializable;
  * @author Juan Carlos Espinoza
  *
  */
-public class Venta implements Serializable{
+public class Sell implements Serializable{
     private String client;
     private int nTickets;
     private int tickets[];
     private double totalMoney;
    
     
-    public Venta(){
+    public Sell(){
         tickets = new int[3];
     }
 }

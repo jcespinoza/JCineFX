@@ -14,12 +14,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Disenio{
-    private final SalaLayout layout;
+public class Design{
+    private final RoomLayout layout;
     private static EventHandler<MouseEvent> clickHandler;
     
-    public Disenio(int filas, int cols, boolean is3D){
-        layout = new SalaLayout(filas, cols, is3D);
+    public Design(int filas, int cols, boolean is3D){
+        layout = new RoomLayout(filas, cols, is3D);
         layout.makeAll(SeatState.DISPONIBLE);
         clickHandler = new EventHandler<MouseEvent>() {
             @Override
@@ -61,20 +61,20 @@ public class Disenio{
         ns.show();
     }
     
-    public void guardarDisenio(SalaLayout sala) throws IOException{
-        SalaBuilder.escribirSala(sala);
+    public void guardarDisenio(RoomLayout sala) throws IOException{
+        RoomBuilder.escribirSala(sala);
         System.out.println("Sala Guardada");
     }
 
     /**
-     * Metodo para leer un SalaLayout de un archivo, que tiene en su nombre el codigo.
+     * Metodo para leer un RoomLayout de un archivo, que tiene en su nombre el codigo.
      * @param cod El codigo de la sala, este deberia estar antes de la extension .mov y despues de la palabra sala.
      * @return
      * @throws IOException
      * @throws ClassNotFoundException 
      */
-    public SalaLayout readSalaLayout(int cod) throws IOException, ClassNotFoundException{
-        return SalaBuilder.leerSala(cod);
+    public RoomLayout readSalaLayout(int cod) throws IOException, ClassNotFoundException{
+        return RoomBuilder.leerSala(cod);
     }   
 
     public static EventHandler<MouseEvent> getHandler(){

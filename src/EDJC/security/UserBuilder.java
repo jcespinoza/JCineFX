@@ -17,14 +17,14 @@ public class UserBuilder {
 
     private UserBuilder(){}
 
-    public static Usuario leerUser(String username) throws IOException{
+    public static User leerUser(String username) throws IOException{
         raf = new RandomAccessFile("cinefilos.mov", "r");
         raf.seek(0);
         while(raf.getFilePointer() < raf.length()){
-            Usuario leido = new Usuario();
+            User leido = new User();
             long filePointer = raf.getFilePointer();
             leido.setUsername(raf.readUTF());
-            Usuario param = new Usuario();
+            User param = new User();
             param.setUsername(username);
 
             if(leido.equals(param)){
@@ -46,7 +46,7 @@ public class UserBuilder {
         return null;
     }
 
-    public static void escribirUser(Usuario user) throws FileNotFoundException, IOException{
+    public static void escribirUser(User user) throws FileNotFoundException, IOException{
         desactivarUsuario(user.getUsername());
         raf = new RandomAccessFile("cinefilos.mov", "rw");
         raf.seek(raf.length());

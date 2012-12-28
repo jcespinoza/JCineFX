@@ -4,8 +4,8 @@
  */
 package JCineFX;
 
-import EDJC.rooms.Disenio;
-import EDJC.rooms.SalaLayout;
+import EDJC.rooms.Design;
+import EDJC.rooms.RoomLayout;
 import EDJC.rooms.seats.SeatState;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,7 +26,7 @@ import javafx.scene.layout.RowConstraints;
  * @author Jay C Espinoza
  */
 public class ChairGrid extends AnchorPane implements Initializable{
-    private SalaLayout layout;
+    private RoomLayout layout;
     private final int maxRows;
     private final int maxCols;
     private boolean design;
@@ -34,7 +34,7 @@ public class ChairGrid extends AnchorPane implements Initializable{
     
     private GridPane grid;
     
-    public ChairGrid(SalaLayout lay, boolean design){
+    public ChairGrid(RoomLayout lay, boolean design){
         this.design = design;
         layout = lay;
         maxRows = lay.getFilas();
@@ -53,7 +53,7 @@ public class ChairGrid extends AnchorPane implements Initializable{
         setMaxSize(800, 600);
     }
 
-    ChairGrid(SalaLayout sala, EventHandler<MouseEvent> handler) {
+    ChairGrid(RoomLayout sala, EventHandler<MouseEvent> handler) {
         this(sala, false);
         this.handler = handler;
     }
@@ -66,7 +66,7 @@ public class ChairGrid extends AnchorPane implements Initializable{
     private void setActionListeners(){
         EventHandler<MouseEvent> handler;
         if( design ){
-            handler = Disenio.getHandler();
+            handler = Design.getHandler();
         }else{
             handler = new EventHandler<MouseEvent>() {
 

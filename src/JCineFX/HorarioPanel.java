@@ -4,11 +4,11 @@
  */
 package JCineFX;
 
-import EDJC.movies.Pelicula;
-import EDJC.movies.PeliculaBuilder;
-import EDJC.rooms.Horario;
-import EDJC.rooms.HorarioBuilder;
-import EDJC.rooms.SalaBuilder;
+import EDJC.movies.Movie;
+import EDJC.movies.MovieBuilder;
+import EDJC.rooms.Schedule;
+import EDJC.rooms.ScheduleBuilder;
+import EDJC.rooms.RoomBuilder;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
     public ImageView movImg;
     public VBox vboxPane;
     public ChoiceBox salasChoiceBox;
-    private Pelicula peli;
+    private Movie peli;
     public Label tipoSala;
     private ArrayList<String> salas;
     private final AdminWindowController admin;
@@ -99,9 +99,9 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
                 tipoSala.setText(salas.get(t1.intValue()));
             }
         });
-        PeliculaBuilder.fillMoviesPanel(vboxPane, this);
+        MovieBuilder.fillMoviesPanel(vboxPane, this);
         emptySalaChoices();
-        SalaBuilder.fillSalaChoices(salasChoiceBox, salas);
+        RoomBuilder.fillSalaChoices(salasChoiceBox, salas);
     }
     
     public void emptyMoviesPanel(){
@@ -118,12 +118,12 @@ public class HorarioPanel extends AnchorPane implements Initializable, EventHand
         unclePane.setExpanded(true);
         unclePane.setCollapsible(false);
         int codSala = Integer.parseInt( (String)salasChoiceBox.getValue() );
-        if( HorarioBuilder.dataMakeSense(peli, codSala, fechaControl, timeControl) ){
+        if( ScheduleBuilder.dataMakeSense(peli, codSala, fechaControl, timeControl) ){
             try {
-                if( HorarioBuilder.areCompatible(codSala, peli)){
-                    Horario h = new Horario(peli, fechaControl.getValue(), timeControl.getValue());
-                    HorarioBuilder.escribirHorario(codSala, h);
-                    SalaBuilder.escribirSalaT(SalaBuilder.leerSala(codSala), h);
+                if( ScheduleBuilder.areCompatible(codSala, peli)){
+                    Schedule h = new Schedule(peli, fechaControl.getValue(), timeControl.getValue());
+                    ScheduleBuilder.escribirHorario(codSala, h);
+                    RoomBuilder.escribirSalaT(RoomBuilder.leerSala(codSala), h);
                 }
             } catch (Exception ex) {
                 System.out.println("Error");

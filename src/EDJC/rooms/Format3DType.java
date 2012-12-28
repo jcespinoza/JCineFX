@@ -10,7 +10,7 @@ import EDJC.util.Util;
  *
  * @author Jay C Espinoza
  */
-public enum Tipo3DFormato {
+public enum Format3DType {
     DIGITAL, REAL, EXTREME;
     
     @Override

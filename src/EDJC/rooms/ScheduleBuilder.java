@@ -1,7 +1,7 @@
 package EDJC.rooms;
 
-import EDJC.movies.Pelicula;
-import EDJC.movies.PeliculaBuilder;
+import EDJC.movies.Movie;
+import EDJC.movies.MovieBuilder;
 import JCineFX.Cartelera;
 import JCineFX.HorarioControl;
 import JCineFX.JCineFX;
@@ -17,9 +17,9 @@ import javafx.scene.layout.HBox;
 import jfxtras.labs.scene.control.CalendarTextField;
 import jfxtras.labs.scene.control.CalendarTimeTextField;
 
-public class HorarioBuilder {
+public class ScheduleBuilder {
     
-    public static void escribirHorario(int cod, Horario h) throws IOException{
+    public static void escribirHorario(int cod, Schedule h) throws IOException{
         RandomAccessFile raf = new RandomAccessFile("horarios/horarios_" + cod + ".mov", "rw");
         raf.seek(raf.length());
         raf.writeInt(h.getCodPeli());
@@ -31,7 +31,7 @@ public class HorarioBuilder {
         raf.writeInt(h.getDuracion());
     }
     
-    public static boolean dataMakeSense(Pelicula p, int codSala, CalendarTextField fecha, CalendarTimeTextField time){
+    public static boolean dataMakeSense(Movie p, int codSala, CalendarTextField fecha, CalendarTimeTextField time){
         if(p == null)
             return false;
         if( codSala <= 0)
@@ -52,9 +52,9 @@ public class HorarioBuilder {
         return ret;
     }
     
-    public static boolean areCompatible(int codSala, Pelicula p){
+    public static boolean areCompatible(int codSala, Movie p){
         try {
-            SalaLayout s = SalaBuilder.leerSala(codSala);
+            RoomLayout s = RoomBuilder.leerSala(codSala);
             System.out.println(""+codSala);
             if(s.is3D() && p.is3D())
                 return true;
@@ -76,16 +76,16 @@ public class HorarioBuilder {
         return false;
     }
     
-    public static long getDiference(Horario h1, Horario h2){
+    public static long getDiference(Schedule h1, Schedule h2){
         return h2.getInicio() - h1.getTotalTime();
     }
     
-    public static ArrayList<Horario> readHorarios(int cod) throws IOException{
-        ArrayList<Horario> ret = new ArrayList<>();
+    public static ArrayList<Schedule> readHorarios(int cod) throws IOException{
+        ArrayList<Schedule> ret = new ArrayList<>();
         RandomAccessFile raf = new RandomAccessFile("horarios/horarios_" + cod + ".mov", "rw");
         raf.seek(0);
         while(raf.getFilePointer() < raf.length()){
-            Horario h = new Horario();
+            Schedule h = new Schedule();
             h.setCodPeli(raf.readInt());
             h.setAnio(raf.readInt());
             h.setMes(raf.readInt());
@@ -97,26 +97,26 @@ public class HorarioBuilder {
         }
         return ret;
     }
-    public static void escribirHorarios(int cod, ArrayList<Horario> array) throws IOException{
-        for(Horario h: array){
+    public static void escribirHorarios(int cod, ArrayList<Schedule> array) throws IOException{
+        for(Schedule h: array){
             escribirHorario(cod, h);
         }
     }
     
-    //esta funcion agregaria el Horario al arraylist solo si no traslapa los que ya estan
+    //esta funcion agregaria el Schedule al arraylist solo si no traslapa los que ya estan
     //lo hace pero no los deja en orden
-    public static boolean addBetween(ArrayList<Horario> array, Horario hor){
+    public static boolean addBetween(ArrayList<Schedule> array, Schedule hor){
         if(array.isEmpty()){
             array.add(hor);
             return true;
         }
-        Horario prev = null;
-        Horario next = null;
+        Schedule prev = null;
+        Schedule next = null;
         long difPrev = Long.MAX_VALUE;
         long difNext = Long.MAX_VALUE;
         long cDifPrev = 0;
         long cDifNext = 0;
-        for(Horario h: array){
+        for(Schedule h: array){
             long hTotal = h.getTotalTime();
             System.out.println("\nHFin: " + new Date(hTotal));
             long horIni = hor.getInicio();
@@ -153,8 +153,8 @@ public class HorarioBuilder {
         try {
             box.getChildren().removeAll(box.getChildren());
             int cod = salas.getSelectionModel().getSelectedIndex()+1;
-            ArrayList<Horario> hors = readHorarios(cod);
-            for(Horario h: hors){
+            ArrayList<Schedule> hors = readHorarios(cod);
+            for(Schedule h: hors){
                 HorarioControl hc = new HorarioControl(cod,h, box);
                 box.getChildren().add(hc);
             }
@@ -168,8 +168,8 @@ public class HorarioBuilder {
             box.getChildren().removeAll(box.getChildren());
             int count = JCineFX.leerConf().getContadorSala() - 1;
             for(int i = 1; i <= count; i++){
-                ArrayList<Horario> hors = readHorarios(i);
-                for( Horario h: hors){
+                ArrayList<Schedule> hors = readHorarios(i);
+                for( Schedule h: hors){
                     HorarioControl hc = new HorarioControl(i,h, box);
                     hc.setOnMouseClicked(cart);
                     box.getChildren().add(hc);

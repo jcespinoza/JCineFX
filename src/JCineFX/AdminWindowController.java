@@ -5,17 +5,17 @@
 package JCineFX;
 
 import EDJC.security.Configuracion;
-import EDJC.movies.Formato3D;
-import EDJC.movies.GeneroPelicula;
-import EDJC.movies.Pelicula;
-import EDJC.movies.PeliculaBuilder;
-import EDJC.movies.TipoClasificacion;
-import EDJC.movies.TipoPelicula;
-import EDJC.rooms.Disenio;
-import EDJC.rooms.HorarioBuilder;
-import EDJC.rooms.SalaBuilder;
+import EDJC.movies.Format3D;
+import EDJC.movies.MovieGenre;
+import EDJC.movies.Movie;
+import EDJC.movies.MovieBuilder;
+import EDJC.movies.Rating;
+import EDJC.movies.MovieType;
+import EDJC.rooms.Design;
+import EDJC.rooms.ScheduleBuilder;
+import EDJC.rooms.RoomBuilder;
 import EDJC.security.UserBuilder;
-import EDJC.security.Usuario;
+import EDJC.security.User;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -108,7 +108,7 @@ public class AdminWindowController implements Initializable {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        SalaBuilder.fillSalaChoices(salasChoice, new ArrayList<String>());
+        RoomBuilder.fillSalaChoices(salasChoice, new ArrayList<String>());
         salasChoice.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 
             @Override
@@ -146,7 +146,7 @@ public class AdminWindowController implements Initializable {
             
             if( oldPassOk && newPassOk && passLength ){
                 UserBuilder.desactivarUsuario(localConf.getUsuarioActual());
-                Usuario us = new Usuario();
+                User us = new User();
                 us.setUsername( usernameField.getText() );
                 us.setPassword( newPass1Field.getText().toCharArray());
                 us.setFotoPath(imagePath);
@@ -201,17 +201,17 @@ public class AdminWindowController implements Initializable {
             int cod                 = JCineFX.getMovCounter();
             String title            = tituloField.getText();
             int dur                 = Integer.parseInt(duracionField.getText());
-            TipoPelicula tipo       = TipoPelicula.parseTipo( (String)(formatoCombo.getValue()) );
-            Formato3D form          = Formato3D.parseFormato( (String)formatoCombo.getValue() );
-            GeneroPelicula gen      = GeneroPelicula.parseGenero( ( (String)generoCombo.getValue() ) );
-            TipoClasificacion clas  = TipoClasificacion.parseClas( (String)clasiCombo.getValue() );
+            MovieType tipo       = MovieType.parseTipo( (String)(formatoCombo.getValue()) );
+            Format3D form          = Format3D.parseFormato( (String)formatoCombo.getValue() );
+            MovieGenre gen      = MovieGenre.parseGenero( ( (String)generoCombo.getValue() ) );
+            Rating clas  = Rating.parseClas( (String)clasiCombo.getValue() );
             Date adicion            = new Date();
             
-            Pelicula peli = new Pelicula(cod, dur, title, gen, clas, form);
+            Movie peli = new Movie(cod, dur, title, gen, clas, form);
             
             peli.setFechaAdicion(adicion);
             peli.setImgArchivo(peliImg);
-            PeliculaBuilder.escribirPelicula(peli);
+            MovieBuilder.escribirPelicula(peli);
             JCineFX.setMovCounter(1); //aumenta el contador de peliculas en 1
             JCineFX.aumentarContMov();
             cancelPelicula(e);//limpia los campos despues de guardar la pelicula
@@ -264,7 +264,7 @@ public class AdminWindowController implements Initializable {
             int cols = Integer.parseInt(colsField.getText());
             String tipo = (String)(tipoSalaCombo.getValue());
             boolean _3D = tipo.equals("3D");
-            Disenio dis = new Disenio(filas, cols, _3D);
+            Design dis = new Design(filas, cols, _3D);
             dis.showDesignDialog();
         }catch(NumberFormatException ex){
             System.out.println("There were no numbers");
@@ -280,7 +280,7 @@ public class AdminWindowController implements Initializable {
     }
     
     public void loadHorarios(){
-        HorarioBuilder.fillPanel(hboxHoras, salasChoice);
+        ScheduleBuilder.fillPanel(hboxHoras, salasChoice);
     }
     
     @FXML

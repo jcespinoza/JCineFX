@@ -37,7 +37,7 @@ public class MainPanel extends AnchorPane implements Initializable{
 
     @FXML
     private void handleAddSala(){
-        AddSalaPanel ad = new AddSalaPanel(father);
+        AddRoomPanel ad = new AddRoomPanel(father);
         Util.changeContent(ad, father.content);
     }
     

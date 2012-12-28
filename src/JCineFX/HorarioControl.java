@@ -4,11 +4,11 @@
  */
 package JCineFX;
 
-import EDJC.movies.Pelicula;
-import EDJC.movies.PeliculaBuilder;
-import EDJC.rooms.Horario;
-import EDJC.rooms.SalaBuilder;
-import EDJC.rooms.SalaLayout;
+import EDJC.movies.Movie;
+import EDJC.movies.MovieBuilder;
+import EDJC.rooms.Schedule;
+import EDJC.rooms.RoomBuilder;
+import EDJC.rooms.RoomLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,8 +26,8 @@ import javafx.scene.layout.AnchorPane;
  * @author Jay C Espinoza
  */
 public class HorarioControl extends AnchorPane implements Initializable{
-    private Pelicula pelicula;
-    private Horario horario;
+    private Movie pelicula;
+    private Schedule horario;
     private int codSala;
     @FXML
     public Label codigo;
@@ -42,7 +42,7 @@ public class HorarioControl extends AnchorPane implements Initializable{
     private Node father;
     
        
-    public HorarioControl(int codSala, Horario h, Node container) {
+    public HorarioControl(int codSala, Schedule h, Node container) {
         this.codSala = codSala;
         father = container;
         horario = h;
@@ -50,7 +50,7 @@ public class HorarioControl extends AnchorPane implements Initializable{
         fx.setRoot(this);
         fx.setController(this);
         try {
-            pelicula = PeliculaBuilder.leerPelicula(h.getCodPeli());
+            pelicula = MovieBuilder.leerPelicula(h.getCodPeli());
             fx.load();
         } catch (IOException ex) {
             System.out.println("Error " + ex);
@@ -75,17 +75,17 @@ public class HorarioControl extends AnchorPane implements Initializable{
         }
     }
     
-    public Horario getHorario(){
+    public Schedule getHorario(){
         return this.horario;
     }
 
-    public Pelicula getPelicula() {
+    public Movie getPelicula() {
         return pelicula;
     }
 
-    public SalaLayout getSala() throws IOException{
+    public RoomLayout getSala() throws IOException{
         try{
-            return SalaBuilder.leerSala(codSala);
+            return RoomBuilder.leerSala(codSala);
         }catch(ClassNotFoundException ex){
             return null;
         }

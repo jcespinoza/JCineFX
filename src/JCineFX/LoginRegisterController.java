@@ -3,7 +3,7 @@ package JCineFX;
 import EDJC.security.Configuracion;
 import EDJC.security.InvalidPasswordException;
 import EDJC.security.UserBuilder;
-import EDJC.security.Usuario;
+import EDJC.security.User;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -38,7 +38,7 @@ import javafx.stage.Stage;
  */
 public class LoginRegisterController implements Initializable {
     private Configuracion conf;
-    private Usuario usuario;
+    private User usuario;
     
     @FXML
     public TitledPane titledLogin;
@@ -137,7 +137,7 @@ public class LoginRegisterController implements Initializable {
     
     @FXML
     private void handleRegisterReg(ActionEvent e){
-        Usuario temp = new Usuario();
+        User temp = new User();
         String user = userReg.getText();
         String name = nameReg.getText();
         char[] pass1 = pass1Reg.getText().toCharArray();
@@ -154,7 +154,7 @@ public class LoginRegisterController implements Initializable {
             temp.setNombreCompleto(name);
             temp.setFotoPath(imgPath);
             
-            Usuario result = UserBuilder.leerUser(user);
+            User result = UserBuilder.leerUser(user);
             if(result == null){
                 UserBuilder.escribirUser(temp);
                 cleanRegFields();
@@ -215,8 +215,8 @@ public class LoginRegisterController implements Initializable {
     private boolean validateUser(ActionEvent e) {
         String user = userLog.getText();
         char[] pass = passLog.getText().toCharArray();
-        Usuario us = new Usuario(user, pass);
-        Usuario result;
+        User us = new User(user, pass);
+        User result;
         try{
             result = UserBuilder.leerUser(user);
         }catch(IOException ex){

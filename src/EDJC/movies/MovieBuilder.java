@@ -16,8 +16,8 @@ import javafx.scene.layout.VBox;
  *
  * @author Jay C Espinoza
  */
-public class PeliculaBuilder {
-    public static void escribirPelicula(Pelicula p) throws IOException{
+public class MovieBuilder {
+    public static void escribirPelicula(Movie p) throws IOException{
         RandomAccessFile raf = new RandomAccessFile("peliculas.mov", "rw");
         raf.seek(raf.length());
         raf.writeInt(JCineFX.getMovCounter());
@@ -31,23 +31,23 @@ public class PeliculaBuilder {
         raf.writeUTF(p.getImgArchivo());
     }
     
-    public static Pelicula leerPelicula(int codigo) throws IOException{
+    public static Movie leerPelicula(int codigo) throws IOException{
         RandomAccessFile raf = new RandomAccessFile("peliculas.mov", "r");
         raf.seek(0);
-        Pelicula ret = null;
+        Movie ret = null;
         while(raf.getFilePointer() < raf.length()){
             int cod = raf.readInt();
             String titulo = raf.readUTF();
             int durac = raf.readInt();
-            GeneroPelicula gen = GeneroPelicula.valueOf( raf.readUTF() );
-            TipoClasificacion clas = TipoClasificacion.valueOf( raf.readUTF() );
+            MovieGenre gen = MovieGenre.valueOf( raf.readUTF() );
+            Rating clas = Rating.valueOf( raf.readUTF() );
             long fecha = raf.readLong();
-            TipoPelicula tipo = TipoPelicula.valueOf( raf.readUTF() );
+            MovieType tipo = MovieType.valueOf( raf.readUTF() );
             String sForm3D = raf.readUTF();
-            Formato3D form3D = Formato3D.valueOf(sForm3D);
+            Format3D form3D = Format3D.valueOf(sForm3D);
             String imgPath = raf.readUTF();
 
-            ret = new Pelicula(cod, durac, titulo, gen, clas, form3D);
+            ret = new Movie(cod, durac, titulo, gen, clas, form3D);
             ret.setFechaAdicion(new Date(fecha));
             ret.setImgArchivo(imgPath);
             if(cod == codigo)
@@ -60,7 +60,7 @@ public class PeliculaBuilder {
         try {
             int count = JCineFX.leerConf().getContadorPeli() - 1;
             for(int i = 1; i <= count; i++){
-                Pelicula p = leerPelicula(i);
+                Movie p = leerPelicula(i);
                 box.getChildren().add(new MovieTile(p, cont));
             }
         } catch (IOException ex) {

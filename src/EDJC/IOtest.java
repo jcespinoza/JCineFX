@@ -4,7 +4,7 @@
  */
 package EDJC;
 
-import EDJC.security.Usuario;
+import EDJC.security.User;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -19,7 +19,7 @@ public class IOtest {
         
         FileOutputStream fout = null;
         try {
-            Usuario source = new Usuario("jcespinoza", "password".toCharArray());
+            User source = new User("jcespinoza", "password".toCharArray());
             source.setNombreCompleto("Juan Carlos Espinoza");
             source.setCredencialActiva(true);
             source.setFotoPath("fotos/pic1.jpg");
@@ -48,7 +48,7 @@ public class IOtest {
             FileInputStream fin = new FileInputStream("user1.usr");
             ObjectInputStream obin = new ObjectInputStream(fin);
             
-            Usuario dest = (Usuario)(obin.readObject());
+            User dest = (User)(obin.readObject());
             System.out.print("\nDestination: " + "username=" + dest.getUsername()
                     + " password=" + new String(dest.getPassword()) +
                     " nombre=" + dest.getNombreCompleto()

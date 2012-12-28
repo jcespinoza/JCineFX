@@ -4,7 +4,7 @@
  */
 package JCineFX;
 
-import EDJC.movies.Pelicula;
+import EDJC.movies.Movie;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,14 +24,14 @@ import javafx.scene.layout.GridPane;
  * @author Jay C Espinoza
  */
 public class MovieTile extends AnchorPane implements Initializable{
-    private Pelicula pelicula;
+    private Movie pelicula;
     private Node owner;
     
     @FXML
     public GridPane grid;
     public ImageView peliImg;
     
-    public MovieTile(Pelicula p, Node container){
+    public MovieTile(Movie p, Node container){
         pelicula = p;
         owner = container;
         FXMLLoader fx = new FXMLLoader(getClass().getResource("MovieTile.fxml"));
@@ -57,7 +57,7 @@ public class MovieTile extends AnchorPane implements Initializable{
         
     }
 
-    public Pelicula getPelicula() {
+    public Movie getPelicula() {
         return pelicula;
     }   
 }

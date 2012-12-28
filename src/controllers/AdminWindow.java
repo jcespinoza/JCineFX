@@ -5,10 +5,10 @@
 
 package controllers;
 
-import EDJC.movies.Pelicula;
-import EDJC.rooms.Horario;
-import EDJC.rooms.SalaLayout;
-import EDJC.security.Usuario;
+import EDJC.movies.Movie;
+import EDJC.rooms.Schedule;
+import EDJC.rooms.RoomLayout;
+import EDJC.security.User;
 import EDJC.util.Util;
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,10 +27,10 @@ import javafx.stage.Stage;
  */
 public class AdminWindow extends AnchorPane implements Initializable{
     public AnchorPane content;
-    protected ArrayList<Usuario> users;
-    protected ArrayList<Pelicula> movies;
-    protected ArrayList<Horario> scheds;
-    protected ArrayList<SalaLayout> rooms;
+    protected ArrayList<User> users;
+    protected ArrayList<Movie> movies;
+    protected ArrayList<Schedule> scheds;
+    protected ArrayList<RoomLayout> rooms;
     
     public AdminWindow(){
         FXMLLoader fx = new FXMLLoader(getClass().getResource("/FXML/AdminWindow.fxml"));

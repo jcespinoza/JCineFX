@@ -4,7 +4,7 @@ import EDJC.rooms.seats.SeatState;
 import java.io.Serializable;
 import java.util.Arrays;
 
-public class SalaLayout implements Serializable{
+public class RoomLayout implements Serializable{
     private int codigo;
     private boolean is3D;
     private int[][] sillas;
@@ -12,7 +12,7 @@ public class SalaLayout implements Serializable{
     private int filas;
     private int cols;
     
-    public SalaLayout(int filas, int cols, boolean is3D){
+    public RoomLayout(int filas, int cols, boolean is3D){
         this.filas = filas;
         this.cols = cols;
         this.is3D = is3D;
@@ -56,8 +56,8 @@ public class SalaLayout implements Serializable{
         sillas[fila][col] = s.toInt();
     }
     
-    public static SalaLayout genSalaLayout(int rows, int cols, SeatState s, boolean _3D){
-        SalaLayout sala = new SalaLayout(rows, cols, _3D);
+    public static RoomLayout genSalaLayout(int rows, int cols, SeatState s, boolean _3D){
+        RoomLayout sala = new RoomLayout(rows, cols, _3D);
         sala.makeAll(s);
         return sala;
     }

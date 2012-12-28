@@ -5,7 +5,7 @@
 
 package EDJC.security;
 
-import EDJC.security.Usuario;
+import EDJC.security.User;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -18,23 +18,23 @@ import java.io.Serializable;
  *
  */
 public class Config implements Serializable{
-    private Usuario user;
+    private User user;
     private int roomCount;
     private int movCount;
     private String lastPath;
     
     public Config(){}
 
-    public Config(Usuario user, int roomCount, int movCount, String lastPath) {
+    public Config(User user, int roomCount, int movCount, String lastPath) {
         this.user = user;
         this.roomCount = roomCount;
         this.movCount = movCount;
         this.lastPath = lastPath;
     }
 
-    public Usuario getUser() {return user;}
+    public User getUser() {return user;}
 
-    public void setUser(Usuario user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -58,7 +58,7 @@ public class Config implements Serializable{
     
     public static Config getDefault(){
         Config conf = new Config();
-        Usuario s = new Usuario("guest", "password".toCharArray());
+        User s = new User("guest", "password".toCharArray());
         conf.setUser(s);
         conf.setLastPath(".");
         return conf;

@@ -4,7 +4,7 @@
  */
 package JCineFX;
 
-import EDJC.rooms.SalaLayout;
+import EDJC.rooms.RoomLayout;
 import EDJC.util.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,7 +22,7 @@ import javafx.scene.layout.AnchorPane;
 public class TicketPanel extends AnchorPane implements Initializable{
 
     private ClientWindow father;
-    private SalaLayout selectedSala;
+    private RoomLayout selectedSala;
     private int[] tickets;
     
     @FXML

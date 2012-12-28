@@ -1,23 +1,23 @@
 package EDJC.rooms;
 
-import EDJC.movies.Pelicula;
+import EDJC.movies.Movie;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public final class Horario {
+public final class Schedule {
     private Calendar fecha;
     private int codPeli;
     private int duracion;
     
-    public Horario(){
+    public Schedule(){
         fecha = new GregorianCalendar();
         fecha.set(Calendar.HOUR_OF_DAY, 0);
         fecha.set(Calendar.MINUTE, 0);
         fecha.set(Calendar.SECOND, 0);
         fecha.set(Calendar.MILLISECOND, 0);
     }
-    public Horario(int anio, int mes, int dia, int hour, int min, int cod, int duracion){
+    public Schedule(int anio, int mes, int dia, int hour, int min, int cod, int duracion){
         this();
         setAnio(anio);
         setMes(mes);
@@ -27,7 +27,7 @@ public final class Horario {
         setCodPeli(cod);
         setDuracion(duracion);
     }
-    public Horario(Pelicula p, Calendar fecha, Calendar hora){
+    public Schedule(Movie p, Calendar fecha, Calendar hora){
         this();
         setFecha(fecha.getTime());
         setHora(hora.get(Calendar.HOUR_OF_DAY));

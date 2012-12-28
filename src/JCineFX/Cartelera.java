@@ -4,12 +4,12 @@
  */
 package JCineFX;
 
-import EDJC.movies.Pelicula;
-import EDJC.rooms.Horario;
-import EDJC.rooms.HorarioBuilder;
-import EDJC.rooms.Sala4Ticket;
-import EDJC.rooms.SalaBuilder;
-import EDJC.rooms.SalaLayout;
+import EDJC.movies.Movie;
+import EDJC.rooms.Schedule;
+import EDJC.rooms.ScheduleBuilder;
+import EDJC.rooms.Room4Ticket;
+import EDJC.rooms.RoomBuilder;
+import EDJC.rooms.RoomLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,9 +30,9 @@ public class Cartelera extends AnchorPane implements Initializable, EventHandler
     public HBox hboxPane;
     
     private ClientWindow father;
-    private Pelicula selectedMov;
-    private SalaLayout selectedSala;
-    private Horario selectedHorario;
+    private Movie selectedMov;
+    private RoomLayout selectedSala;
+    private Schedule selectedHorario;
     
     public Cartelera(ClientWindow c){
         father = c;
@@ -51,14 +51,14 @@ public class Cartelera extends AnchorPane implements Initializable, EventHandler
         father.currentSala = selectedSala;
         father.currentHorario = selectedHorario;
         try {
-            father.selectedST = SalaBuilder.leerSalaT( Sala4Ticket.parseNombre(selectedSala.getCodigo(), selectedMov.getCodigo(), selectedHorario.getFecha()));
+            father.selectedST = RoomBuilder.leerSalaT( Room4Ticket.parseNombre(selectedSala.getCodigo(), selectedMov.getCodigo(), selectedHorario.getFecha()));
         } catch (Exception ex) {}
         father.showTicketPanel();
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        HorarioBuilder.fillPanel(hboxPane, this);
+        ScheduleBuilder.fillPanel(hboxPane, this);
     }
 
     @Override
