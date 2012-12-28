@@ -6,7 +6,9 @@
 package controllers;
 
 import EDJC.security.User;
+import EDJC.security.UserBuilder;
 import EDJC.util.Util;
+import JCineFX.JCineFX;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -42,11 +44,14 @@ public class LoginRegister extends AnchorPane implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        loadUsuarios();
         loadLoginPanel();
     }
     
     public void loadUsuarios(){
-        
+        users = UserBuilder.readUsers(JCineFX.USERSPATH);
+        if( users.size() == 0 )
+            users = UserBuilder.defaultList();
     }
     
     public static void show(){

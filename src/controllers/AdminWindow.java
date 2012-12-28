@@ -6,10 +6,14 @@
 package controllers;
 
 import EDJC.movies.Movie;
+import EDJC.movies.MovieBuilder;
+import EDJC.rooms.RoomBuilder;
 import EDJC.rooms.Schedule;
 import EDJC.rooms.RoomLayout;
 import EDJC.security.User;
+import EDJC.security.UserBuilder;
 import EDJC.util.Util;
+import JCineFX.JCineFX;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -41,13 +45,23 @@ public class AdminWindow extends AnchorPane implements Initializable{
         }catch(Exception ex){}
     }
 
+    private AdminWindow(ArrayList<User> us) {
+        this();
+        users = us;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadMainPanel();
+        loadMovies();
+        loadRooms();
+        loadSchedules();
     }
+    
+    public static void show(){show(new ArrayList<User>());}
 
-    public static void show(){
-        AnchorPane adm = new AdminWindow();
+    public static void show(ArrayList<User> us){
+        AnchorPane adm = new AdminWindow(us);
         Scene scene = new Scene(adm);
         Stage st = new Stage();
         st.setScene(scene);
@@ -92,5 +106,24 @@ public class AdminWindow extends AnchorPane implements Initializable{
     public void loadSchedsPanel(){
         SchedulePanel sc = new SchedulePanel(this);
         Util.changeContent(sc, content);
+    }
+    
+    public void saveUsers(){UserBuilder.writeUsers(users, JCineFX.USERSPATH);}
+    public void saveMovies(){MovieBuilder.writeMovies(movies, JCineFX.MOVIESPATH);}
+    
+    public void saveRooms(){RoomBuilder.writeRooms(rooms, JCineFX.ROOMSPATH);}
+    
+    public void saveSchedules(){}
+    
+    private void loadMovies(){
+        movies = MovieBuilder.readMovies(JCineFX.MOVIESPATH);
+    }
+    
+    private void loadRooms(){
+        rooms = RoomBuilder.readRooms(JCineFX.ROOMSPATH);
+    }
+    
+    private void loadSchedules(){
+        
     }
 }

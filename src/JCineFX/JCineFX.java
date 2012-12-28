@@ -18,7 +18,11 @@ import javafx.stage.Stage;
  * @author Jay C Espinoza
  */
 public class JCineFX extends Application{
-    public static final String confFilePath = "config.mov";
+    public static final String CONFIGPATH = "config.mov";
+    public static final String USERSPATH = "users.usr";
+    public static final String MOVIESPATH = "movies.movs";
+    public static final String ROOMSPATH = "rooms/";
+    public static final String SCHEDULESPATH = "schedules/";
     private static int salaCounter = 1;
     private static int movCounter = 1;
     private static User currentUser;
@@ -65,7 +69,7 @@ public class JCineFX extends Application{
     }
     
     private static void crearTodo() throws IOException{
-        File confFile = new File(JCineFX.confFilePath);
+        File confFile = new File(JCineFX.CONFIGPATH);
         //ver si el archivo de configuracion existe
         if(!confFile.exists()){
             conf = new Configuracion();
@@ -85,7 +89,7 @@ public class JCineFX extends Application{
                 User nUser = new User("guest", "password".toCharArray());
                 nUser.setNombreCompleto("Administrator");
                 nUser.setFotoPath("file:JCineFX.jar!/res/user-icon-big.png" );
-                UserBuilder.escribirUser(nUser);
+                UserBuilder.writeUser(nUser);
             }
             
             raf = new RandomAccessFile("peliculas.mov", "rw");
@@ -95,7 +99,7 @@ public class JCineFX extends Application{
     }
 
     public static Configuracion leerConf() throws IOException {
-        File confFile = new File(JCineFX.confFilePath);
+        File confFile = new File(JCineFX.CONFIGPATH);
         
         if(confFile.exists()){
             RandomAccessFile raf = new RandomAccessFile(confFile, "r");
@@ -116,7 +120,7 @@ public class JCineFX extends Application{
     }
     
     public static void escribirConf(Configuracion conf) throws IOException{
-        File confFile = new File(JCineFX.confFilePath);
+        File confFile = new File(JCineFX.CONFIGPATH);
         RandomAccessFile raf = new RandomAccessFile(confFile, "rw");
         raf.writeUTF(conf.getUsuarioActual());
         raf.writeUTF(conf.getDirectorio());

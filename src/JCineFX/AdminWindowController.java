@@ -145,13 +145,13 @@ public class AdminWindowController implements Initializable {
                 passLength = false;
             
             if( oldPassOk && newPassOk && passLength ){
-                UserBuilder.desactivarUsuario(localConf.getUsuarioActual());
+                UserBuilder.deactivateUser(localConf.getUsuarioActual());
                 User us = new User();
                 us.setUsername( usernameField.getText() );
                 us.setPassword( newPass1Field.getText().toCharArray());
                 us.setFotoPath(imagePath);
                 us.setNombreCompleto( nombreField.getText() );
-                UserBuilder.escribirUser(us);
+                UserBuilder.writeUser(us);
                 System.out.println("Saving user. Succes!");
             }else{
                 //si algo estaba mal, tomar acciones basandose en los boolean de alla arriba

@@ -4,9 +4,11 @@
  */
 package EDJC.security;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,23 +19,24 @@ public class UserBuilder {
 
     private UserBuilder(){}
 
-    public static User leerUser(String username) throws IOException{
-        raf = new RandomAccessFile("cinefilos.mov", "r");
-        raf.seek(0);
+    public static User readUser(String username, String path){
+        try{
+            raf = new RandomAccessFile(path, "r");
+            raf.seek(0);
         while(raf.getFilePointer() < raf.length()){
-            User leido = new User();
-            long filePointer = raf.getFilePointer();
-            leido.setUsername(raf.readUTF());
+            User us = new User();
+            us.setFilePointer(raf.getFilePointer());
+            us.setUsername(raf.readUTF());
             User param = new User();
             param.setUsername(username);
 
-            if(leido.equals(param)){
-                leido.setPassword(raf.readUTF().toCharArray());
-                leido.setNombreCompleto(raf.readUTF());
-                leido.setFotoPath(raf.readUTF());
-                leido.setCredencialActiva(raf.readBoolean());
-                if(leido.isCredencialActiva()){
-                    return leido;
+            if(us.equals(param)){
+                us.setPassword(raf.readUTF().toCharArray());
+                us.setNombreCompleto(raf.readUTF());
+                us.setFotoPath(raf.readUTF());
+                us.setCredencialActiva(raf.readBoolean());
+                if(us.isCredencialActiva()){
+                    return us;
                 }
             }else{
                 raf.readUTF();
@@ -44,20 +47,78 @@ public class UserBuilder {
         }
         raf.close();
         return null;
+        }catch(Exception ex){return null;}
+    }
+    
+    public static ArrayList<User> readUsers(String path){
+        ArrayList<User> li = new ArrayList<>();
+        
+        try{
+            raf = new RandomAccessFile(path, "r");
+            raf.seek(0);
+        while(raf.getFilePointer() < raf.length()){
+            User us = new User();
+            us.setFilePointer(raf.getFilePointer());
+            us.setUsername(raf.readUTF());
+
+            us.setPassword(raf.readUTF().toCharArray());
+            us.setNombreCompleto(raf.readUTF());
+            us.setFotoPath(raf.readUTF());
+            us.setCredencialActiva(raf.readBoolean());
+            li.add(us);
+        }
+        raf.close();
+        }catch(Exception ex){}
+        
+        return li;
+    }
+    
+    @Deprecated
+    public static User leerUser(String username) throws IOException{
+        return readUser(username, "cinefilos.mov");
+    }
+    
+    public static boolean writeUser(User user, String path){
+        try{
+            raf = new RandomAccessFile(path, "rw");
+            raf.seek(raf.length());
+            long pointer = raf.getFilePointer();
+            raf.writeUTF(user.getUsername());
+            raf.writeUTF(new String(user.getPassword()));
+            raf.writeUTF(user.getNombreCompleto());
+            raf.writeUTF(user.getFotoPath());
+            raf.writeLong(pointer);
+            raf.writeBoolean(true);
+            raf.close();
+            return true;
+        }catch(Exception ex ){return false;}
+    }
+    
+    public static boolean writeUsers(ArrayList<User> users, String path){
+        ArrayList<User> backup = readUsers(path);
+        File bak = new File(path);
+        bak.renameTo(new File(path + ".bak"));
+        File f = new File(path);
+        try{
+            for(User u: users){
+                writeUser(u, path);
+            }
+            bak.delete();
+        }catch(Exception ex){
+            f.delete();
+            bak.renameTo(f);
+            return false;
+        }
+        return true;
     }
 
-    public static void escribirUser(User user) throws FileNotFoundException, IOException{
-        desactivarUsuario(user.getUsername());
-        raf = new RandomAccessFile("cinefilos.mov", "rw");
-        raf.seek(raf.length());
-        raf.writeUTF(user.getUsername());
-        raf.writeUTF(new String(user.getPassword()));
-        raf.writeUTF(user.getNombreCompleto());
-        raf.writeUTF(user.getFotoPath());
-        raf.writeBoolean(true);
-        raf.close();
+    public static void writeUser(User user) throws FileNotFoundException, IOException{
+        deactivateUser(user.getUsername());
+        writeUser(user, "cinefilos.mov");
     }
-    public static void desactivarUsuario(String username) throws FileNotFoundException, IOException {
+    
+    @Deprecated
+    public static void deactivateUser(String username) throws FileNotFoundException, IOException {
         raf = new RandomAccessFile("cinefilos.mov", "rw");
         raf.seek(0);
         while(raf.getFilePointer() < raf.length()){
@@ -75,5 +136,11 @@ public class UserBuilder {
             }
         }
         raf.close();
+    }
+    
+    public static ArrayList<User> defaultList(){
+        ArrayList<User> users = new ArrayList<>();
+        users.add(new User("guest", "password".toCharArray()));
+        return users;
     }
 }

@@ -156,7 +156,7 @@ public class LoginRegisterController implements Initializable {
             
             User result = UserBuilder.leerUser(user);
             if(result == null){
-                UserBuilder.escribirUser(temp);
+                UserBuilder.writeUser(temp);
                 cleanRegFields();
                 System.out.println("sAved succesfuly!");
                 handleCancelarReg(e);

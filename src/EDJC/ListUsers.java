@@ -21,6 +21,7 @@ public class ListUsers {
             System.out.println("Password: " + raf.readUTF());
             System.out.println("Nombre: " + raf.readUTF());
             System.out.println("Picture: " + raf.readUTF());
+            System.out.println("Pointer: " + raf.readLong());
             System.out.println("Active: " + raf.readBoolean());
         }
         raf.close();

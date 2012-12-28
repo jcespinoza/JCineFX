@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package EDJC.security;
 
 /**
@@ -12,8 +8,9 @@ public final class User{
     private String username = "";
     private char[] cred;
     private String NombreCompleto = "";
-    private boolean CredencialActiva = true;
     private String fotoPath = "";
+    private long filePointer;
+    private boolean CredencialActiva = true; /*Delete this field*/
 
     public String getFotoPath() {
         return fotoPath;
@@ -37,7 +34,7 @@ public final class User{
     
     public User(String username, char[] pass){
         this(username); // :D
-        setPassword(pass);
+        cred = pass;
         setCredencialActiva(true);
     }
     
@@ -83,6 +80,10 @@ public final class User{
     public void setCredencialActiva(boolean CredencialActiva) {
         this.CredencialActiva = CredencialActiva;
     }
+
+    public void setFilePointer(long filePointer) {
+        this.filePointer = filePointer;
+    }
     
     public String getUsername() {
         return username;
@@ -97,5 +98,9 @@ public final class User{
 
     public boolean isCredencialActiva() {
         return CredencialActiva;
+    }
+
+    public long getFilePointer() {
+        return filePointer;
     }
 }

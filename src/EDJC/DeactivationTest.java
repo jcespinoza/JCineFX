@@ -16,7 +16,7 @@ import java.io.IOException;
 public class DeactivationTest {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         String nonExistent = "hello!";
-        UserBuilder.escribirUser(new User(nonExistent, "nadamalo".toCharArray()));
+        UserBuilder.writeUser(new User(nonExistent, "nadamalo".toCharArray()));
         System.out.println("Done!");
         ListUsers.main(args);
     }

@@ -38,8 +38,8 @@
         </Label>
         <HBox id="hBox1" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <children>
-            <Button id="button1" onAction="#handleRegister" minHeight="16.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="116.0" text="Registrarse" HBox.hgrow="ALWAYS" />
-            <Button id="button2" onAction="#handleLogin" defaultButton="true" mnemonicParsing="false" prefHeight="28.0" prefWidth="116.0" text="Login" HBox.hgrow="ALWAYS" />
+            <Button id="button1" minHeight="16.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="28.0" prefWidth="116.0" text="Registrarse" HBox.hgrow="ALWAYS" />
+            <Button id="button2" defaultButton="true" mnemonicParsing="false" onAction="#handleLogin" prefHeight="28.0" prefWidth="116.0" text="Login" HBox.hgrow="ALWAYS" />
           </children>
         </HBox>
         <TextField id="textField1" fx:id="userLog" prefWidth="159.99990000000253" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -48,7 +48,7 @@
           </GridPane.margin>
         </TextField>
         <PasswordField id="passwordField1" fx:id="passLog" prefWidth="160.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.margin="$x1" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-        <Label id="label3" fx:id="wrongPassLog" prefHeight="102.0" prefWidth="129.0" text="Label" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Label id="label3" fx:id="msgLabel" prefHeight="102.0" prefWidth="129.0" text="Label" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" percentWidth="25.0" prefWidth="143.0" />
