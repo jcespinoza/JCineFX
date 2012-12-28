@@ -4,7 +4,7 @@
  */
 package JCineFX;
 
-import EDJC.peliculas.Pelicula;
+import EDJC.movies.Pelicula;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

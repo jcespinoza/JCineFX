@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="593.0" xmlns:fx="http://javafx.com/fxml">
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="593.0" xmlns:fx="http://javafx.com/fxml">
   <children>
     <GridPane id="gridPane1" prefHeight="419.0" prefWidth="592.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
       <children>
@@ -40,7 +40,7 @@
             <Insets />
           </GridPane.margin>
         </Label>
-        <Button id="button1" defaultButton="true" mnemonicParsing="false" prefHeight="30.0" prefWidth="119.0" text="Elegir Asientos" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button id="button1" defaultButton="true" onAction="#handleSelectSeats" mnemonicParsing="false" prefHeight="30.0" prefWidth="119.0" text="Elegir Asientos" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
         <Text id="text1" strokeType="OUTSIDE" strokeWidth="0.0" text="Nueva Compra" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <effect>
             <Reflection topOffset="-20.0" />
@@ -57,7 +57,7 @@
             <Image url="@../res/img/ticket.png" preserveRatio="false" smooth="false" />
           </image>
         </ImageView>
-        <Button id="button2" cancelButton="true" mnemonicParsing="false" opacity="0.47" prefHeight="22.0" prefWidth="94.0" text="Cancelar" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
+        <Button id="button2" cancelButton="true" onAction="#handleCancel" mnemonicParsing="false" opacity="0.47" prefHeight="22.0" prefWidth="94.0" text="Cancelar" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets bottom="10.0" left="10.0" />
           </GridPane.margin>
@@ -80,4 +80,4 @@
       </rowConstraints>
     </GridPane>
   </children>
-</AnchorPane>
+</fx:root>

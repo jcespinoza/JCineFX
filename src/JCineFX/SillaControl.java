@@ -1,6 +1,6 @@
 package JCineFX;
 
-import EDJC.salas.sillas.SeatState;
+import EDJC.rooms.seats.SeatState;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;

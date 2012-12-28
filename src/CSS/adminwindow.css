@@ -23,3 +23,16 @@
     -fx-text-fill: #333333;
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 5,0.8,-2,2 );
 }
+
+.tile{
+	-fx-border-color: aliceblue;
+	-fx-background-color: transparent;
+	-fx-border-radius: 5px;
+	-fx-border-width: 2px;
+}
+
+.tile:hover{
+	-fx-background-color: aliceblue;
+	-fx-border-color: blue;
+	-fx-border-width: 0.5px;
+}

@@ -4,17 +4,18 @@
  */
 package JCineFX;
 
-import EDJC.peliculas.Formato3D;
-import EDJC.peliculas.GeneroPelicula;
-import EDJC.peliculas.Pelicula;
-import EDJC.peliculas.PeliculaBuilder;
-import EDJC.peliculas.TipoClasificacion;
-import EDJC.peliculas.TipoPelicula;
-import EDJC.salas.Disenio;
-import EDJC.salas.HorarioBuilder;
-import EDJC.salas.SalaBuilder;
-import EDJC.seguridad.UserBuilder;
-import EDJC.seguridad.Usuario;
+import EDJC.security.Configuracion;
+import EDJC.movies.Formato3D;
+import EDJC.movies.GeneroPelicula;
+import EDJC.movies.Pelicula;
+import EDJC.movies.PeliculaBuilder;
+import EDJC.movies.TipoClasificacion;
+import EDJC.movies.TipoPelicula;
+import EDJC.rooms.Disenio;
+import EDJC.rooms.HorarioBuilder;
+import EDJC.rooms.SalaBuilder;
+import EDJC.security.UserBuilder;
+import EDJC.security.Usuario;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

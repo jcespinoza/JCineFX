@@ -4,7 +4,7 @@
  */
 package EDJC;
 
-import EDJC.salas.SalaLayout;
+import EDJC.rooms.SalaLayout;
 import JCineFX.JCineFX;
 import java.io.FileInputStream;
 import java.io.IOException;

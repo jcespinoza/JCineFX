@@ -1,8 +1,9 @@
 package JCineFX;
 
-import EDJC.seguridad.InvalidPasswordException;
-import EDJC.seguridad.UserBuilder;
-import EDJC.seguridad.Usuario;
+import EDJC.security.Configuracion;
+import EDJC.security.InvalidPasswordException;
+import EDJC.security.UserBuilder;
+import EDJC.security.Usuario;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;

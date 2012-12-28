@@ -1,7 +1,7 @@
 package EDJC;
 
-import EDJC.salas.Horario;
-import EDJC.salas.HorarioBuilder;
+import EDJC.rooms.Horario;
+import EDJC.rooms.HorarioBuilder;
 import JCineFX.JCineFX;
 import java.io.IOException;
 import java.util.ArrayList;

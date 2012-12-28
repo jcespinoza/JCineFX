@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="728.0" xmlns:fx="http://javafx.com/fxml">
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="728.0" xmlns:fx="http://javafx.com/fxml">
   <children>
     <GridPane id="gridPane1" prefHeight="474.0" prefWidth="727.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
       <children>
@@ -64,4 +64,4 @@
       </rowConstraints>
     </GridPane>
   </children>
-</AnchorPane>
+</fx:root>

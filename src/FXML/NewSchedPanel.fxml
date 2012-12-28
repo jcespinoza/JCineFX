@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="565.0" xmlns:fx="http://javafx.com/fxml">
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="565.0" xmlns:fx="http://javafx.com/fxml">
   <children>
     <SplitPane id="splitPaneHorizontal1" dividerPositions="0.2984014209591474" focusTraversable="true" prefHeight="436.0" prefWidth="565.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <items>
@@ -32,7 +32,7 @@
                     <Insets right="5.0" />
                   </GridPane.margin>
                 </Label>
-                <Button id="button1" mnemonicParsing="false" prefHeight="30.0" prefWidth="126.0" text="Guardar" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <Button id="button1" defaultButton="true" onAction="#handleSave" mnemonicParsing="false" prefHeight="30.0" prefWidth="126.0" text="Guardar" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                   <GridPane.margin>
                     <Insets right="20.0" />
                   </GridPane.margin>
@@ -74,4 +74,4 @@
       </items>
     </SplitPane>
   </children>
-</AnchorPane>
+</fx:root>

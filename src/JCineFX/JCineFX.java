@@ -4,9 +4,10 @@
  */
 package JCineFX;
 
-import Controllers.ModSelection;
-import EDJC.seguridad.UserBuilder;
-import EDJC.seguridad.Usuario;
+import EDJC.security.Configuracion;
+import controllers.ModSelection;
+import EDJC.security.UserBuilder;
+import EDJC.security.Usuario;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;

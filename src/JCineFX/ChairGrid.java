@@ -4,9 +4,9 @@
  */
 package JCineFX;
 
-import EDJC.salas.Disenio;
-import EDJC.salas.SalaLayout;
-import EDJC.salas.sillas.SeatState;
+import EDJC.rooms.Disenio;
+import EDJC.rooms.SalaLayout;
+import EDJC.rooms.seats.SeatState;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.EventHandler;

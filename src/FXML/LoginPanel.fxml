@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="572.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <GridPane id="gridPane1" prefHeight="385.0" prefWidth="571.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+      <children>
+        <Label id="label1" text="Log In" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets top="10.0" />
+          </GridPane.margin>
+        </Label>
+        <ImageView id="emptyImageView1" fx:id="loginPicture" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
+          <effect>
+            <Reflection fraction="0.5436507936507937" topOpacity="0.4285714285714286" />
+          </effect>
+          <image>
+            <Image url="@../res/lock.png" preserveRatio="false" smooth="false" />
+          </image>
+        </ImageView>
+        <Label id="label2" text="Username:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label2" text="Password:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <HBox id="hBox1" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <children>
+            <Button id="button1" onAction="#handleRegister" minHeight="16.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="116.0" text="Registrarse" HBox.hgrow="ALWAYS" />
+            <Button id="button2" onAction="#handleLogin" defaultButton="true" mnemonicParsing="false" prefHeight="28.0" prefWidth="116.0" text="Login" HBox.hgrow="ALWAYS" />
+          </children>
+        </HBox>
+        <TextField id="textField1" fx:id="userLog" prefWidth="159.99990000000253" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets left="5.0" fx:id="x1" />
+          </GridPane.margin>
+        </TextField>
+        <PasswordField id="passwordField1" fx:id="passLog" prefWidth="160.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.margin="$x1" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+        <Label id="label3" fx:id="wrongPassLog" prefHeight="102.0" prefWidth="129.0" text="Label" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" percentWidth="25.0" prefWidth="143.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" percentWidth="15.0" prefWidth="143.0" />
+        <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" percentWidth="35.0" prefWidth="129.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" percentWidth="25.0" prefWidth="156.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="176.0" minHeight="10.0" percentHeight="50.0" prefHeight="176.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="172.0" minHeight="10.0" percentHeight="15.0" prefHeight="36.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="128.0" minHeight="10.0" percentHeight="15.0" prefHeight="55.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="127.0" minHeight="10.0" percentHeight="20.0" prefHeight="118.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</fx:root>

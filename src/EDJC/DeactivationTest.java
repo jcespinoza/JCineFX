@@ -4,8 +4,8 @@
  */
 package EDJC;
 
-import EDJC.seguridad.UserBuilder;
-import EDJC.seguridad.Usuario;
+import EDJC.security.UserBuilder;
+import EDJC.security.Usuario;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 

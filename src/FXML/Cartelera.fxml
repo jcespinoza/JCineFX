@@ -12,7 +12,7 @@
   <children>
     <GridPane id="gridPane1" prefHeight="506.0" prefWidth="683.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <ScrollPane id="scrollPane1" prefHeight="293.0" prefWidth="683.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <ScrollPane id="scrollPane1" onMouseClicked="#handleBuy" prefHeight="293.0" prefWidth="683.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <content>
             <HBox id="hBox1" fx:id="hboxPane" prefHeight="260.0" prefWidth="668.0" />
           </content>

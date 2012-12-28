@@ -6,12 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="726.0" xmlns:fx="http://javafx.com/fxml" fx:controller="JCineFX.ClientWindow">
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="726.0" xmlns:fx="http://javafx.com/fxml">
   <children>
     <MenuBar id="menuBar1" prefHeight="28.0" prefWidth="726.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <menus>
         <Menu id="fileMenu1" mnemonicParsing="false" text="Programa">
           <items>
+            <MenuItem id="menuItem2" mnemonicParsing="false" onAction="#loadCartelera" text="Volver a la cartelera" />
             <MenuItem id="menuItem1" mnemonicParsing="false" onAction="#handleGoAdmin" text="Ir al Modulo Administrador" />
             <MenuItem id="close1" mnemonicParsing="false" onAction="#handleExit" text="Salir del Sistema" />
           </items>
@@ -20,4 +21,4 @@
     </MenuBar>
     <AnchorPane id="anchorPane1" fx:id="content" prefHeight="533.0" prefWidth="726.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0" />
   </children>
-</AnchorPane>
+</fx:root>

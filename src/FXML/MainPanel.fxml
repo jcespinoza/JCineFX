@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="565.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <TilePane id="tilePane1" alignment="CENTER" hgap="10.0" prefHeight="367.0" prefWidth="565.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Label id="label1" alignment="CENTER" contentDisplay="TOP" ellipsisString="" minHeight="150.0" onMouseClicked="#handleAddSala" prefHeight="162.0" prefWidth="166.0" styleClass="tile" text="Agregar Sala" textAlignment="CENTER">
+          <graphic>
+            <ImageView id="emptyImageView1" fitHeight="132.78472900390625" fitWidth="110.39357584188693" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../res/img/cinemaChair.png" preserveRatio="false" smooth="false" />
+              </image>
+            </ImageView>
+          </graphic>
+        </Label>
+        <Label id="label2" alignment="CENTER" contentDisplay="TOP" minHeight="148.0" minWidth="154.0" onMouseClicked="#handleAddMovie" prefHeight="164.0" prefWidth="166.0" styleClass="tile" text="Agregar Pelicula">
+          <graphic>
+            <ImageView id="emptyImageView2" fitHeight="129.7847442626953" fitWidth="189.76494047237244" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../res/img/default_movie.png" preserveRatio="false" smooth="false" />
+              </image>
+            </ImageView>
+          </graphic>
+        </Label>
+        <Label id="label2" alignment="CENTER" contentDisplay="TOP" minHeight="148.0" minWidth="154.0" onMouseClicked="#handleModProfile" prefHeight="164.0" prefWidth="166.0" styleClass="tile" text="Editar Perfil">
+          <graphic>
+            <ImageView id="emptyImageView2" fitHeight="129.78473663330078" fitWidth="151.99998474121094" mouseTransparent="true" pickOnBounds="true">
+              <image>
+                <Image url="@../res/user-icon-big.png" preserveRatio="false" smooth="false" />
+              </image>
+            </ImageView>
+          </graphic>
+        </Label>
+        <Label id="label2" alignment="CENTER" contentDisplay="TOP" minHeight="148.0" minWidth="154.0" onMouseClicked="#handleListMovies" prefHeight="164.0" prefWidth="166.0" styleClass="tile" text="Lista de Pelicula">
+          <graphic>
+            <ImageView id="emptyImageView2" fitHeight="129.7847442626953" fitWidth="189.76494047237244" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../res/img/default_movie.png" preserveRatio="false" smooth="false" />
+              </image>
+            </ImageView>
+          </graphic>
+        </Label>
+        <Label id="label2" alignment="CENTER" contentDisplay="TOP" minHeight="148.0" minWidth="154.0" onMouseClicked="#handleListScheds" prefHeight="164.0" prefWidth="166.0" styleClass="tile" text="Listar Horarios">
+          <graphic>
+            <ImageView id="emptyImageView2" fitHeight="129.78472900390625" fitWidth="141.99998474121094" mouseTransparent="true" pickOnBounds="true">
+              <effect>
+                <GaussianBlur radius="1.0" />
+              </effect>
+              <image>
+                <Image url="@../res/img/clock.png" preserveRatio="false" smooth="false" />
+              </image>
+            </ImageView>
+          </graphic>
+        </Label>
+      </children>
+    </TilePane>
+  </children>
+  <stylesheets>
+    <URL value="@../CSS/adminwindow.css" />
+  </stylesheets>
+</fx:root>

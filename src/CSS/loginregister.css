@@ -23,6 +23,14 @@
     -fx-cursor: hand;
 }
 
+.editLabel:hover{
+    -fx-background-image: url("../res/edit.png");
+    -fx-background-repeat:round;
+    -fx-border-radius: 2px;
+    -fx-border-color: white;
+    -fx-cursor: hand;
+}
+
 .logiPic, .registerPicturec{
     -fx-border-radius: 10px;
 }

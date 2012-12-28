@@ -4,6 +4,11 @@
  */
 package EDJC.util;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.TitledPane;
+import javafx.scene.layout.AnchorPane;
+
 /**
  *
  * @author Jay C Espinoza
@@ -55,5 +60,38 @@ public class Util {
                 result += c;
         }
         return result;
+    }
+    
+    public static void emptyContainer(AnchorPane e){
+        e.getChildren().removeAll( e.getChildren() );
+    }
+    
+    public static void setAnchorZero(Node e){
+        AnchorPane.setTopAnchor(e, 0.0);
+        AnchorPane.setBottomAnchor(e, 0.0);
+        AnchorPane.setLeftAnchor(e, 0.0);
+        AnchorPane.setRightAnchor(e, 0.0);
+    }
+    
+    public static void changeContent(Node e, AnchorPane a){
+        emptyContainer(a);
+        setAnchorZero(e);
+        a.getChildren().add(e);
+    }
+    
+    public static void expand(TitledPane t){
+        t.setCollapsible(true);
+        t.setExpanded(true);
+        disableTitledPane(t);
+    }
+    
+    public static void collapse(TitledPane t){
+        t.setCollapsible(true);
+        t.setExpanded(false);
+        disableTitledPane(t);
+    }
+    
+    public static void disableTitledPane(TitledPane t){
+        t.setCollapsible(false);
     }
 }

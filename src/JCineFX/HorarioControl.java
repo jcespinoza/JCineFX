@@ -4,11 +4,11 @@
  */
 package JCineFX;
 
-import EDJC.peliculas.Pelicula;
-import EDJC.peliculas.PeliculaBuilder;
-import EDJC.salas.Horario;
-import EDJC.salas.SalaBuilder;
-import EDJC.salas.SalaLayout;
+import EDJC.movies.Pelicula;
+import EDJC.movies.PeliculaBuilder;
+import EDJC.rooms.Horario;
+import EDJC.rooms.SalaBuilder;
+import EDJC.rooms.SalaLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

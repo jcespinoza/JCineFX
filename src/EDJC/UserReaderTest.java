@@ -4,7 +4,7 @@
  */
 package EDJC;
 
-import EDJC.seguridad.UserBuilder;
+import EDJC.security.UserBuilder;
 import java.io.IOException;
 
 /**

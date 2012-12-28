@@ -4,8 +4,8 @@
  */
 package EDJC;
 
-import EDJC.salas.Horario;
-import EDJC.salas.HorarioBuilder;
+import EDJC.rooms.Horario;
+import EDJC.rooms.HorarioBuilder;
 import java.util.ArrayList;
 
 /**

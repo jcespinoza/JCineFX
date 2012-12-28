@@ -9,10 +9,10 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="617.0" xmlns:fx="http://javafx.com/fxml">
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="617.0" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <Button id="button1" cancelButton="true" mnemonicParsing="false" prefHeight="28.0" prefWidth="125.0" text="Button" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" />
-    <Button id="button2" defaultButton="true" mnemonicParsing="false" prefHeight="35.0" prefWidth="141.0" text="Button" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" />
+    <Button id="button1" cancelButton="true" onAction="#handleCancel" mnemonicParsing="false" prefHeight="28.0" prefWidth="125.0" text="Button" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" />
+    <Button id="button2" defaultButton="true" onAction="#handleAccept" mnemonicParsing="false" prefHeight="35.0" prefWidth="141.0" text="Button" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" />
     <GridPane id="gridPane1" prefHeight="387.0" prefWidth="616.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
         <ListView id="listView1" fx:id="lista" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -75,4 +75,4 @@
       </rowConstraints>
     </GridPane>
   </children>
-</AnchorPane>
+</fx:root>

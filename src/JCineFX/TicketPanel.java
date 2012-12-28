@@ -4,7 +4,7 @@
  */
 package JCineFX;
 
-import EDJC.salas.SalaLayout;
+import EDJC.rooms.SalaLayout;
 import EDJC.util.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
