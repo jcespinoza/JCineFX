@@ -5,6 +5,7 @@
 
 package controllers;
 
+import EDJC.security.Config;
 import EDJC.security.User;
 import EDJC.security.UserBuilder;
 import EDJC.util.Util;
@@ -30,6 +31,7 @@ public class LoginRegister extends AnchorPane implements Initializable{
     public AnchorPane registerPane;
     public TitledPane titledLogin;
     public TitledPane titledRegister;
+    protected Config conf;
         
     protected ArrayList<User> users;
     
@@ -46,11 +48,18 @@ public class LoginRegister extends AnchorPane implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         loadUsuarios();
         loadLoginPanel();
+        loadConfiguration();
+    }
+    
+    private void loadConfiguration() {
+        conf = Config.loadFromDisk(JCineFX.CONFIGPATH);
+        if( conf == null)
+            conf = Config.getDefault();
     }
     
     public void loadUsuarios(){
         users = UserBuilder.readUsers(JCineFX.USERSPATH);
-        if( users.size() == 0 )
+        if( users.isEmpty() )
             users = UserBuilder.defaultList();
     }
     

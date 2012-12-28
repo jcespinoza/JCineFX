@@ -20,7 +20,7 @@ public class IOtest {
         FileOutputStream fout = null;
         try {
             User source = new User("jcespinoza", "password".toCharArray());
-            source.setNombreCompleto("Juan Carlos Espinoza");
+            source.setFullName("Juan Carlos Espinoza");
             source.setCredencialActiva(true);
             source.setFotoPath("fotos/pic1.jpg");
             
@@ -29,7 +29,7 @@ public class IOtest {
             
             System.out.print("Source: " + "username=" + source.getUsername()
                     + " password=" + new String(source.getPassword()) +
-                    " nombre=" + source.getNombreCompleto()
+                    " nombre=" + source.getFullName()
                     + " path=" + source.getFotoPath() +
                     " credentialActiva=" + source.isCredencialActiva());
             
@@ -51,7 +51,7 @@ public class IOtest {
             User dest = (User)(obin.readObject());
             System.out.print("\nDestination: " + "username=" + dest.getUsername()
                     + " password=" + new String(dest.getPassword()) +
-                    " nombre=" + dest.getNombreCompleto()
+                    " nombre=" + dest.getFullName()
                     + " path=" + dest.getFotoPath() +
                     " credentialActiva=" + dest.isCredencialActiva());
             obin.close();

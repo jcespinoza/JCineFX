@@ -35,4 +35,5 @@
 	-fx-background-color: aliceblue;
 	-fx-border-color: blue;
 	-fx-border-width: 0.5px;
+        -fx-cursor: hand;
 }

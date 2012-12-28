@@ -17,10 +17,10 @@
             <MenuItem id="close1" mnemonicParsing="false" onAction="#handleExit" text="Salir del Sistema" />
           </items>
         </Menu>
-        <Menu id="menu1" mnemonicParsing="false" text="user">
+        <Menu id="menu1" mnemonicParsing="true" text="user" fx:id="userMenu">
           <items>
-            <MenuItem id="menuItem2" mnemonicParsing="false" onAction="#handleMod" text="Modificar Perfil" />
-            <MenuItem id="menuItem1" mnemonicParsing="false" onAction="#handleLogOut" text="Cerrar Sesion" />
+            <MenuItem id="menuItem2" mnemonicParsing="true" onAction="#handleMod" text="Modificar Perfil" />
+            <MenuItem id="menuItem1" mnemonicParsing="true" onAction="#handleLogOut" text="Cerrar Sesion" />
           </items>
         </Menu>
         <Menu id="helpMenu1" mnemonicParsing="false" text="Ayuda">

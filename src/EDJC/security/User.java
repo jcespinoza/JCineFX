@@ -1,5 +1,7 @@
 package EDJC.security;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Jay C Espinoza
@@ -7,7 +9,7 @@ package EDJC.security;
 public final class User{
     private String username = "";
     private char[] cred;
-    private String NombreCompleto = "";
+    private String FullName = "";
     private String fotoPath = "";
     private long filePointer;
     private boolean CredencialActiva = true; /*Delete this field*/
@@ -22,12 +24,12 @@ public final class User{
     
     public User(String username){
         this.username = username;
-        setCredencialActiva(true);
+        setCredencialActiva(true);/*delete this*/
     }
     
     public User(){
         username = "";
-        NombreCompleto = "";
+        FullName = "";
         cred = "000000".toCharArray();
         fotoPath = "";
     }
@@ -52,10 +54,18 @@ public final class User{
         //boolean sameNombreCompleto = this.NombreCompleto.equals( ((User)obj).NombreCompleto);
         return sameObjectType && sameUsername;
     }
+    
+    public boolean compareTo(User u){
+        boolean usr = u.getUsername().equals(this.username);
+        boolean pas = Arrays.equals(u.getPassword(), cred);
+        boolean nam = u.getFullName().equals(this.FullName);
+        boolean pic = u.getFotoPath().equals(this.fotoPath);
+        return usr && pas && nam && pic;
+    }
 
     @Override
     public String toString() {
-        return "Username: " + username + " fotoPath: " +fotoPath + " Nombre: " + NombreCompleto + " isActive?: " + CredencialActiva;
+        return "Username: " + username + " fotoPath: " +fotoPath + " Nombre: " + FullName + " isActive?: " + CredencialActiva;
     }
 
     public void setUsername(String username) {
@@ -68,13 +78,13 @@ public final class User{
      * @throws IllegalPasswordLengthException Si el cred tiene menos de 6 caracteres.
      */
     public void setPassword(char[] cred) throws IllegalPasswordLengthException{
-        if(cred.length < 6)
-            throw new IllegalPasswordLengthException(cred.length);
+        if(cred.length < 6);
+            //throw new IllegalPasswordLengthException(cred.length);
         
         this.cred = cred;
     }
-    public void setNombreCompleto(String nombre){
-        this.NombreCompleto=nombre;
+    public void setFullName(String nombre){
+        this.FullName=nombre;
     }
 
     public void setCredencialActiva(boolean CredencialActiva) {
@@ -92,8 +102,8 @@ public final class User{
     public char[] getPassword() {
         return cred;
     }
-    public String getNombreCompleto(){
-        return this.NombreCompleto;
+    public String getFullName(){
+        return this.FullName;
     }
 
     public boolean isCredencialActiva() {

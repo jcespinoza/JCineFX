@@ -8,8 +8,9 @@ package controllers;
 import EDJC.movies.Movie;
 import EDJC.movies.MovieBuilder;
 import EDJC.rooms.RoomBuilder;
-import EDJC.rooms.Schedule;
 import EDJC.rooms.RoomLayout;
+import EDJC.rooms.Schedule;
+import EDJC.security.Config;
 import EDJC.security.User;
 import EDJC.security.UserBuilder;
 import EDJC.util.Util;
@@ -22,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Menu;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -35,6 +37,12 @@ public class AdminWindow extends AnchorPane implements Initializable{
     protected ArrayList<Movie> movies;
     protected ArrayList<Schedule> scheds;
     protected ArrayList<RoomLayout> rooms;
+    protected Config conf;
+    protected int currentUser;
+    protected boolean wasModified = false;
+    
+    @FXML
+    protected Menu userMenu;
     
     public AdminWindow(){
         FXMLLoader fx = new FXMLLoader(getClass().getResource("/FXML/AdminWindow.fxml"));
@@ -45,9 +53,12 @@ public class AdminWindow extends AnchorPane implements Initializable{
         }catch(Exception ex){}
     }
 
-    private AdminWindow(ArrayList<User> us) {
+    private AdminWindow(ArrayList<User> us, Config c) {
         this();
         users = us;
+        conf = c;
+        currentUser = users.indexOf(conf.getUser());
+        setUserMenuLabel();
     }
 
     @Override
@@ -58,10 +69,10 @@ public class AdminWindow extends AnchorPane implements Initializable{
         loadSchedules();
     }
     
-    public static void show(){show(new ArrayList<User>());}
+    public static void show(){show(new ArrayList<User>(), null);}
 
-    public static void show(ArrayList<User> us){
-        AnchorPane adm = new AdminWindow(us);
+    public static void show(ArrayList<User> us, Config c){
+        AnchorPane adm = new AdminWindow(us, c);
         Scene scene = new Scene(adm);
         Stage st = new Stage();
         st.setScene(scene);
@@ -91,6 +102,12 @@ public class AdminWindow extends AnchorPane implements Initializable{
     private void handleLogOut(){
         LoginRegister.show();
         this.getScene().getWindow().hide();
+    }
+    
+    protected void setUserMenuLabel(){
+        try{
+        userMenu.setText("Usuario: " + conf.getUser().getUsername());
+        }catch(Exception ex){ex.printStackTrace();}
     }
     
     public void loadMainPanel(){

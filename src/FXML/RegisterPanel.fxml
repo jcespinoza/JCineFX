@@ -13,14 +13,19 @@
   <children>
     <GridPane id="gridPane1" prefHeight="373.0" prefWidth="566.0" AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.5">
       <children>
-        <HBox id="hBox1" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <HBox id="hBox2" alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
           <children>
-            <Button id="button1" cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" prefHeight="31.0" prefWidth="118.0" text="Cancelar" />
-            <Button id="button2" defaultButton="true" mnemonicParsing="false" onAction="#handleRegister" prefHeight="31.0" prefWidth="118.0" text="Registrar" />
+            <Label id="label4" fx:id="editLabel" onMouseClicked="#handleFotoClick" prefHeight="38.0" prefWidth="41.0" styleClass="editLabel">
+              <stylesheets>
+                <URL value="@../CSS/loginregister.css" />
+              </stylesheets>
+            </Label>
+            <ImageView id="emptyImageView1" fx:id="registerPicture" fitHeight="172.0" fitWidth="229.33333333333331" onMouseEntered="#handleEntered" onMouseExited="#handleExited" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../res/user-icon-big.png" preserveRatio="false" smooth="false" />
+              </image>
+            </ImageView>
           </children>
-          <padding>
-            <Insets right="20.0" />
-          </padding>
         </HBox>
         <Label id="label1" text="Registrar Nuevo Usuario" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
@@ -47,43 +52,46 @@
             <Insets right="5.0" />
           </GridPane.margin>
         </Label>
-        <Label id="label3" fx:id="userMsg" text="Label" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-        <Label id="label3" fx:id="pass1Msg" text="Label" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-        <Label id="label3" fx:id="pass2Msg" text="Label" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-        <TextField id="textField1" fx:id="nameReg" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
-          <GridPane.margin>
-            <Insets left="5.0" right="5.0" />
-          </GridPane.margin>
-        </TextField>
-        <TextField id="textField2" fx:id="userReg" prefWidth="155.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Label id="label3" fx:id="userMsg" prefHeight="30.0" prefWidth="172.0" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+          <textFill>
+            <Color blue="0.200" green="0.200" red="1.000" fx:id="x1" />
+          </textFill>
+        </Label>
+        <Label id="label3" fx:id="pass2Msg" prefHeight="22.0" prefWidth="159.0" textFill="$x1" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+        <TextField id="textField2" fx:id="username" prefWidth="155.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
           <GridPane.margin>
             <Insets left="5.0" />
           </GridPane.margin>
         </TextField>
-        <HBox id="hBox2" alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+        <TextField id="textField1" fx:id="name" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+          <GridPane.margin>
+            <Insets left="5.0" right="5.0" />
+          </GridPane.margin>
+        </TextField>
+        <PasswordField id="passwordField1" fx:id="pass1" prefWidth="155.0" promptText="Password" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+          <GridPane.margin>
+            <Insets left="3.0" />
+          </GridPane.margin>
+        </PasswordField>
+        <PasswordField id="passwordField1" fx:id="pass2" prefWidth="155.0" promptText="Confirmacion" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+          <GridPane.margin>
+            <Insets left="3.0" />
+          </GridPane.margin>
+        </PasswordField>
+        <HBox id="hBox1" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <children>
-            <Label id="label4" fx:id="editLabel" onMouseClicked="#handleFotoClick" prefHeight="38.0" prefWidth="41.0" styleClass="editLabel">
-              <stylesheets>
-                <URL value="@../CSS/loginregister.css" />
-              </stylesheets>
-            </Label>
-            <ImageView id="emptyImageView1" fx:id="registerPicture" fitHeight="172.0" fitWidth="229.33333333333331" onMouseEntered="#handleEntered" onMouseExited="#handleExited" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@../res/user-icon-big.png" preserveRatio="false" smooth="false" />
-              </image>
-            </ImageView>
+            <Button id="button2" defaultButton="true" mnemonicParsing="false" onAction="#handleRegister" prefHeight="31.0" prefWidth="118.0" text="Registrar" />
+            <Button id="button1" cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" prefHeight="31.0" prefWidth="118.0" text="Cancelar" />
           </children>
+          <padding>
+            <Insets right="20.0" />
+          </padding>
         </HBox>
-        <PasswordField id="passwordField1" fx:id="pass1Reg" prefWidth="155.0" promptText="Password" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+        <Label id="label3" fx:id="pass1Msg" prefHeight="30.0" prefWidth="335.0" textFill="$x1" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
           <GridPane.margin>
-            <Insets left="3.0" />
+            <Insets right="5.0" />
           </GridPane.margin>
-        </PasswordField>
-        <PasswordField id="passwordField1" fx:id="pass2Reg" prefWidth="155.0" promptText="Confirmacion" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-          <GridPane.margin>
-            <Insets left="3.0" />
-          </GridPane.margin>
-        </PasswordField>
+        </Label>
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" percentWidth="20.0" prefWidth="138.0" />

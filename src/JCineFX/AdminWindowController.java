@@ -150,7 +150,7 @@ public class AdminWindowController implements Initializable {
                 us.setUsername( usernameField.getText() );
                 us.setPassword( newPass1Field.getText().toCharArray());
                 us.setFotoPath(imagePath);
-                us.setNombreCompleto( nombreField.getText() );
+                us.setFullName( nombreField.getText() );
                 UserBuilder.writeUser(us);
                 System.out.println("Saving user. Succes!");
             }else{
@@ -175,7 +175,7 @@ public class AdminWindowController implements Initializable {
 
     private void fillUserData() throws ClassNotFoundException, IOException {
         usernameField.setText(JCineFX.getCurrentUser().getUsername());
-        nombreField.setText(JCineFX.getCurrentUser().getNombreCompleto());
+        nombreField.setText(JCineFX.getCurrentUser().getFullName());
         oldPassField.setText(new String(JCineFX.getCurrentUser().getPassword()));
         String tempPath = JCineFX.getCurrentUser().getFotoPath();
         try{

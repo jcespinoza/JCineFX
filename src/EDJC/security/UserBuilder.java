@@ -25,15 +25,15 @@ public class UserBuilder {
             raf.seek(0);
         while(raf.getFilePointer() < raf.length()){
             User us = new User();
-            us.setFilePointer(raf.getFilePointer());
             us.setUsername(raf.readUTF());
             User param = new User();
             param.setUsername(username);
 
             if(us.equals(param)){
                 us.setPassword(raf.readUTF().toCharArray());
-                us.setNombreCompleto(raf.readUTF());
+                us.setFullName(raf.readUTF());
                 us.setFotoPath(raf.readUTF());
+                us.setFilePointer(raf.readLong());
                 us.setCredencialActiva(raf.readBoolean());
                 if(us.isCredencialActiva()){
                     return us;
@@ -47,14 +47,16 @@ public class UserBuilder {
         }
         raf.close();
         return null;
-        }catch(Exception ex){return null;}
+        }catch(Exception ex){
+            ex.printStackTrace();
+            return null;}
     }
     
     public static ArrayList<User> readUsers(String path){
         ArrayList<User> li = new ArrayList<>();
         
         try{
-            raf = new RandomAccessFile(path, "r");
+            raf = new RandomAccessFile(path, "rw");
             raf.seek(0);
         while(raf.getFilePointer() < raf.length()){
             User us = new User();
@@ -62,13 +64,17 @@ public class UserBuilder {
             us.setUsername(raf.readUTF());
 
             us.setPassword(raf.readUTF().toCharArray());
-            us.setNombreCompleto(raf.readUTF());
+            us.setFullName(raf.readUTF());
             us.setFotoPath(raf.readUTF());
+            us.setFilePointer(raf.readLong());
             us.setCredencialActiva(raf.readBoolean());
             li.add(us);
         }
         raf.close();
-        }catch(Exception ex){}
+        }catch(Exception ex){
+            ex.printStackTrace();
+            return li;
+        }
         
         return li;
     }
@@ -85,13 +91,15 @@ public class UserBuilder {
             long pointer = raf.getFilePointer();
             raf.writeUTF(user.getUsername());
             raf.writeUTF(new String(user.getPassword()));
-            raf.writeUTF(user.getNombreCompleto());
+            raf.writeUTF(user.getFullName());
             raf.writeUTF(user.getFotoPath());
             raf.writeLong(pointer);
             raf.writeBoolean(true);
             raf.close();
             return true;
-        }catch(Exception ex ){return false;}
+        }catch(Exception ex ){
+            ex.printStackTrace();
+            return false;}
     }
     
     public static boolean writeUsers(ArrayList<User> users, String path){
@@ -103,8 +111,9 @@ public class UserBuilder {
             for(User u: users){
                 writeUser(u, path);
             }
-            bak.delete();
+            new File(path + ".bak").delete();
         }catch(Exception ex){
+            ex.printStackTrace();
             f.delete();
             bak.renameTo(f);
             return false;
@@ -140,7 +149,11 @@ public class UserBuilder {
     
     public static ArrayList<User> defaultList(){
         ArrayList<User> users = new ArrayList<>();
-        users.add(new User("guest", "password".toCharArray()));
+        User u = new User("guest", "password".toCharArray());
+        u.setFilePointer(0);
+        u.setFullName("Administrator");
+        u.setFotoPath("");
+        users.add(u);
         return users;
     }
 }

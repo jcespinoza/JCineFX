@@ -87,7 +87,7 @@ public class JCineFX extends Application{
             if( raf.length() == 0){
                 raf.close();
                 User nUser = new User("guest", "password".toCharArray());
-                nUser.setNombreCompleto("Administrator");
+                nUser.setFullName("Administrator");
                 nUser.setFotoPath("file:JCineFX.jar!/res/user-icon-big.png" );
                 UserBuilder.writeUser(nUser);
             }
