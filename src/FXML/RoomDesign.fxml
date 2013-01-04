@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="599.9999000000025" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <BorderPane id="borderPane1" fx:id="mainPane" prefHeight="415.0" prefWidth="599.9998779296875" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <Button id="button1" defaultButton="true" mnemonicParsing="false" onAction="#handleSave" prefHeight="24.0" prefWidth="115.0" text="Guardar" BorderPane.alignment="CENTER">
+          <BorderPane.margin>
+            <Insets bottom="10.0" top="8.0" />
+          </BorderPane.margin>
+        </Button>
+      </bottom>
+      <top>
+        <StackPane id="stackPane1" prefHeight="52.0" prefWidth="600.0">
+          <children>
+            <Rectangle id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="33.0" stroke="TRANSPARENT" strokeType="INSIDE" width="218.0" />
+            <Text id="text1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pantalla">
+              <font>
+                <Font name="Cambria Bold" size="20.0" />
+              </font>
+            </Text>
+          </children>
+        </StackPane>
+      </top>
+    </BorderPane>
+  </children>
+</fx:root>

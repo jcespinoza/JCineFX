@@ -4,7 +4,6 @@
  */
 package EDJC.movies;
 
-import EDJC.security.User;
 import JCineFX.JCineFX;
 import JCineFX.MovieTile;
 import java.io.File;
@@ -30,7 +29,7 @@ public class MovieBuilder {
         try{
             RandomAccessFile raf = new RandomAccessFile(path, "rw");
             raf.seek(raf.length());
-            raf.writeInt(p.getCodigo());
+            raf.writeInt(p.getCode());
             raf.writeUTF(p.getTitle());
             raf.writeInt(p.getLenght());
             raf.writeUTF(p.getGenre().name());
@@ -39,19 +38,21 @@ public class MovieBuilder {
             raf.writeUTF(p.getType().name());
             raf.writeUTF(p.getFormat3D().name());
             raf.writeUTF(p.getImgFile());
-        }catch(Exception ex){}
+        }catch(Exception ex){ex.printStackTrace();}
     }
     
     public static boolean writeMovies(ArrayList<Movie> movs, String path){
         ArrayList<Movie> backup = readMovies(path);
-        File bak = new File(path);
-        bak.renameTo(new File(path + ".bak"));
         File f = new File(path);
+        File bak = new File(path + ".bak");
+        f.renameTo(bak);
         try{
             for(Movie m: movs){
-                writeMovie(m, m.getCodigo(), path);
+                writeMovie(m, m.getCode(), path);
             }
-            bak.delete();
+            RandomAccessFile raf = new RandomAccessFile(path, "rw");
+            raf.close();
+            bak.delete();;
         }catch(Exception ex){
             f.delete();
             bak.renameTo(f);
@@ -83,6 +84,7 @@ public class MovieBuilder {
                 ret.setImgFile(imgPath);
                 movs.add(ret);
             }
+            raf.close();
         }catch(Exception ex){}
         return movs;
     }

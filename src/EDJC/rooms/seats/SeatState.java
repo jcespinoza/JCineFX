@@ -12,7 +12,7 @@ import java.awt.Color;
  * @author Jay C Espinoza
  */
 public enum SeatState {
-    RESERVADO(101, 100, 95, 3), SELECCIONADO(135, 229, 146, 2), DISPONIBLE(193, 193, 191, 1), OCULTO(255,255,255, 0);
+    RESERVED(101, 100, 95, 3), SELECTED(135, 229, 146, 2), AVAILABLE(193, 193, 191, 1), HIDDEN(255,255,255, 0);
     private int red;
     private int green;
     private int blue;
@@ -52,14 +52,14 @@ public enum SeatState {
     public static SeatState valueOf(int index){
         switch(index){
             case 1:
-                return SeatState.DISPONIBLE;
+                return SeatState.AVAILABLE;
                 case 2:
-                    return SeatState.SELECCIONADO;
+                    return SeatState.SELECTED;
                 case 3:
-                    return SeatState.RESERVADO;
+                    return SeatState.RESERVED;
             default:
                 //this is 0;
-            return SeatState.OCULTO;
+            return SeatState.HIDDEN;
         }
     }
 }

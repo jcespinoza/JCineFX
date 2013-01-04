@@ -1,10 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package controllers;
 
+import EDJC.movies.Movie;
+import EDJC.util.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -30,6 +27,7 @@ public class MovieListPanel extends AnchorPane implements Initializable{
         try{
             fx.load();
         }catch(Exception ex){}
+        setFocusTraversable(true);
     }
 
     @Override
@@ -44,10 +42,15 @@ public class MovieListPanel extends AnchorPane implements Initializable{
     
     @FXML
     private void handleAddNew(){
-        father.loadNewMoviePanel();
+        AddMoviePanel aad = new AddMoviePanel(father, this);
+        Util.changeContent(aad, father.content);
     }
 
     private void loadMovies() {
         //Fetch movies from father's arrayList
+        for(Movie m: father.movies){
+            MovieTile mt = new MovieTile(m);
+            flowPane.getChildren().add(mt);
+        }
     }
 }

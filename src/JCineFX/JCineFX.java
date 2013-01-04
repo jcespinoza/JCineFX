@@ -18,10 +18,10 @@ import javafx.stage.Stage;
  * @author Jay C Espinoza
  */
 public class JCineFX extends Application{
-    public static final String CONFIGPATH = "config.mov";
+    public static final String CONFIG_PATH = "config.conf";
     public static final String USERSPATH = "users.usr";
-    public static final String MOVIESPATH = "movies.movs";
-    public static final String ROOMSPATH = "rooms/";
+    public static final String MOVIES_PATH = "movies.movs";
+    public static final String ROOMS_PATH = "rooms/";
     public static final String SCHEDULESPATH = "schedules/";
     private static int salaCounter = 1;
     private static int movCounter = 1;
@@ -69,7 +69,7 @@ public class JCineFX extends Application{
     }
     
     private static void crearTodo() throws IOException{
-        File confFile = new File(JCineFX.CONFIGPATH);
+        File confFile = new File(JCineFX.CONFIG_PATH);
         //ver si el archivo de configuracion existe
         if(!confFile.exists()){
             conf = new Configuracion();
@@ -88,7 +88,7 @@ public class JCineFX extends Application{
                 raf.close();
                 User nUser = new User("guest", "password".toCharArray());
                 nUser.setFullName("Administrator");
-                nUser.setFotoPath("file:JCineFX.jar!/res/user-icon-big.png" );
+                nUser.setPicturePath("file:JCineFX.jar!/res/user-icon-big.png" );
                 UserBuilder.writeUser(nUser);
             }
             
@@ -99,7 +99,7 @@ public class JCineFX extends Application{
     }
 
     public static Configuracion leerConf() throws IOException {
-        File confFile = new File(JCineFX.CONFIGPATH);
+        File confFile = new File(JCineFX.CONFIG_PATH);
         
         if(confFile.exists()){
             RandomAccessFile raf = new RandomAccessFile(confFile, "r");
@@ -120,7 +120,7 @@ public class JCineFX extends Application{
     }
     
     public static void escribirConf(Configuracion conf) throws IOException{
-        File confFile = new File(JCineFX.CONFIGPATH);
+        File confFile = new File(JCineFX.CONFIG_PATH);
         RandomAccessFile raf = new RandomAccessFile(confFile, "rw");
         raf.writeUTF(conf.getUsuarioActual());
         raf.writeUTF(conf.getDirectorio());

@@ -43,7 +43,7 @@ public class RoomBuilder {
     
     public static RoomLayout readRoom(int cod){
         try{
-            File f = new File(JCineFX.ROOMSPATH + "room" + cod + ".rm");
+            File f = new File(JCineFX.ROOMS_PATH + "room" + cod + ".rm");
             if( !f.exists()){
                 return null;
             }else{
@@ -58,17 +58,20 @@ public class RoomBuilder {
     public static void escribirSala(RoomLayout sala) throws IOException{
         int cod = JCineFX.leerConf().getContadorSala();
         FileOutputStream fout = new FileOutputStream("salas/sala" + cod + ".mov");
-        sala.setCodigo(cod);
+        sala.setCode(cod);
         ObjectOutputStream out = new ObjectOutputStream(fout);
         out.writeObject(sala);
         JCineFX.aumentarContSala();
     }
     
     public static void writeRoom(RoomLayout room, String folder){
+        File f = new File(folder);
+        if(!f.exists())
+            f.mkdir();
         try{
-            int cod = room.getCodigo();
+            int cod = room.getCode();
             FileOutputStream fout = new FileOutputStream(folder + "room" + cod + ".rm");
-            room.setCodigo(cod);
+            room.setCode(cod);
             ObjectOutputStream out = new ObjectOutputStream(fout);
             out.writeObject(room);
         }catch(Exception ex){}
@@ -107,9 +110,11 @@ public class RoomBuilder {
     
     public static boolean writeRooms(ArrayList<RoomLayout> rooms, String folder){
         ArrayList<RoomLayout> backup = readRooms(folder);
-        File bak = new File(folder);
-        bak.renameTo(new File("bak" + folder));
         File f = new File(folder);
+        if(! f.exists())
+            f.mkdir();
+        File bak = new File("bak" + folder);
+        f.renameTo(bak);
         try{
             for(RoomLayout r: rooms){
                 writeRoom(r, folder);

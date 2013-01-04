@@ -19,7 +19,7 @@ public enum MovieGenre {
                 return COMEDIA;
             case "Drama":
                 return DRAMA;
-            case "Acción":
+            case "Acción": case "Accion":
                 return ACCION;
             case "Musical":
                 return MUSICAL;

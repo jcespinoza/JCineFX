@@ -56,11 +56,10 @@ public class LoginPanel extends AnchorPane implements Initializable{
                 Node control = (Node)( ((ReadOnlyProperty)(focusProperty)).getBean() );
                 boolean focus = (Boolean)newValue;
 
-                if(control.equals(userLog)){
+                if(control.equals(userLog))
                     handleUsernameFocus(focus);
-                }else if(control.equals(passLog)){
+                else if(control.equals(passLog))
                     handlePassFocus(focus);
-                }
             }
         };
     }

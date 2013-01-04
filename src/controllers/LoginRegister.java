@@ -52,7 +52,7 @@ public class LoginRegister extends AnchorPane implements Initializable{
     }
     
     private void loadConfiguration() {
-        conf = Config.loadFromDisk(JCineFX.CONFIGPATH);
+        conf = Config.loadFromDisk(JCineFX.CONFIG_PATH);
         if( conf == null)
             conf = Config.getDefault();
     }

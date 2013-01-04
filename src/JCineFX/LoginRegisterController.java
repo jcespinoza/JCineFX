@@ -152,7 +152,7 @@ public class LoginRegisterController implements Initializable {
             temp.setUsername(user);
             temp.setPassword(pass1);
             temp.setFullName(name);
-            temp.setFotoPath(imgPath);
+            temp.setPicturePath(imgPath);
             
             User result = UserBuilder.leerUser(user);
             if(result == null){

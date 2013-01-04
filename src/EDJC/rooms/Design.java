@@ -20,17 +20,17 @@ public class Design{
     
     public Design(int filas, int cols, boolean is3D){
         layout = new RoomLayout(filas, cols, is3D);
-        layout.makeAll(SeatState.DISPONIBLE);
+        layout.makeAll(SeatState.AVAILABLE);
         clickHandler = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
                 SillaControl s = ((SillaControl)t.getSource());
-                if( s.getState() == SeatState.DISPONIBLE){
-                    s.setState(SeatState.OCULTO);
+                if( s.getState() == SeatState.AVAILABLE){
+                    s.setState(SeatState.HIDDEN);
                 }else{
-                    s.setState(SeatState.DISPONIBLE);
+                    s.setState(SeatState.AVAILABLE);
                 }
-                layout.setSilla(s.getRow(), s.getNumber(), s.getState());
+                layout.setSeat(s.getRow(), s.getNumber(), s.getState());
             }
         };
     }

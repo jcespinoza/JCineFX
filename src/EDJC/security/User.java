@@ -1,43 +1,36 @@
 package EDJC.security;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
  *
  * @author Jay C Espinoza
  */
-public final class User{
+public final class User implements Serializable{
     private String username = "";
     private char[] cred;
     private String FullName = "";
-    private String fotoPath = "";
+    private String picPath = "";
     private long filePointer;
-    private boolean CredencialActiva = true; /*Delete this field*/
-
-    public String getFotoPath() {
-        return fotoPath;
-    }
-
-    public void setFotoPath(String fotoPath) {
-        this.fotoPath = fotoPath;
-    }
+    private boolean activeCredential = true; /*Delete this field*/
     
     public User(String username){
         this.username = username;
-        setCredencialActiva(true);/*delete this*/
+        setCredential(true);/*delete this*/
     }
     
     public User(){
         username = "";
         FullName = "";
         cred = "000000".toCharArray();
-        fotoPath = "";
+        picPath = "";
     }
     
     public User(String username, char[] pass){
         this(username); // :D
         cred = pass;
-        setCredencialActiva(true);
+        setCredential(true);
     }
     
     /**
@@ -59,19 +52,27 @@ public final class User{
         boolean usr = u.getUsername().equals(this.username);
         boolean pas = Arrays.equals(u.getPassword(), cred);
         boolean nam = u.getFullName().equals(this.FullName);
-        boolean pic = u.getFotoPath().equals(this.fotoPath);
+        boolean pic = u.getPicturePath().equals(this.picPath);
         return usr && pas && nam && pic;
     }
 
     @Override
     public String toString() {
-        return "Username: " + username + " fotoPath: " +fotoPath + " Nombre: " + FullName + " isActive?: " + CredencialActiva;
+        return "Username: " + username + " fotoPath: " +picPath + " Nombre: " + FullName + " isActive?: " + activeCredential;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
+    public String getPicturePath() {
+        return picPath;
+    }
+
+    public void setPicturePath(String fotoPath) {
+        this.picPath = fotoPath;
+    }
+    
     /**
      * Metodo para establecer el <code>cred</code> de un <code>User</code>.
      * @param cred El nuevo cred.
@@ -87,8 +88,8 @@ public final class User{
         this.FullName=nombre;
     }
 
-    public void setCredencialActiva(boolean CredencialActiva) {
-        this.CredencialActiva = CredencialActiva;
+    public void setCredential(boolean CredencialActiva) {
+        this.activeCredential = CredencialActiva;
     }
 
     public void setFilePointer(long filePointer) {
@@ -106,8 +107,8 @@ public final class User{
         return this.FullName;
     }
 
-    public boolean isCredencialActiva() {
-        return CredencialActiva;
+    public boolean isCredentialActive() {
+        return activeCredential;
     }
 
     public long getFilePointer() {

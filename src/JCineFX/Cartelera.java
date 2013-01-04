@@ -51,7 +51,7 @@ public class Cartelera extends AnchorPane implements Initializable, EventHandler
         father.currentSala = selectedSala;
         father.currentHorario = selectedHorario;
         try {
-            father.selectedST = RoomBuilder.leerSalaT( Room4Ticket.parseNombre(selectedSala.getCodigo(), selectedMov.getCodigo(), selectedHorario.getFecha()));
+            father.selectedST = RoomBuilder.leerSalaT( Room4Ticket.parseNombre(selectedSala.getCode(), selectedMov.getCode(), selectedHorario.getFecha()));
         } catch (Exception ex) {}
         father.showTicketPanel();
     }

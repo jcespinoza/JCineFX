@@ -63,12 +63,12 @@ public class SeatSelection extends AnchorPane implements Initializable{
             @Override
             public void handle(MouseEvent t) {
                 SillaControl s = ((SillaControl)t.getSource());
-                if( s.getState() == SeatState.DISPONIBLE)
-                    s.setState(SeatState.SELECCIONADO);
+                if( s.getState() == SeatState.AVAILABLE)
+                    s.setState(SeatState.SELECTED);
 
-                if( s.getState() == SeatState.SELECCIONADO)
-                    s.setState(SeatState.DISPONIBLE);
-                sala.setSilla(s.getRow(), s.getNumber(), s.getState());
+                if( s.getState() == SeatState.SELECTED)
+                    s.setState(SeatState.AVAILABLE);
+                sala.setSeat(s.getRow(), s.getNumber(), s.getState());
             }
         };
     }
@@ -89,9 +89,9 @@ public class SeatSelection extends AnchorPane implements Initializable{
     @FXML
     private void handleAccept(ActionEvent e){
         //code for selling the ticket goes here
-        if( sala.howMany(SeatState.SELECCIONADO) == tickets){
+        if( sala.howMany(SeatState.SELECTED) == tickets){
             st.setSalaLayout(sala);
-            sala.changeStates(SeatState.SELECCIONADO, SeatState.RESERVADO);
+            sala.changeStates(SeatState.SELECTED, SeatState.RESERVED);
             JOptionPane.showMessageDialog(null, "THanks!");
         }
     }
@@ -99,7 +99,7 @@ public class SeatSelection extends AnchorPane implements Initializable{
     @FXML
     private void handleCancel(ActionEvent e){
         //take the user to the Cartelera again
-        sala.changeStates(SeatState.SELECCIONADO, SeatState.DISPONIBLE);
+        sala.changeStates(SeatState.SELECTED, SeatState.AVAILABLE);
         horario = null;
         peli = null;
         tickets = 0;

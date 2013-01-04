@@ -61,6 +61,18 @@
             </ImageView>
           </graphic>
         </Label>
+        <Label id="label2" alignment="CENTER" contentDisplay="TOP" minHeight="148.0" minWidth="154.0" onMouseClicked="#handleTicketPrices" prefHeight="164.0" prefWidth="166.0" styleClass="tile" text="Precios por Ticket">
+          <graphic>
+            <ImageView id="emptyImageView2" fitHeight="129.78472900390625" fitWidth="141.99998474121094" mouseTransparent="true" pickOnBounds="true">
+              <effect>
+                <GaussianBlur radius="1.0" />
+              </effect>
+              <image>
+                <Image url="@../res/img/ticket.png" preserveRatio="false" smooth="false" />
+              </image>
+            </ImageView>
+          </graphic>
+        </Label>
       </children>
     </TilePane>
   </children>

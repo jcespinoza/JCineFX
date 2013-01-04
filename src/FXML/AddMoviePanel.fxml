@@ -5,6 +5,7 @@
 <?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
@@ -12,93 +13,133 @@
 
 <fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.9999000000025" prefWidth="685.0" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <GridPane id="gridPane1" prefHeight="452.9998779296875" prefWidth="684.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <GridPane id="gridPane1" fx:id="grid" prefHeight="452.9998779296875" prefWidth="684.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <TextField id="textField1" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <TextField id="textField1" fx:id="titleT" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
           <GridPane.margin>
             <Insets left="10.0" fx:id="x1" />
           </GridPane.margin>
         </TextField>
-        <TextField id="textField1" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-          <GridPane.margin>
-            <Insets left="10.0" fx:id="x1" />
-          </GridPane.margin>
-        </TextField>
-        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Label" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Titulo:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets right="5.0" />
           </GridPane.margin>
         </Label>
-        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Label" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Duracion (Minutos) :" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets right="5.0" />
           </GridPane.margin>
         </Label>
-        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Label" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Formato:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets right="5.0" />
           </GridPane.margin>
         </Label>
-        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Label" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Genero:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets right="5.0" />
           </GridPane.margin>
         </Label>
-        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Label" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="148.99990000000253" text="Clasificacion:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets right="5.0" />
           </GridPane.margin>
         </Label>
-        <ComboBox id="comboBox1" prefHeight="21.0" prefWidth="177.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <ComboBox id="comboBox1" fx:id="formatC" prefHeight="21.0" prefWidth="177.0" promptText="Seleccione un Formato" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <items>
             <FXCollections fx:factory="observableArrayList">
-              <String fx:value="Item 1" />
-              <String fx:value="Item 2" />
-              <String fx:value="Item 3" />
+              <String fx:value="2D" />
+              <String fx:value="Real 3D" />
+              <String fx:value="Xtreme 3D" />
+              <String fx:value="Digital 3D" />
             </FXCollections>
           </items>
         </ComboBox>
-        <ComboBox id="comboBox1" prefHeight="21.0" prefWidth="177.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <ComboBox id="comboBox1" fx:id="genreC" prefHeight="21.0" prefWidth="177.0" promptText="Seleccione un Genero" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <items>
             <FXCollections fx:factory="observableArrayList">
-              <String fx:value="Item 1" />
-              <String fx:value="Item 2" />
-              <String fx:value="Item 3" />
+              <String fx:value="Drama" />
+              <String fx:value="Musical" />
+              <String fx:value="Acción" />
+              <String fx:value="Comedia" />
+              <String fx:value="Documental" />
+              <String fx:value="Animada" />
             </FXCollections>
           </items>
           <GridPane.margin>
-            <Insets left="10.0" fx:id="x1" />
+            <Insets left="10.0" fx:id="x3" />
           </GridPane.margin>
         </ComboBox>
-        <ComboBox id="comboBox1" prefHeight="21.0" prefWidth="177.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <ComboBox id="comboBox1" fx:id="ratingC" prefHeight="21.0" prefWidth="177.0" promptText="Seleccione una Clasificacion" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <items>
             <FXCollections fx:factory="observableArrayList">
-              <String fx:value="Item 1" />
-              <String fx:value="Item 2" />
-              <String fx:value="Item 3" />
+              <String fx:value="Todo Publico" />
+              <String fx:value="Mayores de 15" />
+              <String fx:value="Mayores de 18" />
+              <String fx:value="Adultos" />
             </FXCollections>
           </items>
           <GridPane.margin>
-            <Insets left="10.0" fx:id="x1" />
+            <Insets left="10.0" fx:id="x4" />
           </GridPane.margin>
         </ComboBox>
-        <Button id="button1" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="177.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button id="button1" fx:id="imgButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleChangePic" prefHeight="29.0" prefWidth="177.0" text="Cambiar Imagen" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
-            <Insets left="10.0" fx:id="x1" />
+            <Insets left="10.0" fx:id="x5" />
           </GridPane.margin>
         </Button>
         <Text id="text2" fill="#006299" strokeType="OUTSIDE" text="Nueva Pelicula" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+          <effect>
+            <Reflection fraction="0.45634920634920634" topOffset="-30.0">
+              <input>
+                <DropShadow height="11.0" radius="5.0" width="11.0" />
+              </input>
+            </Reflection>
+          </effect>
           <font>
             <Font name="Cambria Bold" size="50.0" />
           </font>
         </Text>
-        <ImageView id="emptyImageView1" fitHeight="243.1962127685547" fitWidth="355.5896840576929" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.rowSpan="6" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+        <Button id="button2" fx:id="accept" defaultButton="true" mnemonicParsing="false" onAction="#handleAccept" prefHeight="28.999969482421875" prefWidth="130.0" text="Guardar" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button id="button2" fx:id="cancel" cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" prefHeight="28.999969482421875" prefWidth="130.0" text="Cancelar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <ImageView id="emptyImageView1" fx:id="movImg" fitHeight="243.1962127685547" fitWidth="312.2948303222656" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.rowSpan="10" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
           <image>
             <Image url="@../res/img/default_movie.png" preserveRatio="false" smooth="false" />
           </image>
         </ImageView>
-        <Button id="button2" mnemonicParsing="false" prefHeight="28.999969482421875" prefWidth="130.0" text="Button" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-        <Button id="button2" mnemonicParsing="false" prefHeight="28.999969482421875" prefWidth="130.0" text="Button" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Label id="label2" fx:id="titleMsg" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="274.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <textFill>
+            <Color blue="0.200" green="0.200" red="1.000" fx:id="x2" />
+          </textFill>
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label2" fx:id="lengthMsg" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="248.0" textFill="$x2" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label2" fx:id="formatMsg" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="260.0" textFill="$x2" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label2" fx:id="genreMsg" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="234.0" textFill="$x2" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label2" fx:id="ratingMsg" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="234.0" textFill="$x2" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label2" fx:id="imgMsg" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="303.64739990234375" text="La imagen se puede cambiar." textFill="#0066ff" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="10" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" minWidth="10.0" prefWidth="154.0" />
@@ -108,13 +149,18 @@
       </columnConstraints>
       <rowConstraints>
         <RowConstraints maxHeight="127.00000762939453" minHeight="10.0" prefHeight="122.0" vgrow="NEVER" />
-        <RowConstraints maxHeight="110.00000762939453" minHeight="10.0" prefHeight="45.00000762939453" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="42.99999237060547" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="92.99998474121094" minHeight="10.0" prefHeight="46.99998474121094" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="46.00001525878906" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="110.00000762939453" minHeight="10.0" percentHeight="8.0" prefHeight="45.00000762939453" vgrow="ALWAYS" />
+        <RowConstraints fillHeight="false" maxHeight="102.0" minHeight="10.0" percentHeight="5.0" prefHeight="42.99999237060547" vgrow="ALWAYS" />
+        <RowConstraints maxHeight="102.0" minHeight="10.0" percentHeight="10.0" prefHeight="42.99999237060547" vgrow="NEVER" />
+        <RowConstraints maxHeight="92.99998474121094" minHeight="10.0" percentHeight="5.0" prefHeight="46.99998474121094" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="92.99998474121094" minHeight="10.0" percentHeight="8.0" prefHeight="46.99998474121094" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="75.0" minHeight="10.0" percentHeight="5.0" prefHeight="46.00001525878906" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="75.0" minHeight="10.0" percentHeight="8.0" prefHeight="46.00001525878906" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="64.0" minHeight="10.0" percentHeight="5.0" prefHeight="44.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="64.0" minHeight="10.0" percentHeight="8.0" prefHeight="44.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="55.0" minHeight="10.0" percentHeight="5.0" prefHeight="43.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="55.0" minHeight="10.0" percentHeight="8.0" prefHeight="43.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="63.0" minHeight="10.0" percentHeight="15.0" prefHeight="63.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
   </children>

@@ -17,3 +17,23 @@
 #OCULTO{
     -fx-background-color: transparent;
 }
+
+#SELECTED{
+    -fx-background-color: lightgreen;
+}
+
+#AVAILABLE{
+    -fx-background-color: aliceblue;
+}
+
+#RESERVED{
+    -fx-background-color: grey;
+}
+
+#HIDDEN{
+    -fx-background-color: transparent;
+}
+
+#AVAILABLE:hover, #HIDDEN:hover, #RESERVED:hover, #SELECTED:hover{
+    -fx-border-color: grey;
+}

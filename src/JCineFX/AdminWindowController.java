@@ -149,7 +149,7 @@ public class AdminWindowController implements Initializable {
                 User us = new User();
                 us.setUsername( usernameField.getText() );
                 us.setPassword( newPass1Field.getText().toCharArray());
-                us.setFotoPath(imagePath);
+                us.setPicturePath(imagePath);
                 us.setFullName( nombreField.getText() );
                 UserBuilder.writeUser(us);
                 System.out.println("Saving user. Succes!");
@@ -177,7 +177,7 @@ public class AdminWindowController implements Initializable {
         usernameField.setText(JCineFX.getCurrentUser().getUsername());
         nombreField.setText(JCineFX.getCurrentUser().getFullName());
         oldPassField.setText(new String(JCineFX.getCurrentUser().getPassword()));
-        String tempPath = JCineFX.getCurrentUser().getFotoPath();
+        String tempPath = JCineFX.getCurrentUser().getPicturePath();
         try{
             imgUser.setImage(new Image(tempPath));
         }catch(IllegalArgumentException ex){

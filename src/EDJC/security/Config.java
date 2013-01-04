@@ -1,26 +1,34 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package EDJC.security;
 
+import EDJC.movies.Movie;
+import EDJC.rooms.RoomLayout;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * @author Juan Carlos Espinoza
  *
  */
 public class Config implements Serializable{
+    public static final int MOVIE_COUNTER = 1;
+    public static final int ROOM_COUNTER = 2;
+    public static final double DISCOUNT_CHILD = 0.5;
+    public static final double DISCOUNT_ADULT = 1;
+    public static final double DISCOUNT_OLD = 0.35;
     private User user;
     private int roomCount;
     private int movCount;
-    private String lastPath;
+    private String lastUserPath;
+    private String lastMovPath;
+    private double priceDigital;
+    private double price3D;
+    private double priceNormal;
     
     public Config(){}
 
@@ -28,13 +36,31 @@ public class Config implements Serializable{
         this.user = user;
         this.roomCount = roomCount;
         this.movCount = movCount;
-        this.lastPath = lastPath;
+        this.lastUserPath = lastPath;
     }
 
     public User getUser() {return user;}
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public double getPriceDigital() {return priceDigital;}
+
+    public void setPriceDigital(double price) {
+        this.priceDigital = price;
+    }
+    
+    public double getPrice3D() {return price3D;}
+
+    public void setPrice3D(double price) {
+        this.price3D = price;
+    }
+    
+    public double getPriceNormal() {return priceNormal;}
+
+    public void setPriceNormal(double price) {
+        this.priceNormal = price;
     }
 
     public int getRoomCount() {return roomCount;}
@@ -48,19 +74,68 @@ public class Config implements Serializable{
     public void setMovCount(int movCount) {
         this.movCount = movCount;
     }
-
-    public String getLastPath() {return lastPath;}
-
-    public void setLastPath(String lastPath) {
-        this.lastPath = lastPath;
+    
+    public static int getMinimumCount(){
+        return 1;
     }
+    
+    public void incrementCounter(int type){
+        switch(type){
+            case MOVIE_COUNTER:
+                movCount++;
+                break;
+            case ROOM_COUNTER:
+                roomCount++;
+                break;
+        }
+    }
+
+    public String getLastUserPath() {return lastUserPath;}
+
+    public void setLastUserPath(String lastUserPath) {
+        this.lastUserPath = lastUserPath;
+    }
+
+    public String getLastMovPath() {return lastMovPath;}
+
+    public void setLastMovPath(String lastMovPath){
+        this.lastMovPath = lastMovPath;
+    }
+
     
     public static Config getDefault(){
         Config conf = new Config();
         User s = new User("guest", "password".toCharArray());
         conf.setUser(s);
-        conf.setLastPath(".");
+        conf.setLastUserPath(System.getProperty("user.dir"));
+        conf.setLastMovPath( conf.getLastUserPath() );
+        conf.setMovCount(getMinimumCount());
+        conf.setRoomCount(getMinimumCount());
+        conf.setPrice3D(110.0);
+        conf.setPriceDigital(90);
+        conf.setPriceNormal(70);
         return conf;
+    }
+    
+    public static int getSafeCode(int type, ArrayList<? extends Object> list){
+        int max = 1;
+        if(type == MOVIE_COUNTER){
+            ArrayList<Movie> movs = (ArrayList<Movie>)(list);
+            for(Movie m: movs){
+                if(m.getCode() > max)
+                    max = m.getCode();
+            }
+            return ++max;
+        }else if(type == ROOM_COUNTER){
+            ArrayList<RoomLayout> rooms = (ArrayList<RoomLayout>)(list);
+            for(RoomLayout r: rooms){
+                if(r.getCode() > max)
+                    max = r.getCode();
+            }
+            return ++max;
+        }else{
+            throw new IllegalArgumentException("No such type");
+        }
     }
     
     public static boolean saveToDisk(String path, Config con){
@@ -83,5 +158,13 @@ public class Config implements Serializable{
             c = (Config)(ous.readObject());
         }catch(Exception ex){return null;}
         return c;
+    }
+    
+    @Override
+    public String toString(){
+        return "Configuration:\n"+
+                user.getUsername() + " " +
+                "MCounter: " + this.movCount+
+                " RCounter: " + this.roomCount;
     }
 }

@@ -37,7 +37,7 @@ public class ChairGrid extends AnchorPane implements Initializable{
     public ChairGrid(RoomLayout lay, boolean design){
         this.design = design;
         layout = lay;
-        maxRows = lay.getFilas();
+        maxRows = lay.getRows();
         maxCols = lay.getCols();
         grid = new GridPane();
         addElements();
@@ -46,7 +46,7 @@ public class ChairGrid extends AnchorPane implements Initializable{
         this.getChildren().add(grid);
         grid.setAlignment(Pos.CENTER);
         setTopAnchor(grid, 0.0);
-        setBottomAnchor(grid, 0.);
+        setBottomAnchor(grid, 0.0);
         setLeftAnchor(grid, 0.0);
         setRightAnchor(grid, 0.0);
         setPrefSize(maxCols*100, maxRows*100);
@@ -73,12 +73,12 @@ public class ChairGrid extends AnchorPane implements Initializable{
                 @Override
                 public void handle(MouseEvent t) {
                     SillaControl s = ((SillaControl)t.getSource());
-                    if( s.getState() == SeatState.DISPONIBLE)
-                        s.setState(SeatState.SELECCIONADO);
+                    if( s.getState() == SeatState.AVAILABLE)
+                        s.setState(SeatState.SELECTED);
 
-                    else if( s.getState() == SeatState.SELECCIONADO)
-                        s.setState(SeatState.DISPONIBLE);
-                    layout.setSilla(s.getRow(), s.getNumber(), s.getState());
+                    else if( s.getState() == SeatState.SELECTED)
+                        s.setState(SeatState.AVAILABLE);
+                    layout.setSeat(s.getRow(), s.getNumber(), s.getState());
                 }
             };
         }

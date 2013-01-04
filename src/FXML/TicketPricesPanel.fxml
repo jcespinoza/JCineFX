@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <GridPane id="gridPane1" prefHeight="399.0" prefWidth="599.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+      <children>
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="25.0" prefWidth="196.0" text="Precio 2D:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="25.0" prefWidth="196.0" text="Precio Digital 3D:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="25.0" prefWidth="196.0" text="Precio Real 3D:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="25.0" prefWidth="196.0" text="Precio Xtreme 3D:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="10.0" />
+          </GridPane.margin>
+        </Label>
+        <ImageView id="emptyImageView1" fitHeight="177.0" fitWidth="211.73832061767578" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <image>
+            <Image url="@../res/img/ticket.png" preserveRatio="false" smooth="false" />
+          </image>
+        </ImageView>
+        <Button id="button1" defaultButton="true" mnemonicParsing="false" onAction="#handleAccept" prefHeight="25.0" prefWidth="120.0" text="Aceptar" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <TextField id="textField1" fx:id="normal" prefWidth="200.0" promptText="35mm" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField id="textField1" fx:id="digi3D" prefWidth="200.0" promptText="Digital3D" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField id="textField1" fx:id="real3D" prefWidth="200.0" promptText="Real3D" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <TextField id="textField1" fx:id="xtrema3D" prefWidth="200.0" promptText="Xtreme3D" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Text id="text1" fill="#0066ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio de los Boletos" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <font>
+            <Font name="Candara" size="30.0" />
+          </font>
+        </Text>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" percentWidth="30.0" prefWidth="200.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" percentWidth="20.0" prefWidth="209.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" percentWidth="50.0" prefWidth="190.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="143.0" minHeight="10.0" percentHeight="20.0" prefHeight="143.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="130.0" minHeight="10.0" percentHeight="15.0" prefHeight="123.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="133.0" minHeight="10.0" percentHeight="15.0" prefHeight="133.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="133.0" minHeight="10.0" percentHeight="15.0" prefHeight="133.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="133.0" minHeight="10.0" percentHeight="15.0" prefHeight="133.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="133.0" minHeight="10.0" percentHeight="20.0" prefHeight="133.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</fx:root>

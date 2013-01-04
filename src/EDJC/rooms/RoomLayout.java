@@ -5,67 +5,67 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class RoomLayout implements Serializable{
-    private int codigo;
+    private int code;
     private boolean is3D;
-    private int[][] sillas;
-    private int nSillas;
-    private int filas;
+    private int[][] seats;
+    private int nSeats;
+    private int rows;
     private int cols;
     
-    public RoomLayout(int filas, int cols, boolean is3D){
-        this.filas = filas;
+    public RoomLayout(int r, int cols, boolean is3D){
+        this.rows = r;
         this.cols = cols;
         this.is3D = is3D;
-        sillas = new int[filas][cols];
-        nSillas = filas * cols;
+        seats = new int[r][cols];
+        nSeats = r * cols;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getCode() {
+        return code;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCode(int codigo) {
+        this.code = codigo;
     }
     
-    public int[][] getSillas() {
-        return sillas;
+    public int[][] getSeats() {
+        return seats;
     }
 
     public boolean is3D() {
         return is3D;
     }
 
-    public int getnSillas() {
-        return nSillas;
+    public int getNSeats() {
+        return nSeats;
     }
 
-    public int getFilas() {
-        return filas;
-    }
-    
-    public SeatState getSeatState(int row, int col){
-        return SeatState.valueOf( sillas[row][col] );
+    public int getRows() {
+        return rows;
     }
 
     public int getCols() {
         return cols;
     }
     
-    public void setSilla(int fila, int col, SeatState s){
-        sillas[fila][col] = s.toInt();
+    public SeatState getSeatState(int row, int col){
+        return SeatState.valueOf( seats[row][col] );
+    }
+    
+    public void setSeat(int row, int col, SeatState s){
+        seats[row][col] = s.toInt();
     }
     
     public static RoomLayout genSalaLayout(int rows, int cols, SeatState s, boolean _3D){
-        RoomLayout sala = new RoomLayout(rows, cols, _3D);
-        sala.makeAll(s);
-        return sala;
+        RoomLayout room = new RoomLayout(rows, cols, _3D);
+        room.makeAll(s);
+        return room;
     }
     
     public void makeAll(SeatState s){
         int st = s.toInt();
-        for(int i = 0; i < filas; i++){
-            Arrays.fill(sillas[i], st);
+        for(int i = 0; i < rows; i++){
+            Arrays.fill(seats[i], st);
             /*for(int k = 0; k < cols; k++){
                 sillas[i][k] = st;
             }*/
@@ -75,9 +75,9 @@ public class RoomLayout implements Serializable{
     public int howMany(SeatState s){
         int filter = s.toInt();
         int count = 0;
-        for(int i = 0; i < filas; i++){
+        for(int i = 0; i < rows; i++){
             for(int k = 0; k < cols; k++){
-                if( sillas[i][k] == filter)
+                if( seats[i][k] == filter)
                     count++;
             }
         }
@@ -87,21 +87,23 @@ public class RoomLayout implements Serializable{
     public void changeStates(SeatState old, SeatState newV){
         int filter = old.toInt();
         int newVal = newV.toInt();
-        for(int i = 0; i < filas; i++){
+        for(int i = 0; i < rows; i++){
             for(int k = 0; k < cols; k++){
-                if(sillas[i][k] == filter)
-                    sillas[i][k] = newVal;
+                if(seats[i][k] == filter)
+                    seats[i][k] = newVal;
             }
         }
     }
     
     @Override
     public String toString(){
-        String res = "";
-        for(int i = 0; i < sillas.length; i++){
-            for(int j = 0; j < sillas[i].length; j++){
+        String res = "Sala ";
+        res += (is3D)?"3D":"2D";
+        res += " code: " + code + "\n";
+        for(int i = 0; i < seats.length; i++){
+            for(int j = 0; j < seats[i].length; j++){
                 //res += (sillas[i][j])?"O":" ";
-                int temp = sillas[i][j];
+                int temp = seats[i][j];
                 if( temp == 0)
                     res += " ";
                 else if( temp == 1)

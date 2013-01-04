@@ -37,13 +37,12 @@ public class MainPanel extends AnchorPane implements Initializable{
 
     @FXML
     private void handleAddSala(){
-        AddRoomPanel ad = new AddRoomPanel(father);
-        Util.changeContent(ad, father.content);
+        father.loadNewRoomPanel();
     }
     
     @FXML
     private void handleAddMovie(){
-        father.loadNewMoviePanel();
+        father.loadNewMoviePanel(this);
     }
     
     @FXML
@@ -54,12 +53,17 @@ public class MainPanel extends AnchorPane implements Initializable{
     
     @FXML
     private void handleListMovies(){
-        MovieListPanel mo = new MovieListPanel(father);
-        Util.changeContent(mo, father.content);
+        father.loadMovieListPanel();
     }
     
     @FXML
     private void handleListScheds(){
         father.loadSchedsPanel();
+    }
+    
+    @FXML
+    private void handleTicketPrices(){
+        TicketPricesPanel t = new TicketPricesPanel(father);
+        Util.changeContent(t, father.content);
     }
 }

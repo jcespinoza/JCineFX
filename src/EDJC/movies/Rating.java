@@ -26,7 +26,7 @@ public enum Rating {
     
     public static Rating parseRating(String text) {
         switch(text){
-            case "Todo Público":
+            case "Todo Público": case "Todo Publico": case "Todo publico":
                 return TODO_PUBLICO;
             case "Mayores de 15":
                 return MAYORES_15;

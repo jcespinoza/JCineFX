@@ -11,7 +11,7 @@ public class Room4Ticket implements Serializable{
     public Room4Ticket(RoomLayout s, int cod, Calendar fecha){
         sala =s;
         codPeli = cod;
-        nombreArchivo = parseNombre(sala.getCodigo(), cod, fecha);
+        nombreArchivo = parseNombre(sala.getCode(), cod, fecha);
     }
 
     public String getNombreArchivo(){

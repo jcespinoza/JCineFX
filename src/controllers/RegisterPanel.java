@@ -2,7 +2,9 @@ package controllers;
 
 import EDJC.security.User;
 import EDJC.security.UserBuilder;
+import EDJC.util.Util;
 import JCineFX.JCineFX;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.ReadOnlyProperty;
@@ -98,7 +100,7 @@ public class RegisterPanel extends AnchorPane implements Initializable{
         //method for saving to disk here
         if( !exists && passLenght && passMatch ){
             User u = new User(username.getText(), pass1.getText().toCharArray());
-            u.setFotoPath(imgPath);
+            u.setPicturePath(imgPath);
             u.setFullName(name.getText());
             father.users.add(u);
             UserBuilder.writeUsers(father.users, JCineFX.USERSPATH);
@@ -122,17 +124,14 @@ public class RegisterPanel extends AnchorPane implements Initializable{
     
     @FXML
     private void handleFotoClick(){
-        FileChooser fc = new FileChooser();
-        String url = null;
-        try {
-            url = fc.showOpenDialog(editLabel.getScene().getWindow()).toURI().toURL().toString();
-            if(url == null)
-                return;
-            Image img = new Image(url);
-            registerPicture.setImage(img);
-            registerPicture.setSmooth(true);
-            imgPath = url;
-        } catch (Exception ex) {}
+        String temp = Util.getPicture(father.conf.getLastUserPath(), father.getScene().getWindow());
+        if(temp != null){
+            father.conf.setLastUserPath(new File(temp).getParent());
+            try{
+                imgPath = (new URL("file:" + temp).toExternalForm());
+                registerPicture.setImage(new Image(imgPath));
+            }catch(Exception ex){ex.printStackTrace();}
+        }
     }
     
     private void handleUsernameFocus(boolean focus) {

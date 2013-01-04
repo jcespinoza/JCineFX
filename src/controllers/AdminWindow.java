@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package controllers;
 
 import EDJC.movies.Movie;
@@ -19,6 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,6 +22,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 
 /**
  * @author Juan Carlos Espinoza
@@ -59,6 +57,7 @@ public class AdminWindow extends AnchorPane implements Initializable{
         conf = c;
         currentUser = users.indexOf(conf.getUser());
         setUserMenuLabel();
+        reloadConf();
     }
 
     @Override
@@ -79,6 +78,7 @@ public class AdminWindow extends AnchorPane implements Initializable{
         st.sizeToScene();
         st.setResizable(false);
         st.show();
+        ((AdminWindow)adm).regExitListener();
     }
     
     @FXML
@@ -95,6 +95,9 @@ public class AdminWindow extends AnchorPane implements Initializable{
     
     @FXML
     private void handleExit(){
+        saveConfig(conf);
+        saveMovies();
+        saveRooms();
         Platform.exit();
     }
     
@@ -115,9 +118,19 @@ public class AdminWindow extends AnchorPane implements Initializable{
         Util.changeContent(mp, content);
     }
     
-    public void loadNewMoviePanel(){
-        AddMoviePanel adm = new AddMoviePanel(this);
+    public void loadMovieListPanel(){
+        MovieListPanel ml = new MovieListPanel(this);
+        Util.changeContent(ml, content);
+    }
+    
+    public void loadNewMoviePanel(AnchorPane caller){
+        AddMoviePanel adm = new AddMoviePanel(this, caller);
         Util.changeContent(adm, content);
+    }
+    
+    public void loadNewRoomPanel(){
+        AddRoomPanel rm = new AddRoomPanel(this);
+        Util.changeContent(rm, content);
     }
     
     public void loadSchedsPanel(){
@@ -126,21 +139,55 @@ public class AdminWindow extends AnchorPane implements Initializable{
     }
     
     public void saveUsers(){UserBuilder.writeUsers(users, JCineFX.USERSPATH);}
-    public void saveMovies(){MovieBuilder.writeMovies(movies, JCineFX.MOVIESPATH);}
-    
-    public void saveRooms(){RoomBuilder.writeRooms(rooms, JCineFX.ROOMSPATH);}
+    public void saveMovies(){MovieBuilder.writeMovies(movies, JCineFX.MOVIES_PATH);}
+    public void saveRooms(){RoomBuilder.writeRooms(rooms, JCineFX.ROOMS_PATH);}
     
     public void saveSchedules(){}
     
     private void loadMovies(){
-        movies = MovieBuilder.readMovies(JCineFX.MOVIESPATH);
+        movies = MovieBuilder.readMovies(JCineFX.MOVIES_PATH);
+        for(Movie m: movies){
+            System.out.println(m);
+        }
     }
     
     private void loadRooms(){
-        rooms = RoomBuilder.readRooms(JCineFX.ROOMSPATH);
+        rooms = RoomBuilder.readRooms(JCineFX.ROOMS_PATH);
+        for(RoomLayout r: rooms){
+            System.out.println(r);
+        }
     }
     
     private void loadSchedules(){
         
+    }
+    
+    protected void regExitListener(){
+        EventHandler<WindowEvent> winE = new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent t) {
+                saveConfig(conf);
+                saveRooms();
+                saveMovies();
+            }
+        };
+        this.getScene().getWindow().setOnCloseRequest(winE);
+        this.getScene().getWindow().setOnHiding(winE);
+    }
+    
+    public static void saveConfig(Config conf){
+        Config.saveToDisk(JCineFX.CONFIG_PATH, conf);
+    }
+    
+    public void reloadConf(){
+        if(conf.getMovCount() == 1 && !movies.isEmpty())
+            conf.setMovCount(Config.getSafeCode(Config.MOVIE_COUNTER, movies));
+        if(conf.getRoomCount() == 1 && !rooms.isEmpty())
+            conf.setRoomCount(Config.getSafeCode(Config.ROOM_COUNTER, rooms));
+        System.out.println(conf);
+    }
+    
+    public Window getWindow() {
+        return getScene().getWindow();
     }
 }

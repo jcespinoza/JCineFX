@@ -23,7 +23,7 @@ public class SillaControl extends AnchorPane implements Initializable{
     
     public SillaControl(SeatState s, int row, int number){
         try{
-            FXMLLoader fx = new FXMLLoader(getClass().getResource("SillaControl.fxml"));
+            FXMLLoader fx = new FXMLLoader(getClass().getResource("/JCineFX/SillaControl.fxml"));
             fx.setRoot(this);
             fx.setController(this);
             fx.load();
@@ -58,15 +58,13 @@ public class SillaControl extends AnchorPane implements Initializable{
     
     private void changeSillaColor(SeatState s) {
         switch(s){
-            case DISPONIBLE: case SELECCIONADO: case RESERVADO:
+            case AVAILABLE: case SELECTED: case RESERVED:
                 label.setText(getName());
                 break;
             default:
                 label.setText("");
         }
-        label.setId(s.name());
-
-        
+        label.setId(s.name());       
     }
 
     public String getName() {

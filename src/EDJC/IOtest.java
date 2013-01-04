@@ -21,8 +21,8 @@ public class IOtest {
         try {
             User source = new User("jcespinoza", "password".toCharArray());
             source.setFullName("Juan Carlos Espinoza");
-            source.setCredencialActiva(true);
-            source.setFotoPath("fotos/pic1.jpg");
+            source.setCredential(true);
+            source.setPicturePath("fotos/pic1.jpg");
             
             fout = new FileOutputStream("user1.usr");
             ObjectOutputStream output = new ObjectOutputStream(fout);
@@ -30,8 +30,8 @@ public class IOtest {
             System.out.print("Source: " + "username=" + source.getUsername()
                     + " password=" + new String(source.getPassword()) +
                     " nombre=" + source.getFullName()
-                    + " path=" + source.getFotoPath() +
-                    " credentialActiva=" + source.isCredencialActiva());
+                    + " path=" + source.getPicturePath() +
+                    " credentialActiva=" + source.isCredentialActive());
             
             output.writeObject(source);
         } catch (Exception ex) {
@@ -52,8 +52,8 @@ public class IOtest {
             System.out.print("\nDestination: " + "username=" + dest.getUsername()
                     + " password=" + new String(dest.getPassword()) +
                     " nombre=" + dest.getFullName()
-                    + " path=" + dest.getFotoPath() +
-                    " credentialActiva=" + dest.isCredencialActiva());
+                    + " path=" + dest.getPicturePath() +
+                    " credentialActiva=" + dest.isCredentialActive());
             obin.close();
         }catch(Exception ex){
             System.out.println("Error: " + ex);

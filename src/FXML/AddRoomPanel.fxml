@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="728.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <GridPane id="gridPane1" prefHeight="474.0" prefWidth="727.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+      <children>
+        <ComboBox id="comboBox1" fx:id="typeChoice" prefHeight="21.0" prefWidth="157.0" promptText="Seleccion el tipo" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Sala 2D" />
+              <String fx:value="Sala 3D" />
+            </FXCollections>
+          </items>
+          <GridPane.margin>
+            <Insets left="10.0" />
+          </GridPane.margin>
+        </ComboBox>
+        <TextField id="textField1" fx:id="rowsT" prefWidth="152.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+          <GridPane.margin>
+            <Insets left="10.0" right="5.0" fx:id="x1" />
+          </GridPane.margin>
+        </TextField>
+        <TextField id="textField1" fx:id="colsT" prefWidth="170.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.margin="$x1" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="21.0" prefWidth="158.0" text="Tipo de Sala:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="21.0" prefWidth="158.0" text="Numero de Filas:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="21.0" prefWidth="158.0" text="Asientos por fila:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+          <GridPane.margin>
+            <Insets right="5.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label2" fx:id="typeMsg" alignment="CENTER_RIGHT" contentDisplay="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <textFill>
+            <Color blue="0.200" green="0.200" red="1.000" fx:id="x2" />
+          </textFill>
+          <GridPane.margin>
+            <Insets right="8.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label2" fx:id="rowsMsg" alignment="CENTER_RIGHT" contentDisplay="CENTER" textFill="$x2" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="8.0" />
+          </GridPane.margin>
+        </Label>
+        <Label id="label2" fx:id="colsMsg" alignment="CENTER_RIGHT" contentDisplay="CENTER" textFill="$x2" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets right="8.0" />
+          </GridPane.margin>
+        </Label>
+        <Button id="button1" defaultButton="true" mnemonicParsing="false" onAction="#handleDesign" prefHeight="35.0" prefWidth="133.0" text="Diseniar" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+        <Text id="text1" fill="#0083cc" strokeType="OUTSIDE" strokeWidth="0.0" text="Nueva Sala" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <effect>
+            <Reflection fraction="0.4642857142857143" topOffset="-25.0" topOpacity="0.373015873015873">
+              <input>
+                <DropShadow height="5.0" radius="2.0" width="5.0" />
+              </input>
+            </Reflection>
+          </effect>
+          <font>
+            <Font name="Cambria Bold" size="52.0" />
+          </font>
+        </Text>
+        <ImageView id="emptyImageView1" fitHeight="335.3443430599332" fitWidth="278.79608154296875" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="6" GridPane.valignment="CENTER">
+          <image>
+            <Image url="@../res/img/cinemaChair.png" preserveRatio="false" smooth="false" />
+          </image>
+        </ImageView>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" maxWidth="240.0" minWidth="10.0" percentWidth="25.0" prefWidth="160.0" />
+        <ColumnConstraints hgrow="ALWAYS" maxWidth="331.0" minWidth="10.0" percentWidth="25.0" prefWidth="204.0" />
+        <ColumnConstraints hgrow="ALWAYS" maxWidth="425.0" minWidth="10.0" percentWidth="50.0" prefWidth="363.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="79.0" minHeight="10.0" percentHeight="30.0" prefHeight="44.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="79.0" minHeight="10.0" percentHeight="8.0" prefHeight="31.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="79.0" minHeight="10.0" percentHeight="8.0" prefHeight="27.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="109.0" minHeight="10.0" percentHeight="8.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="94.0" minHeight="10.0" percentHeight="8.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="119.0" minHeight="10.0" percentHeight="8.0" prefHeight="72.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="94.0" minHeight="10.0" percentHeight="8.0" prefHeight="41.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="127.0" minHeight="10.0" percentHeight="27.0" prefHeight="127.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</fx:root>

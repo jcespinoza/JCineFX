@@ -4,10 +4,13 @@
  */
 package EDJC.util;
 
+import java.io.File;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
 /**
  *
@@ -93,5 +96,21 @@ public class Util {
     
     public static void disableTitledPane(TitledPane t){
         t.setCollapsible(false);
+    }
+    
+    public static String getPicture(String initDir, Window owner){
+        String s = null;
+        FileChooser fc = new FileChooser();
+        if( initDir == null)
+            initDir = System.getProperty("user.dir");
+        fc.setInitialDirectory(new File(initDir));
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imagenes", "*.png", "*.jpg", "*.gif"));
+        fc.setTitle("Eleccion de Imagen");
+        try{
+            s = fc.showOpenDialog(owner).getPath();
+        }catch(Exception ex){
+            return null;
+        }
+        return s;
     }
 }

@@ -32,10 +32,10 @@ public class UserBuilder {
             if(us.equals(param)){
                 us.setPassword(raf.readUTF().toCharArray());
                 us.setFullName(raf.readUTF());
-                us.setFotoPath(raf.readUTF());
+                us.setPicturePath(raf.readUTF());
                 us.setFilePointer(raf.readLong());
-                us.setCredencialActiva(raf.readBoolean());
-                if(us.isCredencialActiva()){
+                us.setCredential(raf.readBoolean());
+                if(us.isCredentialActive()){
                     return us;
                 }
             }else{
@@ -65,9 +65,9 @@ public class UserBuilder {
 
             us.setPassword(raf.readUTF().toCharArray());
             us.setFullName(raf.readUTF());
-            us.setFotoPath(raf.readUTF());
+            us.setPicturePath(raf.readUTF());
             us.setFilePointer(raf.readLong());
-            us.setCredencialActiva(raf.readBoolean());
+            us.setCredential(raf.readBoolean());
             li.add(us);
         }
         raf.close();
@@ -92,7 +92,7 @@ public class UserBuilder {
             raf.writeUTF(user.getUsername());
             raf.writeUTF(new String(user.getPassword()));
             raf.writeUTF(user.getFullName());
-            raf.writeUTF(user.getFotoPath());
+            raf.writeUTF(user.getPicturePath());
             raf.writeLong(pointer);
             raf.writeBoolean(true);
             raf.close();
@@ -152,7 +152,7 @@ public class UserBuilder {
         User u = new User("guest", "password".toCharArray());
         u.setFilePointer(0);
         u.setFullName("Administrator");
-        u.setFotoPath("");
+        u.setPicturePath("");
         users.add(u);
         return users;
     }

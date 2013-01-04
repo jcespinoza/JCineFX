@@ -31,12 +31,12 @@
             <Insets right="5.0" />
           </GridPane.margin>
         </Label>
-        <TextField id="textField1" fx:id="userLog" prefWidth="159.99990000000253" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <TextField id="textField1" text="jc" fx:id="userLog" prefWidth="159.99990000000253" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets left="5.0" fx:id="x1" />
           </GridPane.margin>
         </TextField>
-        <PasswordField id="passwordField1" fx:id="passLog" prefWidth="160.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.margin="$x1" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+        <PasswordField id="passwordField1" text="123456" fx:id="passLog" prefWidth="160.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.margin="$x1" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
         <Label id="label2" text="Password:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets right="5.0" />

@@ -29,9 +29,9 @@ public class Movie {
         this.rating = c;
         this.format3D = f;
         if(f == Format3D.NONE)
-            type = MovieType.PELICULA2D;
+            type = MovieType.MOVIE2D;
         else
-            type = MovieType.PELICULA3D;
+            type = MovieType.MOVIE3D;
     }
 
     public Format3D getFormat3D() {
@@ -42,7 +42,7 @@ public class Movie {
         return (format3D != Format3D.NONE);
     }
 
-    public int getCodigo() {
+    public int getCode() {
         return code;
     }
 
@@ -79,5 +79,20 @@ public class Movie {
 
     public void setAditionDate(Date aditionDate) {
         this.aditionDate = aditionDate;
+    }
+
+    public String getDefaultImgPath() {
+        return getClass().getResource("res/img/default_movie.png").getPath();
+    }
+    
+    @Override
+    public String toString(){
+        return "Title: " + getTitle() +
+                " Length: " + getLenght() +
+                " Genre:  " + getGenre() +
+                " Rating: " + getRating() +
+                " Format: " + getFormat3D() +
+                " is 3D: " + is3D()+
+                " Picture: " + getImgFile();
     }
 }

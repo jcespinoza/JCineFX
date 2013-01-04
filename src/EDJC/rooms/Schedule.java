@@ -32,7 +32,7 @@ public final class Schedule {
         setFecha(fecha.getTime());
         setHora(hora.get(Calendar.HOUR_OF_DAY));
         setMinuto(hora.get(Calendar.MINUTE));
-        setCodPeli(p.getCodigo());
+        setCodPeli(p.getCode());
         setDuracion(p.getLenght());
     }
         
