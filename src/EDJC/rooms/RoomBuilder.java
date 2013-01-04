@@ -4,6 +4,7 @@
  */
 package EDJC.rooms;
 
+import EDJC.util.Util;
 import JCineFX.JCineFX;
 import java.io.File;
 import java.io.FileInputStream;
@@ -74,6 +75,7 @@ public class RoomBuilder {
             room.setCode(cod);
             ObjectOutputStream out = new ObjectOutputStream(fout);
             out.writeObject(room);
+            out.close();
         }catch(Exception ex){}
     }
     
@@ -114,12 +116,13 @@ public class RoomBuilder {
         if(! f.exists())
             f.mkdir();
         File bak = new File("bak" + folder);
-        f.renameTo(bak);
+        boolean s = f.renameTo(bak);
         try{
             for(RoomLayout r: rooms){
                 writeRoom(r, folder);
             }
-            bak.delete();
+            boolean p = Util.deleteDir(bak);
+            System.out.println("I'm in RoomBuilder writeRooms");
         }catch(Exception ex){
             f.delete();
             bak.renameTo(f);
@@ -138,6 +141,7 @@ public class RoomBuilder {
                 fin = new FileInputStream(file);
                 oin = new ObjectInputStream(fin);
                 rooms.add( (RoomLayout)(oin.readObject()) );
+                oin.close();
             }
         }catch(Exception ex){}
         return rooms;

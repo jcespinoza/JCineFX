@@ -8,21 +8,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0000999999975" prefWidth="714.0" xmlns:fx="http://javafx.com/fxml">
+<fx:root type="AnchorPane" id="AnchorPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0000999999975" prefWidth="714.0" xmlns:fx="http://javafx.com/fxml">
   <children>
     <GridPane id="gridPane1" prefHeight="460.0000999999975" prefWidth="713.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
       <children>
-        <ScrollPane id="scrollPane1" prefHeight="361.0" prefWidth="797.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <ScrollPane id="scrollPane1" focusTraversable="true" prefHeight="361.0" prefWidth="797.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <content>
-            <HBox id="hBox1" prefHeight="308.0" prefWidth="698.0" />
+            <HBox id="hBox1" fx:id="mPane" focusTraversable="true" prefHeight="308.0" prefWidth="698.0" spacing="10.0">
+              <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+              </padding>
+            </HBox>
           </content>
         </ScrollPane>
-        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" prefHeight="21.0" prefWidth="109.0" text="Label" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+        <Label id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" prefHeight="21.0" prefWidth="109.0" text="Codigo de Sala" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
           <GridPane.margin>
             <Insets right="5.0" />
           </GridPane.margin>
         </Label>
-        <ChoiceBox id="choiceBox1" prefWidth="124.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button id="button1" defaultButton="true" mnemonicParsing="false" onAction="#handleNewSched" prefHeight="31.0" prefWidth="135.0" text="Agregar Horarios" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <ComboBox id="comboBox1" fx:id="roomChoice" prefHeight="21.0" prefWidth="145.0" promptText="Seleccione un codigo" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="CENTER">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -33,8 +38,7 @@
           <GridPane.margin>
             <Insets left="10.0" />
           </GridPane.margin>
-        </ChoiceBox>
-        <Button id="button1" defaultButton="true" onAction="#handleNewSched" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Agregar Horarios" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        </ComboBox>
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" percentWidth="15.0" prefWidth="125.0" />

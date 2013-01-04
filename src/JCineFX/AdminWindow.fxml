@@ -239,19 +239,19 @@
     </TabPane>
     <MenuBar id="menuBar1" minHeight="22.000000817868568" prefHeight="30.0" prefWidth="801.0000999999975" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
       <menus>
-        <Menu id="fileMenu1" mnemonicParsing="false" text="Programa">
+        <Menu id="fileMenu1" mnemonicParsing="false" text="_Programa">
           <items>
             <MenuItem id="menuItem3" mnemonicParsing="false" onAction="#handleGoClient" text="Ir al Modulo Cliente" />
             <MenuItem id="close1" mnemonicParsing="false" onAction="#handleExit" text="Salir del Sistema" />
           </items>
         </Menu>
-        <Menu id="menu1" mnemonicParsing="false" text="user" fx:id="userMenuItem">
+        <Menu id="menu1" mnemonicParsing="false" text="_user" fx:id="userMenuItem">
           <items>
             <MenuItem id="menuItem2" mnemonicParsing="false" onAction="#handleMod" text="Modificar Perfil" />
             <MenuItem id="menuItem1" mnemonicParsing="false" onAction="#handleLogOut" text="Cerrar Sesion" />
           </items>
         </Menu>
-        <Menu id="helpMenu1" mnemonicParsing="false" text="Ayuda">
+        <Menu id="helpMenu1" mnemonicParsing="false" text="_Ayuda">
           <items>
             <MenuItem id="about1" mnemonicParsing="false" text="About" />
           </items>

@@ -95,9 +95,6 @@ public class AdminWindow extends AnchorPane implements Initializable{
     
     @FXML
     private void handleExit(){
-        saveConfig(conf);
-        saveMovies();
-        saveRooms();
         Platform.exit();
     }
     

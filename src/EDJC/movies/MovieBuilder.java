@@ -38,6 +38,7 @@ public class MovieBuilder {
             raf.writeUTF(p.getType().name());
             raf.writeUTF(p.getFormat3D().name());
             raf.writeUTF(p.getImgFile());
+            raf.close();
         }catch(Exception ex){ex.printStackTrace();}
     }
     
@@ -45,15 +46,15 @@ public class MovieBuilder {
         ArrayList<Movie> backup = readMovies(path);
         File f = new File(path);
         File bak = new File(path + ".bak");
-        f.renameTo(bak);
+        boolean f2 = f.renameTo(bak);
         try{
             for(Movie m: movs){
                 writeMovie(m, m.getCode(), path);
             }
-            RandomAccessFile raf = new RandomAccessFile(path, "rw");
-            raf.close();
-            bak.delete();;
+            boolean s = bak.delete();
+            System.out.println("I'm in MovieBuilder WriteMovs");
         }catch(Exception ex){
+            ex.printStackTrace();
             f.delete();
             bak.renameTo(f);
             return false;
@@ -85,7 +86,7 @@ public class MovieBuilder {
                 movs.add(ret);
             }
             raf.close();
-        }catch(Exception ex){}
+        }catch(Exception ex){ex.printStackTrace();}
         return movs;
     }
     

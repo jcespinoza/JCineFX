@@ -10,15 +10,15 @@
 
 <fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <GridPane id="gridPane1" prefHeight="400.0" prefWidth="599.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <GridPane id="gridPane1" focusTraversable="true" prefHeight="400.0" prefWidth="599.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <HBox id="hBox1" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <HBox id="hBox1" alignment="CENTER" focusTraversable="true" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <children>
             <Button id="button1" mnemonicParsing="false" onAction="#handleAddNew" prefHeight="31.0" prefWidth="116.0" text="Agregar Pelicula" />
             <Button id="button1" defaultButton="true" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="31.0" prefWidth="116.0" text="Menu Principal" />
           </children>
         </HBox>
-        <ScrollPane id="scrollPane1" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <ScrollPane id="scrollPane1" fitToHeight="true" fitToWidth="true" focusTraversable="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <content>
             <FlowPane id="flowPane1" fx:id="flowPane" hgap="10.0" prefHeight="200.0" prefWidth="200.0" vgap="10.0">
               <padding>

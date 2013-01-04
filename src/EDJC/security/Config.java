@@ -24,6 +24,7 @@ public class Config implements Serializable{
     private User user;
     private int roomCount;
     private int movCount;
+    private int selectedRoom;
     private String lastUserPath;
     private String lastMovPath;
     private double priceDigital;
@@ -73,6 +74,14 @@ public class Config implements Serializable{
 
     public void setMovCount(int movCount) {
         this.movCount = movCount;
+    }
+
+    public int getSelectedRoom() {
+        return selectedRoom;
+    }
+
+    public void setSelectedRoom(int selectedRoom) {
+        this.selectedRoom = selectedRoom;
     }
     
     public static int getMinimumCount(){
@@ -125,14 +134,14 @@ public class Config implements Serializable{
                 if(m.getCode() > max)
                     max = m.getCode();
             }
-            return ++max;
+            return max +1;
         }else if(type == ROOM_COUNTER){
             ArrayList<RoomLayout> rooms = (ArrayList<RoomLayout>)(list);
             for(RoomLayout r: rooms){
                 if(r.getCode() > max)
                     max = r.getCode();
             }
-            return ++max;
+            return max +1;
         }else{
             throw new IllegalArgumentException("No such type");
         }
@@ -164,7 +173,8 @@ public class Config implements Serializable{
     public String toString(){
         return "Configuration:\n"+
                 user.getUsername() + " " +
-                "MCounter: " + this.movCount+
-                " RCounter: " + this.roomCount;
+                "MCounter: " + this.movCount +
+                " RCounter: " + this.roomCount +
+                " Selected Room: " + this.selectedRoom;
     }
 }

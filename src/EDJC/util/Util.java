@@ -113,4 +113,14 @@ public class Util {
         }
         return s;
     }
+    
+    public static boolean deleteDir(File dir) {
+        if( dir.isDirectory() ){
+            File[] files = dir.listFiles();
+            for(File f : files){
+                return deleteDir(f) & dir.delete();
+            }
+        }
+        return dir.delete();
+    }
 }
