@@ -1,139 +1,86 @@
 package EDJC.rooms;
 
-import EDJC.movies.Movie;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 
-public final class Schedule {
-    private Calendar fecha;
-    private int codPeli;
-    private int duracion;
+public final class Schedule implements Serializable{
+    private int roomCode;
+    private ArrayList<SchedEntry> entries;
     
-    public Schedule(){
-        fecha = new GregorianCalendar();
-        fecha.set(Calendar.HOUR_OF_DAY, 0);
-        fecha.set(Calendar.MINUTE, 0);
-        fecha.set(Calendar.SECOND, 0);
-        fecha.set(Calendar.MILLISECOND, 0);
-    }
-    public Schedule(int anio, int mes, int dia, int hour, int min, int cod, int duracion){
-        this();
-        setAnio(anio);
-        setMes(mes);
-        setDia(dia);
-        setHora(hour);
-        setMinuto(min);
-        setCodPeli(cod);
-        setDuracion(duracion);
-    }
-    public Schedule(Movie p, Calendar fecha, Calendar hora){
-        this();
-        setFecha(fecha.getTime());
-        setHora(hora.get(Calendar.HOUR_OF_DAY));
-        setMinuto(hora.get(Calendar.MINUTE));
-        setCodPeli(p.getCode());
-        setDuracion(p.getLenght());
-    }
+    public Schedule(){}
         
-    public Calendar getFecha(){
-        return fecha;
+    public void addEntry(SchedEntry entry){
+        if(entries.isEmpty())
+            entries.add(entry);
+        else{
+            sort(SchedComparator.START_SORT);
+        }
     }
     
-    public void setFecha(Date d){
-        this.fecha.setTime(d);
+    private boolean validateTime(){
+        return true;
     }
     
-    public int getAnio(){
-        return fecha.get(Calendar.YEAR);
+    private boolean isBusyAt(int minute){
+        boolean greaterStart;
+        boolean lessThanStart;
+        for(SchedEntry s: entries){
+            greaterStart = s.getStartMinute() < minute;
+        }
+        return false;
     }
     
-    public void setAnio(int a){
-        this.fecha.set(Calendar.YEAR, a);
+    public static int minuteDifference(int min, int min2){
+        return Math.abs(min2 - min);
     }
     
-    public int getMes(){
-        return fecha.get(Calendar.MONTH);
-    }
-    
-    public void setMes(int m){
-        fecha.set(Calendar.MONTH, m);
-    }
-    
-    public int getDia(){
-        return fecha.get(Calendar.DATE);
-    }
-    
-    public void setDia(int dia){
-        fecha.set(Calendar.DAY_OF_MONTH, dia);
-    }
-    
-    public int getHora(){
-        return fecha.get(Calendar.HOUR_OF_DAY);
-    }
-    
-    public void setHora(int h){
-        fecha.set(Calendar.HOUR_OF_DAY, h);
-    }
-    
-    public int getMinuto(){
-        return fecha.get(Calendar.MINUTE);
-    }
-    
-    public void setMinuto(int m){
-        fecha.set(Calendar.MINUTE, m);
-    }
-    
-    public int getDuracion(){
-        return this.duracion;
-    }
-    
-    public void setDuracion(int d){
-        this.duracion = d;
+    public int getRoomCode() {
+        return roomCode;
     }
 
-    public int getCodPeli() {
-        return codPeli;
+    public void setRoomCode(int roomCode) {
+        this.roomCode = roomCode;
     }
-    public void setCodPeli(int cod){
-        codPeli = cod;
+
+    public ArrayList<SchedEntry> getEntries() {
+        return entries;
     }
-    
-    public long getInicio(){
-        return fecha.getTimeInMillis();
-    }
-    
-    public long getFin(){
-        return fecha.getTimeInMillis() + (duracion * 60000);
+
+    public void setEntries(ArrayList<SchedEntry> entries) {
+        this.entries = entries;
     }
     
-    public long getTotalTime(){
-        long mins30 = 30*60*1000;
-        long duracion = this.duracion * 60*1000;
-        return fecha.getTimeInMillis() + mins30 + duracion;
+    private void sort(SchedComparator s) {
+        Collections.sort(entries, s);
     }
-    
-    @Override
-    public String toString(){
-        return getAnio()+ " "+ getMes()+" " + getDia() + " " +
-                getHora() + " " + getMinuto() + " D: " + getDuracion();
-    }
-    
-    public String getTime(){
-        return getHora() + ":" + getMinuto();
-    }
-    
-    public String getDuracionStr(){
-        return getDuracion() + " min.";
-    }
-    
-    public String getInicioStr(){
-        return fecha.get(Calendar.HOUR_OF_DAY) + ":" + fecha.get(Calendar.MINUTE);
-    }
-    
-    public String getFinStr(){
-        Calendar c = new GregorianCalendar();
-        c.setTime(new Date(getFin()));
-        return c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE);
-    }
+//    public long getTotalTime(){
+//        long mins30 = 30*60*1000;
+//        long duracion = this.duracion * 60*1000;
+//        return fecha.getTimeInMillis() + mins30 + duracion;
+//    }
+//    
+//    @Override
+//    public String toString(){
+//        return getAnio()+ " "+ getMes()+" " + getDia() + " " +
+//                getHora() + " " + getMinuto() + " D: " + getDuracion();
+//    }
+//    
+//    public String getTime(){
+//        return getHora() + ":" + getMinuto();
+//    }
+//    
+//    public String getDuracionStr(){
+//        return getDuracion() + " min.";
+//    }
+//    
+//    public String getInicioStr(){
+//        return fecha.get(Calendar.HOUR_OF_DAY) + ":" + fecha.get(Calendar.MINUTE);
+//    }
+//    
+//    public String getFinStr(){
+//        Calendar c = new GregorianCalendar();
+//        c.setTime(new Date(getFin()));
+//        return c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE);
+//    }
 }
