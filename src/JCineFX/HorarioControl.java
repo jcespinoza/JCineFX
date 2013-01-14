@@ -50,7 +50,7 @@ public class HorarioControl extends AnchorPane implements Initializable{
         fx.setRoot(this);
         fx.setController(this);
         try {
-            pelicula = MovieBuilder.readMovie(h.getCodPeli());
+            pelicula = null;//MovieBuilder.readMovie(h.getCodPeli());
             fx.load();
         } catch (IOException ex) {
             System.out.println("Error " + ex);
@@ -59,6 +59,7 @@ public class HorarioControl extends AnchorPane implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        /*
         try{
         codigo.setText(horario.getCodPeli() + "");
         titulo.setText(pelicula.getTitle());
@@ -73,6 +74,7 @@ public class HorarioControl extends AnchorPane implements Initializable{
             System.out.println("Error: " + ex + " > " + ex.getMessage());
             ex.printStackTrace();
         }
+        * */
     }
     
     public Schedule getHorario(){

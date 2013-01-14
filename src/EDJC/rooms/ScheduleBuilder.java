@@ -2,10 +2,16 @@ package EDJC.rooms;
 
 import EDJC.movies.Movie;
 import EDJC.movies.MovieBuilder;
+import EDJC.security.Config;
 import JCineFX.Cartelera;
 import JCineFX.HorarioControl;
 import JCineFX.JCineFX;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,15 +26,15 @@ import jfxtras.labs.scene.control.CalendarTimeTextField;
 public class ScheduleBuilder {
     
     public static void escribirHorario(int cod, Schedule h) throws IOException{
-        RandomAccessFile raf = new RandomAccessFile("horarios/horarios_" + cod + ".mov", "rw");
-        raf.seek(raf.length());
-        raf.writeInt(h.getCodPeli());
-        raf.writeInt(h.getAnio());
-        raf.writeInt(h.getMes());
-        raf.writeInt(h.getDia());
-        raf.writeInt(h.getHora());
-        raf.writeInt(h.getMinuto());
-        raf.writeInt(h.getDuracion());
+//        RandomAccessFile raf = new RandomAccessFile("horarios/horarios_" + cod + ".mov", "rw");
+//        raf.seek(raf.length());
+//        raf.writeInt(h.getCodPeli());
+//        raf.writeInt(h.getAnio());
+//        raf.writeInt(h.getMes());
+//        raf.writeInt(h.getDia());
+//        raf.writeInt(h.getHora());
+//        raf.writeInt(h.getMinuto());
+//        raf.writeInt(h.getDuracion());
     }
     
     public static boolean dataMakeSense(Movie p, int codSala, CalendarTextField fecha, CalendarTimeTextField time){
@@ -77,24 +83,25 @@ public class ScheduleBuilder {
     }
     
     public static long getDiference(Schedule h1, Schedule h2){
-        return h2.getInicio() - h1.getTotalTime();
+//        return h2.getInicio() - h1.getTotalTime();
+        return 0;
     }
     
     public static ArrayList<Schedule> readHorarios(int cod) throws IOException{
         ArrayList<Schedule> ret = new ArrayList<>();
-        RandomAccessFile raf = new RandomAccessFile("horarios/horarios_" + cod + ".mov", "rw");
-        raf.seek(0);
-        while(raf.getFilePointer() < raf.length()){
-            Schedule h = new Schedule();
-            h.setCodPeli(raf.readInt());
-            h.setAnio(raf.readInt());
-            h.setMes(raf.readInt());
-            h.setDia(raf.readInt());
-            h.setHora(raf.readInt());
-            h.setMinuto(raf.readInt());
-            h.setDuracion(raf.readInt());
-            ret.add(h);
-        }
+//        RandomAccessFile raf = new RandomAccessFile("horarios/horarios_" + cod + ".mov", "rw");
+//        raf.seek(0);
+//        while(raf.getFilePointer() < raf.length()){
+//            Schedule h = new Schedule();
+//            h.setCodPeli(raf.readInt());
+//            h.setAnio(raf.readInt());
+//            h.setMes(raf.readInt());
+//            h.setDia(raf.readInt());
+//            h.setHora(raf.readInt());
+//            h.setMinuto(raf.readInt());
+//            h.setDuracion(raf.readInt());
+//            ret.add(h);
+//        }
         return ret;
     }
     public static void escribirHorarios(int cod, ArrayList<Schedule> array) throws IOException{
@@ -106,6 +113,7 @@ public class ScheduleBuilder {
     //esta funcion agregaria el Schedule al arraylist solo si no traslapa los que ya estan
     //lo hace pero no los deja en orden
     public static boolean addBetween(ArrayList<Schedule> array, Schedule hor){
+        /*
         if(array.isEmpty()){
             array.add(hor);
             return true;
@@ -145,7 +153,7 @@ public class ScheduleBuilder {
             return true;
         }else if(next != null){
             array.add(array.indexOf(next), hor);
-        }
+        }*/
         return false;
     }
 
@@ -178,5 +186,26 @@ public class ScheduleBuilder {
         }catch(Exception ex){
             System.out.println("Error in BatchHorarioReading");
         }
+    }
+    
+    public static boolean writeToFile(Schedule s, String path){
+        try{
+            File f = new File(path);
+            FileOutputStream fous = new FileOutputStream(f);
+            ObjectOutputStream ous = new ObjectOutputStream(fous);
+            ous.writeObject(s);
+            return true;
+        }catch(Exception ex){return false;}
+    }
+    
+    public static Schedule readFromFile(String path){
+        Schedule s = null;
+        try{
+            File f = new File(path);
+            FileInputStream fous = new FileInputStream(f);
+            ObjectInputStream ous = new ObjectInputStream(fous);
+            s = (Schedule)(ous.readObject());
+        }catch(Exception ex){return null;}
+        return s;
     }
 }

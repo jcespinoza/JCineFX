@@ -19,6 +19,10 @@ public class RoomLayout implements Serializable{
         seats = new int[r][cols];
         nSeats = r * cols;
     }
+    
+    public RoomLayout(int cod){
+        this.code = cod;
+    }
 
     public int getCode() {
         return code;
@@ -54,6 +58,11 @@ public class RoomLayout implements Serializable{
     
     public void setSeat(int row, int col, SeatState s){
         seats[row][col] = s.toInt();
+    }
+    
+    @Override
+    public boolean equals(Object ot){
+        return ((RoomLayout)(ot)).getCode() == this.code;
     }
     
     public static RoomLayout genSalaLayout(int rows, int cols, SeatState s, boolean _3D){

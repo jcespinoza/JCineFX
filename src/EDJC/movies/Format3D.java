@@ -5,7 +5,13 @@ package EDJC.movies;
  * @author Jay C Espinoza
  */
 public enum Format3D {
-    DIGITAL, EXTREME3D, REAL3D, NONE;
+    DIGITAL("Digital 3D"), EXTREME3D("Xtreme 3D"), REAL3D("Real 3D"), NONE("2D");
+    
+    private String descrip;
+    
+    private Format3D(String d){
+        descrip = d;
+    }
     
     public static Format3D parseFormat(String text){
         
@@ -21,6 +27,10 @@ public enum Format3D {
             default:
                 throw new IllegalArgumentException("Tipo de Formato invalido");
         }
-
+    }
+    
+    @Override
+    public String toString(){
+        return descrip;
     }
 }

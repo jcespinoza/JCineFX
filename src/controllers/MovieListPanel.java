@@ -16,6 +16,7 @@ import javafx.scene.layout.FlowPane;
  */
 public class MovieListPanel extends AnchorPane implements Initializable{
     private AdminWindow father;
+    
     @FXML
     private FlowPane flowPane;
     
@@ -50,6 +51,7 @@ public class MovieListPanel extends AnchorPane implements Initializable{
         //Fetch movies from father's arrayList
         for(Movie m: father.movies){
             MovieTile mt = new MovieTile(m);
+
             flowPane.getChildren().add(mt);
         }
     }

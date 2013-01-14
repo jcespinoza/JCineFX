@@ -81,10 +81,10 @@ public class RoomBuilder {
     
     @Deprecated
     public static void escribirSalaT(RoomLayout sala, Schedule h) throws IOException{
-        Room4Ticket ST = new Room4Ticket(sala, h.getCodPeli(), h.getFecha());
-        FileOutputStream fout = new FileOutputStream("horarios/" + ST.getNombreArchivo());
-        ObjectOutputStream out = new ObjectOutputStream(fout);
-        out.writeObject(sala);
+//        Room4Ticket ST = new Room4Ticket(sala, h.getCodPeli(), h.getFecha());
+//        FileOutputStream fout = new FileOutputStream("horarios/" + ST.getNombreArchivo());
+//        ObjectOutputStream out = new ObjectOutputStream(fout);
+//        out.writeObject(sala);
     }
     
     @Deprecated

@@ -40,7 +40,7 @@
             </ImageView>
           </graphic>
         </Label>
-        <Label id="label2" alignment="CENTER" contentDisplay="TOP" minHeight="148.0" minWidth="154.0" onMouseClicked="#handleListMovies" prefHeight="164.0" prefWidth="166.0" styleClass="tile" text="Lista de Pelicula">
+        <Label id="label2" alignment="CENTER" contentDisplay="TOP" minHeight="148.0" minWidth="154.0" onMouseClicked="#handleListMovies" prefHeight="164.0" prefWidth="166.0" styleClass="tile" text="Lista de Peliculas">
           <graphic>
             <ImageView id="emptyImageView2" fitHeight="129.7847442626953" fitWidth="189.76494047237244" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
               <image>

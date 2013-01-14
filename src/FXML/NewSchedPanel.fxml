@@ -11,38 +11,47 @@
 
 <fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="565.0" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <SplitPane id="splitPaneHorizontal1" dividerPositions="0.2984014209591474" focusTraversable="true" prefHeight="436.0" prefWidth="565.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <SplitPane id="splitPaneHorizontal1" dividerPositions="0.2895204262877442" focusTraversable="true" prefHeight="436.0" prefWidth="565.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <items>
         <AnchorPane id="anchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
           <children>
-            <VBox id="vBox1" fx:id="vboxPane" prefHeight="421.0" prefWidth="151.00009999999747" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0" />
+            <ScrollPane id="scrollPane1" fitToWidth="true" hbarPolicy="NEVER" prefHeight="434.0" prefWidth="160.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <content>
+                <VBox id="vBox1" fx:id="vboxPane" prefHeight="416.0" prefWidth="152.0" />
+              </content>
+            </ScrollPane>
           </children>
         </AnchorPane>
         <AnchorPane id="anchorPane2" minHeight="0.0" minWidth="0.0" prefHeight="434.0" prefWidth="335.0">
           <children>
-            <GridPane id="gridPane1" prefHeight="434.0" prefWidth="396.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+            <GridPane id="gridPane1" fx:id="grid" prefHeight="434.0" prefWidth="396.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
               <children>
-                <Label id="label1" text="Sala:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <Label id="label1" text="Sala:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                   <GridPane.margin>
                     <Insets right="5.0" />
                   </GridPane.margin>
                 </Label>
-                <Label id="label1" text="Hora:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <Label id="label1" text="Hora:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                   <GridPane.margin>
                     <Insets right="5.0" />
                   </GridPane.margin>
                 </Label>
-                <Button id="button1" defaultButton="true" onAction="#handleSave" mnemonicParsing="false" prefHeight="30.0" prefWidth="126.0" text="Guardar" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <Button id="button1" defaultButton="true" mnemonicParsing="false" onAction="#handleSave" prefHeight="30.0" prefWidth="126.0" text="Guardar" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                   <GridPane.margin>
                     <Insets right="20.0" />
                   </GridPane.margin>
                 </Button>
-                <ImageView id="emptyImageView1" fitHeight="204.64999389648438" fitWidth="272.86665304009466" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <ImageView id="emptyImageView1" fx:id="movPic" fitHeight="204.64999389648438" fitWidth="272.86665304009466" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                   <GridPane.margin>
                     <Insets bottom="10.0" top="10.0" />
                   </GridPane.margin>
                 </ImageView>
-                <ChoiceBox id="choiceBox1" fx:id="salasChoiceBox" prefWidth="120.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <Label id="label1" fx:id="roomType" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+                  <GridPane.margin>
+                    <Insets left="5.0" fx:id="x1" />
+                  </GridPane.margin>
+                </Label>
+                <ComboBox id="comboBox1" fx:id="roomChoice" prefHeight="21.0" prefWidth="126.0" promptText="Codigo Sala" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
                       <String fx:value="Item 1" />
@@ -50,11 +59,10 @@
                       <String fx:value="Item 3" />
                     </FXCollections>
                   </items>
-                  <GridPane.margin>
-                    <Insets left="5.0" fx:id="x1" />
-                  </GridPane.margin>
-                </ChoiceBox>
-                <Label id="label1" fx:id="tipoSala" text="sala tipo" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                </ComboBox>
+                <Label id="label2" fx:id="movMsg" alignment="CENTER" prefWidth="309.0" textFill="RED" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                <Label id="label2" fx:id="roomMsg" alignment="CENTER" prefWidth="247.0" textFill="RED" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                <Label id="label2" fx:id="timeMsg" alignment="CENTER" prefWidth="263.0" textFill="RED" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" percentWidth="33.0" prefWidth="136.0" />
@@ -64,7 +72,9 @@
               <rowConstraints>
                 <RowConstraints maxHeight="241.0" minHeight="10.0" percentHeight="55.0" prefHeight="241.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="199.0" minHeight="10.0" percentHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="183.0" minHeight="10.0" percentHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="199.0" minHeight="10.0" percentHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="183.0" minHeight="10.0" percentHeight="10.0" prefHeight="43.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="183.0" minHeight="10.0" percentHeight="10.0" prefHeight="43.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="133.0" minHeight="10.0" percentHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="86.0" minHeight="10.0" percentHeight="15.0" prefHeight="65.0" vgrow="SOMETIMES" />
               </rowConstraints>

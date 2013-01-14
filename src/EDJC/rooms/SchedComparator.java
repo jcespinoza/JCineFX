@@ -14,7 +14,7 @@ public enum SchedComparator implements Comparator<SchedEntry> {
     START_SORT{
         @Override
         public int compare(SchedEntry s1, SchedEntry s2){
-            return Integer.valueOf(s1.getStartMinute()).compareTo(s2.getStartMinute());
+            return Integer.valueOf( s1.getStartMinute() ).compareTo( s2.getStartMinute() );
         }
     },
     END_SORT{

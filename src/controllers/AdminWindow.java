@@ -106,7 +106,7 @@ public class AdminWindow extends AnchorPane implements Initializable{
     
     protected void setUserMenuLabel(){
         try{
-        userMenu.setText("Usuario: " + conf.getUser().getUsername());
+        userMenu.setText("_Usuario: " + conf.getUser().getUsername());
         }catch(Exception ex){ex.printStackTrace();}
     }
     

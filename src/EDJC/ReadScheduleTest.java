@@ -16,6 +16,7 @@ import java.util.Locale;
  */
 public class ReadScheduleTest {
     public static void main(String[] args) throws IOException {
+        /*
         ArrayList<Schedule> horarios = new ArrayList<>();
         int count = JCineFX.leerConf().getContadorSala() - 1;
         for(int i = 1; i <= count; i++){
@@ -28,6 +29,6 @@ public class ReadScheduleTest {
                 c.setTime(new Date(h.getFin()));
                 System.out.println("Hora de Fin: " + c.getTime() );
             }
-        }
+        }*/
     }
 }

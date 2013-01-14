@@ -9,12 +9,16 @@ public final class Schedule implements Serializable{
     private ArrayList<SchedEntry> entries;
     
     public Schedule(){}
+    public Schedule(int cod){
+        roomCode = cod;
+    }
         
     public void addEntry(SchedEntry entry){
         if(entries.isEmpty())
             entries.add(entry);
         else{
-            sort(SchedComparator.START_SORT);
+            entries.add(entry);
+            //sort(SchedComparator.START_SORT);
         }
     }
     
@@ -53,23 +57,18 @@ public final class Schedule implements Serializable{
     
     private void sort(SchedComparator s) {
         Collections.sort(entries, s);
+    } 
+    
+    @Override
+    public boolean equals(Object o){
+        return this.roomCode == ((Schedule)o).roomCode;
     }
-//    public long getTotalTime(){
-//        long mins30 = 30*60*1000;
-//        long duracion = this.duracion * 60*1000;
-//        return fecha.getTimeInMillis() + mins30 + duracion;
-//    }
-//    
 //    @Override
 //    public String toString(){
 //        return getAnio()+ " "+ getMes()+" " + getDia() + " " +
 //                getHora() + " " + getMinuto() + " D: " + getDuracion();
 //    }
-//    
-//    public String getTime(){
-//        return getHora() + ":" + getMinuto();
-//    }
-//    
+    
 //    public String getDuracionStr(){
 //        return getDuracion() + " min.";
 //    }

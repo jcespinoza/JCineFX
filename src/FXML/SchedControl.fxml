@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import java.util.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="292.0" prefWidth="315.0" style="-fx-border-color: #40a3cb;&#10;-fx-border-width: 2px;&#10;-fx-border-radius: 5px;" xmlns:fx="http://javafx.com/fxml">
+<fx:root type="AnchorPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="292.0" prefWidth="315.0" styleClass="tile" xmlns:fx="http://javafx.com/fxml">
   <children>
     <GridPane id="gridPane1" prefHeight="292.0" prefWidth="315.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -21,15 +22,15 @@
             <Insets bottom="3.0" top="3.0" />
           </GridPane.margin>
         </ImageView>
-        <Label id="label1" fx:id="titulo" ellipsisString="" text="titulo" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label id="label1" fx:id="title" ellipsisString="" prefWidth="139.0" text="titulo" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets left="5.0" fx:id="x1" />
           </GridPane.margin>
         </Label>
-        <Label id="label1" fx:id="duracion" ellipsisString="" text="duracion" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-        <Label id="label1" fx:id="inicio" ellipsisString="" text="inicio" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-        <Label id="label1" fx:id="fin" ellipsisString="" text="fin" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-        <Label id="label1" fx:id="codigo" ellipsisString="" text="codigo" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label id="label1" fx:id="length" ellipsisString="" text="duracion" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Label id="label1" fx:id="start" ellipsisString="" text="inicio" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Label id="label1" fx:id="end" ellipsisString="" text="fin" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x1" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Label id="label1" fx:id="code" ellipsisString="" text="codigo" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets left="3.0" />
           </GridPane.margin>
@@ -39,12 +40,12 @@
             <Insets left="3.0" />
           </GridPane.margin>
         </Label>
-        <Label id="label1" fx:id="genero" ellipsisString="" text="genero" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label id="label1" fx:id="genre" ellipsisString="" text="genero" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets left="3.0" />
           </GridPane.margin>
         </Label>
-        <Label id="label1" fx:id="formato3d" ellipsisString="" text="formato 3d" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label id="label1" fx:id="format" ellipsisString="" text="formato 3d" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
           <GridPane.margin>
             <Insets left="3.0" />
           </GridPane.margin>
@@ -63,4 +64,7 @@
       </rowConstraints>
     </GridPane>
   </children>
+  <stylesheets>
+    <URL value="@../CSS/adminwindow.css" />
+  </stylesheets>
 </fx:root>

@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public class ScheduleListTest {
     public static void main(String[] args) {
+        /*
         ArrayList<Schedule> horarios = new ArrayList<>();
         Schedule h1 = new Schedule(2012, 11, 14, 6, 0, 1, 30);
         Schedule h2 = new Schedule(2012, 11, 14, 6, 25, 2, 30);
@@ -27,6 +28,6 @@ public class ScheduleListTest {
         
         for(Schedule h: horarios){
             System.out.println("Horario: " + h.getFecha().getTime() + "   Duracion:" + h.getDuracion());
-        }
+        }*/
     }
 }
