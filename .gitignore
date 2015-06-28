@@ -166,7 +166,7 @@ pip-log.txt
 *.usr
 *.edc
 *.mov
+*.movs
 horarios
 salas
-!/src/EDJC/salas/Horario.java
-!/src/EDJC/salas/
+nbproject

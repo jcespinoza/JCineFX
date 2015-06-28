@@ -5,6 +5,7 @@ import EDJC.movies.MovieBuilder;
 import EDJC.rooms.RoomBuilder;
 import EDJC.rooms.RoomLayout;
 import EDJC.rooms.Schedule;
+import EDJC.rooms.ScheduleBuilder;
 import EDJC.security.Config;
 import EDJC.security.User;
 import EDJC.security.UserBuilder;
@@ -156,7 +157,7 @@ public class AdminWindow extends AnchorPane implements Initializable{
     }
     
     private void loadSchedules(){
-        
+        //scheds = ScheduleBuilder.readFromFile(JCineFX.SCHEDULESPATH);
     }
     
     protected void regExitListener(){

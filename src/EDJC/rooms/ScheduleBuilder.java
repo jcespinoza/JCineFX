@@ -208,4 +208,12 @@ public class ScheduleBuilder {
         }catch(Exception ex){return null;}
         return s;
     }
+    
+    public static ArrayList<Schedule> readFromFolder(String path){
+        ArrayList<Schedule> sa = new ArrayList<>();
+        try{
+            //File f = new File(path)
+        }catch(Exception ex){return null;}
+        return sa;
+    }
 }

@@ -64,6 +64,7 @@ public class SchedulePanel extends AnchorPane implements Initializable{
     }
 
     private void loadSchedules() {
-        father.conf.
+        int t = getSelectedCode();
+        //if(t != -1)
     }
 }

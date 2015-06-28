@@ -73,7 +73,10 @@ public class NewSchedPanel extends AnchorPane implements Initializable, EventHan
     private void handleSave(){
         if( checkMovie() & checkRoom() & checkTime()){
             createScheduleEntry();
-            int index = father.scheds.indexOf(new Schedule(room.getCode()));
+            int ti = room.getCode();
+            Schedule tmp = new Schedule(ti);
+            //by calling this variables like this it is posible to get a NullPointerException at some point
+            int index = (father.scheds != null) ? father.scheds.indexOf(tmp): 1;
             if( index == -1){
                 Schedule s = new Schedule(room.getCode());
                 s.addEntry(sched);
